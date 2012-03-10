@@ -1,0 +1,9 @@
+#!/system/bin/sh
+
+insmod /lib/modules/cifs.ko
+   
+
+
+
+
+

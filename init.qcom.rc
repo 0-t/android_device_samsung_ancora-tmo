@@ -1,0 +1,283 @@
+import init.qcom.usb.rc
+
+on init
+    export EXTERNAL_STORAGE /mnt/sdcard
+    export SECONDARY_STORAGE /mnt/emmc
+    mkdir /mnt/sdcard 0000 system system
+    symlink /mnt/sdcard /sdcard
+    mkdir /mnt/emmc 0000 system system
+    symlink /mnt/emmc /emmc
+
+    mkdir /persist 0771 system system
+    mkdir /efs 0771 system system
+
+    insmod /lib/modules/bthid.ko
+
+on boot
+    mount debugfs /sys/kernel/debug /sys/kernel/debug
+
+    mkdir /data/misc/bluetooth 0770 bluetooth bluetooth
+    chown bluetooth bluetooth /sys/module/bluetooth_power/parameters/power
+    chown bluetooth bluetooth /sys/class/rfkill/rfkill0/type
+    chown bluetooth bluetooth /sys/class/rfkill/rfkill1/type
+    chown bluetooth bluetooth /sys/class/rfkill/rfkill0/state
+    chown bluetooth bluetooth /sys/class/rfkill/rfkill1/state
+    chown bluetooth bluetooth /proc/bluetooth/sleep/proto
+    chown system system /sys/module/sco/parameters/disable_esco
+    chmod 0660 /sys/module/bluetooth_power/parameters/power
+    chmod 0660 /sys/class/rfkill/rfkill0/state
+    chmod 0660 /sys/class/rfkill/rfkill1/state
+    chmod 0660 /proc/bluetooth/sleep/proto
+    chown bluetooth bluetooth ro.bt.bdaddr_path
+    chown bluetooth bluetooth /dev/uinput
+    chmod 0660 /dev/uinput
+    chown bluetooth bluetooth /dev/ttyHS0
+    chmod 0660 /dev/ttyHS0
+    chown bluetooth bluetooth /sys/devices/platform/msm_serial_hs.0/clock
+    chmod 0660 /sys/devices/platform/msm_serial_hs.0/clock
+
+    # for VT
+    chown radio radio /dev/ttyCSD0
+    chmod 0660 /dev/ttyCSD0
+
+    chown system system /dev/fmradio
+    chmod 0660 /dev/fmradio
+
+    # Force Power Down
+    chmod 0660 /sys/class/sec/pm/power_down
+    chown root system /sys/class/sec/pm/power_down
+
+    # permissions for MTP device node
+    chmod 0770 /dev/usb_mtp_gadget
+    chown system system /dev/usb_mtp_gadget
+
+    chown system system /dev/accelerometer
+    chown system system /dev/akm8975
+    chmod 660 /dev/accelerometer
+    chmod 660 /dev/akm8975
+
+    # accelerometer
+    chown system input /sys/class/input/input4/enable
+    chown system input /sys/class/input/input4/delay
+    chown system input /sys/class/input/input4/position
+    chown system input /sys/class/input/input4/threshold
+    chown system input /sys/class/input/input4/wake
+    chown system input /sys/class/input/input4/data
+    chown system input /sys/class/input/input4/calibration
+
+    # orientation
+    chown system input /sys/class/input/input5/enable
+    chown system input /sys/class/input/input5/delay
+    chown system input /sys/class/input/input5/wake
+    chown system input /sys/class/input/input5/data
+    chown system input /sys/class/input/input5/status
+
+    # proximity
+    chown system input /sys/class/input/input6/enable
+    chown system input /sys/class/input/input6/delay
+    chown system input /sys/class/input/input6/wake
+    chown system input /sys/class/input/input6/data
+    chown system input /sys/class/input/input6/status
+
+    chown root radio /proc/cmdline
+    chown system system /sys/devices/platform/msm_sdcc.1/polling
+    chown system system /sys/devices/platform/msm_sdcc.2/polling
+    chown system system /sys/devices/platform/msm_sdcc.3/polling
+    chown system system /sys/devices/platform/msm_sdcc.4/polling
+    chown system system /sys/devices/platform/msm_hsusb/gadget/wakeup
+
+    # for Jig
+    chmod 0664 /sys/devices/virtual/jig/jig/jig
+
+    # for SMD function test
+    chmod 0664 /sys/devices/platform/lcdc_samsung_ancora.0/lcd_connected
+
+    # this value will be referd in msm7k liblight. we change permission of this file due to cts fail.
+    chmod 0664 /sys/devices/virtual/sec/ts/brightness
+    chown system system /sys/devices/virtual/sec/ts/brightness
+
+    # TSP Test Mode
+    chown radio system /sys/devices/virtual/sec/qt602240_noise_test/set_threshould
+    chown radio system /sys/devices/virtual/sec/qt602240_noise_test/set_all_refer
+    chown radio system /sys/devices/virtual/sec/qt602240_noise_test/disp_all_refdata
+    chown radio system /sys/devices/virtual/sec/qt602240_noise_test/set_all_delta
+    chown radio system /sys/devices/virtual/sec/qt602240_noise_test/disp_all_deltadata
+    chown radio system /sys/devices/virtual/sec/qt602240_noise_test/set_all_intensity
+    chown radio system /sys/devices/virtual/sec/qt602240_noise_test/disp_all_intendata
+    chown radio system /sys/devices/virtual/sec/qt602240_noise_test/set_delta4
+    chown radio system /sys/devices/virtual/sec/qt602240_noise_test/set_refer4
+    chown radio system /sys/devices/virtual/sec/qt602240_noise_test/set_delta3
+    chown radio system /sys/devices/virtual/sec/qt602240_noise_test/set_refer3
+    chown radio system /sys/devices/virtual/sec/qt602240_noise_test/set_delta2
+    chown radio system /sys/devices/virtual/sec/qt602240_noise_test/set_refer2
+    chown radio system /sys/devices/virtual/sec/qt602240_noise_test/set_delta1
+    chown radio system /sys/devices/virtual/sec/qt602240_noise_test/set_refer1
+    chown radio system /sys/devices/virtual/sec/qt602240_noise_test/set_delta0
+    chown radio system /sys/devices/virtual/sec/qt602240_noise_test/set_refer0
+    chown radio system /sys/devices/virtual/sec/sec_touchscreen/tsp_firm_version_panel
+    chown radio system /sys/devices/virtual/sec/sec_touchscreen/tsp_firm_version_phone
+    chown radio system /sys/devices/virtual/sec/sec_touchscreen/tsp_threshold
+
+    # for jack control
+    chown system system /sys/class/jack/jack_selector/select_jack
+
+    # Amp Tun (YDA165)
+    chown system audio /sys/devices/virtual/misc/amp/mode
+    chown system audio /sys/devices/virtual/misc/amp/in1_gain
+    chown system audio /sys/devices/virtual/misc/amp/in2_gain
+    chown system audio /sys/devices/virtual/misc/amp/hp_att
+    chown system audio /sys/devices/virtual/misc/amp/hp_gainup
+    chown system audio /sys/devices/virtual/misc/amp/sp_att
+    chown system audio /sys/devices/virtual/misc/amp/sp_gainup
+    chown system audio /sys/devices/virtual/misc/amp/gain_all
+    chown system audio /sys/devices/virtual/misc/amp/save
+
+    # Codec Tun (QTR)
+    chown system audio /sys/class/marimba/marimba_gain/codec_tune_enable
+    chown system audio /sys/class/marimba/marimba_gain/analog_headset_rx_left_gain
+    chown system audio /sys/class/marimba/marimba_gain/analog_headset_rx_right_gain
+    chown system audio /sys/class/marimba/marimba_gain/digital_rx_left_gain
+    chown system audio /sys/class/marimba/marimba_gain/digital_rx_right_gain
+    chown system audio /sys/class/marimba/marimba_gain/digital_tx_left_gain
+    chown system audio /sys/class/marimba/marimba_gain/digital_tx_right_gain
+    chown system audio /sys/class/marimba/marimba_gain/analog_tx_left_gain
+    chown system audio /sys/class/marimba/marimba_gain/analog_tx_right_gain
+    chown system audio /sys/class/marimba/marimba_gain/auxpga_left_gain
+    chown system audio /sys/class/marimba/marimba_gain/auxpga_right_gain
+    chown system audio /sys/devices/virtual/misc/amp/gain_all
+    chown system audio /sys/class/marimba/marimba_gain/save
+
+    # camera firmware update
+    chmod 0660 /dev/msm_camera/control0
+
+    chown radio system sys/devices/virtual/sec/switch/disable_vbus
+    chown radio system sys/devices/virtual/sec/switch/usb_sel
+    chown radio system sys/devices/platform/android_usb/UsbMenuSel
+
+    # ledflash
+    chown root system /dev/ledflash
+
+    # create ledflash cdev file for factory test
+    chmod 0660 /dev/ledflash
+
+    # for datarouter
+    chown system system /dev/ttyGS0
+    chown system system /dev/dun
+
+    chown system /sys/devices/platform/rs300000a7.65536/force_sync
+    chown system /sys/devices/platform/rs300000a7.65536/sync_sts
+    chown system /sys/devices/platform/rs300100a7.65536/force_sync
+    chown system /sys/devices/platform/rs300100a7.65536/sync_sts
+
+    # increase readahead buffers on MMC devices
+    write /sys/block/mmcblk0/bdi/read_ahead_kb 1024
+    write /sys/block/mmcblk1/bdi/read_ahead_kb 1024
+
+    # disable ipv6 (causes issue when turning off wifi)
+    write /proc/sys/net/ipv6/conf/all/disable_ipv6 1
+
+on emmc-fs
+    chmod 0666 /dev/block/mmcblk0p14
+
+    mount ext4 /dev/block/mmcblk0p15 /system wait ro noatime nodiratime barrier=0 nouser_xattr
+    mount ext4 /dev/block/mmcblk0p12 /persist wait noatime nodiratime nosuid nodev barrier=0 nouser_xattr
+    mount ext4 /dev/block/mmcblk0p16 /cache wait noatime nodiratime nosuid nodev barrier=0 nouser_xattr
+    mount ext4 /dev/block/mmcblk0p27 /efs wait noatime nodiratime nosuid nodev barrier=0 nouser_xattr
+    mount ext4 /dev/block/mmcblk0p17 /data wait noatime nodiratime nosuid nodev crypt barrier=0 noauto_da_alloc nouser_xattr
+
+    chown radio system /efs
+    chmod 0771 /efs
+
+on post-fs-data
+    # for data
+    mkdir /data/log
+    chmod 0777 /data/log
+
+    mkdir /data/misc/radio 0774 radio radio
+    mkdir /data/radio 0770 radio radio
+
+    mkdir /data/misc/wifi 0770 wifi wifi
+    mkdir /data/misc/wifi/sockets 0770 wifi wifi
+    mkdir /data/misc/dhcp 0770 dhcp dhcp
+    chown dhcp dhcp /data/misc/dhcp
+
+    setprop vold.post_fs_data_done 1
+
+service wpa_supplicant /system/bin/logwrapper /system/bin/wpa_supplicant \
+    -Dwext -iwlan0 -c/data/misc/wifi/wpa_supplicant.conf
+    class main
+    socket wpa_wlan0 dgram 0660 wifi wifi
+    disabled
+    oneshot
+
+service dhcpcd_wlan0 /system/bin/dhcpcd -ABKL
+    class main
+    disabled
+    oneshot
+
+service dhcpcd_bnep0 /system/bin/dhcpcd -ABKL
+    class main
+    disabled
+    oneshot
+
+service iprenew_wlan0 /system/bin/dhcpcd -n
+    class main
+    disabled
+    oneshot
+
+service iprenew_bnep0 /system/bin/dhcpcd -n
+    class main
+    disabled
+    oneshot
+
+#service hciattach /system/bin/brcm_patchram_plus --enable_hci \
+#    --baudrate 3000000 --patchram /vendor/firmware/bcm4329.hcd /dev/ttyHS0
+#    class main
+#    user bluetooth
+#    group bluetooth net_bt_admin
+#    disabled
+#    oneshot
+
+service hciattach /system/bin/brcm_patchram_plus --enable_hci --no2bytes --enable_lpm \
+    --tosleep 50000 --baudrate 3000000 --use_baudrate_for_download --i2s=1,1,0,1 \
+    --patchram /vendor/firmware/bcm4329.hcd /dev/ttyHS0
+    class main
+    user bluetooth
+    group bluetooth net_bt_admin
+    disabled
+    oneshot
+
+service rmt_storage /system/bin/rmt_storage /dev/block/mmcblk0p10 /dev/block/mmcblk0p11
+    class main
+    user root
+    group radio
+    disabled
+
+on property:ro.emmc=1
+    start rmt_storage
+
+service get_macaddrs /system/bin/get_macaddrs
+    class main
+    user root
+    oneshot
+    disabled
+
+on property:init.svc.ril-daemon=running
+    start get_macaddrs
+
+# create filesystems if necessary
+service setup_fs /system/bin/setup_fs /dev/block/mmcblk0p16 /dev/block/mmcblk0p17
+    class core
+    user root
+    group root
+    oneshot
+
+service playlpm /system/bin/playlpm
+    class charger
+    user root
+    oneshot
+
+service lpmkey /system/bin/charging_mode
+    class charger
+    user root
+    oneshot
