@@ -13,7 +13,7 @@
 # limitations under the License.
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
-$(call inherit-product, $(LOCAL_PATH)/ancora.mk)
+$(call inherit-product, $(LOCAL_PATH)/ancora_tmo.mk)
 
 # The gps config appropriate for this device
 $(call inherit-product, device/common/gps/gps_eu_supl.mk)
