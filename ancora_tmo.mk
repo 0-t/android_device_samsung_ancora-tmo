@@ -143,7 +143,7 @@ PRODUCT_PACKAGES += \
     hwcomposer.msm7x30 \
     audio.primary.msm7x30 \
     audio_policy.msm7x30 \
-    gps.ancora \
+    gps.ancora_tmo \
     audio.a2dp.default \
     libaudioutils \
     libgenlock \
