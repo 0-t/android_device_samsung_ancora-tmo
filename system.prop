@@ -31,8 +31,9 @@ sys.checkfs.fat=false
 ro.opengles.version=131072
 
 # Performance settings.
+ro.kernel.android.checkjni=0
+dalvik.vm.checkjni=false
 dalvik.vm.dexopt-data-only=1
-dalvik.vm.execution-mode=int:jit
 ro.zram.default=0
 
 # QCOM
@@ -43,8 +44,11 @@ debug.qctwa.statusbar=1
 debug.qctwa.preservebuf=1
 debug.enabletr=false
 
-# System prop for capping scroll velocity
-ro.max.fling_velocity=4000
-
 # Set default USB interface
 persist.sys.usb.config=mass_storage
+
+# Enable debug mode by default
+persist.service.adb.enable=1
+
+# Storage configuration
+ro.vold.switchablepair=/mnt/sdcard,/mnt/emmc
