@@ -122,11 +122,14 @@ PRODUCT_PACKAGES += \
     liboverlay \
     libtilerenderer \
     libQcomUI \
+    com.android.future.usb.accessory
+
+PRODUCT_PACKAGES += \
+    libmm-omxcore \
     libOmxCore \
     libOmxVenc \
     libOmxVdec \
-    libstagefrighthw \
-    com.android.future.usb.accessory
+    libstagefrighthw
 
 PRODUCT_PACKAGES += \
     bdaddr_read \
