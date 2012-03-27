@@ -95,7 +95,7 @@
 
     <!-- Vibrator pattern for a very short but reliable vibration for soft keyboard tap -->
     <integer-array name="config_keyboardTapVibePattern">
-        <item>50</item>
+        <item>40</item>
     </integer-array>
 
     <!-- Component name of the service providing network location support. -->
