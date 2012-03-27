@@ -132,7 +132,6 @@ PRODUCT_PACKAGES += \
     libstagefrighthw
 
 PRODUCT_PACKAGES += \
-    bdaddr_read \
     make_ext4fs \
     setup_fs
 
