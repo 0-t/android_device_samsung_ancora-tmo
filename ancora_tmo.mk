@@ -121,14 +121,16 @@ PRODUCT_PACKAGES += \
     liboverlay \
     libtilerenderer \
     libQcomUI \
-    libOmxCore \
-    libOmxVenc \
-    libOmxVdec \
-    libstagefrighthw \
     com.android.future.usb.accessory
 
 PRODUCT_PACKAGES += \
-    bdaddr_read \
+    libmm-omxcore \
+    libOmxCore \
+    libOmxVenc \
+    libOmxVdec \
+    libstagefrighthw
+
+PRODUCT_PACKAGES += \
     make_ext4fs \
     setup_fs
 
@@ -139,7 +141,7 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
     ro.debuggable=1
 
 ifeq ($(TARGET_PREBUILT_KERNEL),)
-    LOCAL_KERNEL := $(LOCAL_PATH)/prebuilt/kernel
+    LOCAL_KERNEL := $(LOCAL_PATH)/prebuilt/zImage
 else
     LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
 endif
