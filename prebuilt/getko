@@ -1,0 +1,8 @@
+#!/bin/bash
+
+cp /home/jocala/kernel.ancora_tmo.ics/fs/cifs/cifs.ko .
+cp /home/jocala/kernel.ancora_tmo.ics/drivers/bluetooth/bthid/bthid.ko .
+cp /home/jocala/kernel.ancora_tmo.ics/drivers/net/wireless/bcm4329/dhd.ko .
+cp /home/jocala/kernel.ancora_tmo.ics/drivers/param/sec_param.ko .
+cp /home/jocala/kernel.ancora_tmo.ics/arch/arm/boot/zImage .
+
