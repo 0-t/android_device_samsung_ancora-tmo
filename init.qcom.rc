@@ -178,6 +178,8 @@ on emmc-fs
     mount ext4 /dev/block/mmcblk0p27 /efs wait noatime nodiratime nosuid nodev barrier=0 nouser_xattr
     mount ext4 /dev/block/mmcblk0p17 /data wait noatime nodiratime nosuid nodev crypt barrier=0 noauto_da_alloc nouser_xattr
 
+    setprop ro.crypto.tmpfs_options size=128m,mode=0771,uid=1000,gid=1000
+
     chown radio system /efs
     chmod 0771 /efs
 
