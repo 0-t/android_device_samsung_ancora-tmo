@@ -19,7 +19,8 @@
 # Do not edit the generic key layout to support a specific keyboard; instead, create
 # a new key layout file with the required keyboard configuration.
 #
-
+# modified HOME for Exhibit II 4G
+#
 key 1     ESCAPE
 key 2     1
 key 3     2

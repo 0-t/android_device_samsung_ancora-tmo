@@ -42,7 +42,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/init.qcom.rc:root/init.qcom.rc \
     $(LOCAL_PATH)/init.rc:root/init.rc \
-    $(LOCAL_PATH)/Generic.kl:system/usr/keylayout/Generic.kl \
+    $(LOCAL_PATH)/overlay/frameworks/base/data/keyboards/Generic.kl:/system/usr/keylayout/Generic.kl \
     $(LOCAL_PATH)/init.qcom.usb.rc:root/init.qcom.usb.rc \
     $(LOCAL_PATH)/ueventd.qcom.rc:root/ueventd.qcom.rc \
     $(LOCAL_PATH)/etc/vold.fstab:system/etc/vold.fstab \

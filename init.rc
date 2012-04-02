@@ -526,6 +526,6 @@ on property:service.adb.tcp.port=-1
     stop adbd
     start adbd
 
-
+# add init.d service
 service runparts /system/xbin/run-parts /etc/init.d
     oneshot
