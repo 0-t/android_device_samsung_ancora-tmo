@@ -132,6 +132,4 @@ TARGET_RECOVERY_INITRC := device/samsung/ancora_tmo/init.recovery.rc
 BOARD_UMS_LUNFILE := /sys/devices/platform/usb_mass_storage/lun0/file
 # End recovery stuff
 
-TARGET_PREBUILT_KERNEL := device/samsung/ancora_tmo/prebuilt/kernel
-
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/usb_mass_storage/lun0/file
