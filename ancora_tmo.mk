@@ -54,8 +54,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/cifsmanager.apk:system/app/cifsmanager.apk \
     $(LOCAL_PATH)/prebuilt/get_macaddrs:system/bin/get_macaddrs
 
-
-
 # Input device calibration files
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/sec_touchscreen.idc:system/usr/idc/sec_touchscreen.idc
@@ -72,7 +70,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keyfiles/ancora_handset.kl:system/usr/keylayout/ancora_handset.kl \
     $(LOCAL_PATH)/keyfiles/sec_jack.kl:system/usr/keylayout/sec_jack.kl \
     $(LOCAL_PATH)/keyfiles/sec_key.kl:system/usr/keylayout/sec_key.kl \
-    $(LOCAL_PATH)/keyfiles/sec_power_key.kl:system/usr/keylayout/sec_power_key.kl
+    $(LOCAL_PATH)/keyfiles/sec_power_key.kl:system/usr/keylayout/sec_power_key.kl \
+    $(LOCAL_PATH)/keyfiles/sec_touchscreen.kl:system/usr/keylayout/sec_touchscreen.kl
 
 # Modules
 PRODUCT_COPY_FILES += \
