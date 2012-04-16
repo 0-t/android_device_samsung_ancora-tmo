@@ -73,10 +73,10 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keyfiles/sec_touchscreen.kl:system/usr/keylayout/sec_touchscreen.kl
 
 # Modules
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilt/cifs.ko:root/lib/modules/cifs.ko \
-    $(LOCAL_PATH)/prebuilt/bthid.ko:root/lib/modules/bthid.ko \
-    $(LOCAL_PATH)/prebuilt/dhd.ko:root/lib/modules/dhd.ko
+# PRODUCT_COPY_FILES += \
+#    $(LOCAL_PATH)/prebuilt/cifs.ko:root/lib/modules/cifs.ko \
+#    $(LOCAL_PATH)/prebuilt/bthid.ko:root/lib/modules/bthid.ko \
+#    $(LOCAL_PATH)/prebuilt/dhd.ko:root/lib/modules/dhd.ko
 
 # LPM
 PRODUCT_COPY_FILES += \
@@ -154,10 +154,10 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
     ro.allow.mock.location=1 \
     ro.debuggable=1
 
-LOCAL_KERNEL := $(LOCAL_PATH)/prebuilt/kernel
+# LOCAL_KERNEL := $(LOCAL_PATH)/prebuilt/kernel
 
-PRODUCT_COPY_FILES += \
-    $(LOCAL_KERNEL):kernel
+# PRODUCT_COPY_FILES += \
+#   $(LOCAL_KERNEL):kernel
 
 # We have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
