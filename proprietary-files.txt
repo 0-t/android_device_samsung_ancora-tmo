@@ -28,6 +28,7 @@
 /lib/hw/sensors.SGH-T679.so
 
 /lib/libC2D2.so
+/lib/libkineto.so
 /lib/libOpenVG.so
 /lib/libakm.so
 /lib/libarccamera.so
