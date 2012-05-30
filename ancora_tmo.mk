@@ -54,7 +54,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/FileManager.apk:system/app/FileManager.apk \
     $(LOCAL_PATH)/prebuilt/remount:system/xbin/remount \
     $(LOCAL_PATH)/prebuilt/cifsmanager.apk:system/app/cifsmanager.apk \
-    $(LOCAL_PATH)/prebuilt/Wi-FiCalling.apk:system/app/WiFi-Calling.apk \
+    $(LOCAL_PATH)/prebuilt/WiFi-Calling.apk:system/app/WiFi-Calling.apk \
     $(LOCAL_PATH)/prebuilt/get_macaddrs:system/bin/get_macaddrs
 
 # Input device calibration files
