@@ -45,6 +45,7 @@ bxa2g=0
 
 # country code
 ccode=US
+regrev=5
 cctl=0x0
 cckdigfilttype=1
 ofdmdigfilttype=1
@@ -83,3 +84,4 @@ RAW1=80 32 fe 21 02 0c 00 22 2a 01 01 00 00 c5 0 e6 00 00 00 00 00 40 00 00 ff f
 #for BT-coexistence
 btc_params80=0
 btc_params6=10
+btc_params8=15000
