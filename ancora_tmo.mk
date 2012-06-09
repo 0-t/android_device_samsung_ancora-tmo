@@ -152,6 +152,9 @@ PRODUCT_PACKAGES += \
     hcitool \
     libaudioutils
 
+# Build GanOptimizer
+PRODUCT_PACKAGES += GanOptimizer
+
 # For userdebug builds
 ADDITIONAL_DEFAULT_PROPERTIES += \
     ro.secure=0 \
