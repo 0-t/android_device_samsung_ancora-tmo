@@ -54,6 +54,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/FileManager.apk:system/app/FileManager.apk \
     $(LOCAL_PATH)/prebuilt/remount:system/xbin/remount \
     $(LOCAL_PATH)/prebuilt/cifsmanager.apk:system/app/cifsmanager.apk \
+    $(LOCAL_PATH)/prebuilt/SamsungServiceMode.apk:system/app/SamsungServiceMode.apk \
     $(LOCAL_PATH)/prebuilt/WiFi-Calling.apk:system/app/WiFi-Calling.apk \
     $(LOCAL_PATH)/prebuilt/be.watana.rebootlogger-1.apk:system/app/be.watana.rebootlogger-1.apk \
     $(LOCAL_PATH)/prebuilt/get_macaddrs:system/bin/get_macaddrs
@@ -75,12 +76,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keyfiles/sec_key.kl:system/usr/keylayout/sec_key.kl \
     $(LOCAL_PATH)/keyfiles/sec_power_key.kl:system/usr/keylayout/sec_power_key.kl \
     $(LOCAL_PATH)/keyfiles/sec_touchscreen.kl:system/usr/keylayout/sec_touchscreen.kl
-
-# Modules
-# PRODUCT_COPY_FILES += \
-#    $(LOCAL_PATH)/prebuilt/cifs.ko:root/lib/modules/cifs.ko \
-#    $(LOCAL_PATH)/prebuilt/bthid.ko:root/lib/modules/bthid.ko \
-#    $(LOCAL_PATH)/prebuilt/dhd.ko:root/lib/modules/dhd.ko
 
 # LPM
 PRODUCT_COPY_FILES += \
