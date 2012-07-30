@@ -43,9 +43,9 @@ using android::IMemoryHeap;
 using android::CameraParameters;
 
 using android::CameraInfo;
-using android::HAL_getCameraInfo;
-using android::HAL_getNumberOfCameras;
-using android::HAL_openCameraHardware;
+using android::SEC_getCameraInfo;
+using android::SEC_getNumberOfCameras;
+using android::SEC_openCameraHardware;
 using android::CameraHardwareInterface;
 
 static sp<CameraHardwareInterface> gCameraHals[MAX_CAMERAS_SUPPORTED];
@@ -89,6 +89,7 @@ typedef struct priv_camera_device {
     camera_data_timestamp_callback data_timestamp_callback;
     camera_request_memory request_memory;
     void *user;
+    int preview_started;
     /* old world*/
     int preview_width;
     int preview_height;
@@ -377,6 +378,7 @@ static void wrap_data_callback_timestamp(nsecs_t timestamp, int32_t msg_type,
 
 }
 
+
 /*******************************************************************
  * implementation of priv_camera_device_ops functions
  *******************************************************************/
@@ -384,29 +386,14 @@ static void wrap_data_callback_timestamp(nsecs_t timestamp, int32_t msg_type,
 void CameraHAL_FixupParams(android::CameraParameters &camParams)
 {
     const char *preferred_size = "640x480";
-    const char *preview_frame_rates  = "30,27,24,15";
-    const char *preferred_rate = "30";
 
     camParams.set(android::CameraParameters::KEY_VIDEO_FRAME_FORMAT,
                   android::CameraParameters::PIXEL_FORMAT_YUV420SP);
 
     camParams.set(CameraParameters::KEY_PREFERRED_PREVIEW_SIZE_FOR_VIDEO,
                   preferred_size);
-
-    camParams.set(android::CameraParameters::KEY_MAX_SHARPNESS, "30");
-    camParams.set(android::CameraParameters::KEY_MAX_CONTRAST, "10");
-    camParams.set(android::CameraParameters::KEY_MAX_SATURATION, "10");
-    camParams.set("num-snaps-per-shutter", "1");
-
-    if (!camParams.get(android::CameraParameters::KEY_SUPPORTED_PREVIEW_FRAME_RATES)) {
-        camParams.set(android::CameraParameters::KEY_SUPPORTED_PREVIEW_FRAME_RATES,
-                      preview_frame_rates);
-    }
-
-    if (!camParams.get(android::CameraParameters::KEY_PREVIEW_FRAME_RATE)) {
-        camParams.set(CameraParameters::KEY_PREVIEW_FRAME_RATE, preferred_rate);
-    }
 }
+
 
 int camera_set_preview_window(struct camera_device * device,
                               struct preview_stream_ops *window)
@@ -486,7 +473,9 @@ int camera_set_preview_window(struct camera_device * device,
                                 wrap_set_crop_hook,
                                 wrap_queue_buffer_hook,
                                 (void *)dev);
+
     gCameraHals[dev->cameraid]->setOverlay(dev->overlay);
+    rv = 0;
     LOGI("%s---,rv %d", __FUNCTION__,rv);
 
     return rv;
@@ -591,6 +580,9 @@ int camera_start_preview(struct camera_device * device)
 
     rv = gCameraHals[dev->cameraid]->startPreview();
     LOGI("%s--- rv %d", __FUNCTION__,rv);
+   
+    if(!rv) 
+      dev->preview_started=1;
 
     return rv;
 }
@@ -605,6 +597,7 @@ void camera_stop_preview(struct camera_device * device)
         return;
 
     dev = (priv_camera_device_t*) device;
+    dev->preview_started=0;
 
     gCameraHals[dev->cameraid]->stopPreview();
     LOGI("%s---", __FUNCTION__);
@@ -625,6 +618,7 @@ int camera_preview_enabled(struct camera_device * device)
     rv = gCameraHals[dev->cameraid]->previewEnabled();
 
     LOGI("%s--- rv %d", __FUNCTION__,rv);
+    return dev->preview_started;
 
     return rv;
 }
@@ -810,9 +804,11 @@ int camera_set_parameters(struct camera_device * device, const char *params)
 
     String8 params_str8(params);
     camParams.unflatten(params_str8);
+
 #if 0
     camParams.dump();
 #endif
+
 
     rv = gCameraHals[dev->cameraid]->setParameters(camParams);
 
@@ -844,16 +840,6 @@ char* camera_get_parameters(struct camera_device * device)
 
     CameraHAL_FixupParams(camParams);
 
-#ifdef HTC_FFC
-    if (dev->cameraid == 1) {
-#ifdef REVERSE_FFC
-        /* Change default parameters for the front camera */
-        camParams.set("front-camera-mode", "reverse"); // default is "mirror"
-#endif
-    } else {
-        camParams.set("front-camera-mode", "mirror");
-    }
-#endif
     camParams.set("orientation", "landscape");
 
     params_str8 = camParams.flatten();
@@ -902,6 +888,7 @@ void camera_release(struct camera_device * device)
         return;
 
     dev = (priv_camera_device_t*) device;
+    dev->preview_started=0;
 
     gCameraHals[dev->cameraid]->release();
     LOGI("%s---", __FUNCTION__);
@@ -942,6 +929,7 @@ int camera_device_close(hw_device_t* device)
     dev = (priv_camera_device_t*) device;
 
     if (dev) {
+        dev->preview_started=0;
         gCameraHals[dev->cameraid] = NULL;
         gCamerasOpen--;
 
@@ -987,7 +975,7 @@ int camera_device_open(const hw_module_t* module, const char* name,
     if (name != NULL) {
         cameraid = atoi(name);
 
-        num_cameras = HAL_getNumberOfCameras();
+        num_cameras = SEC_getNumberOfCameras();
 
         if(cameraid > num_cameras)
         {
@@ -1075,7 +1063,7 @@ int camera_device_open(const hw_module_t* module, const char* name,
 
         priv_camera_device->cameraid = cameraid;
 
-        camera = HAL_openCameraHardware(cameraid);
+        camera = SEC_openCameraHardware(cameraid);
 
         if(camera == NULL)
         {
@@ -1108,7 +1096,7 @@ fail:
 
 int camera_get_number_of_cameras(void)
 {
-    int num_cameras = HAL_getNumberOfCameras();
+    int num_cameras = SEC_getNumberOfCameras();
 
     LOGI("%s: number:%i", __FUNCTION__, num_cameras);
 
@@ -1121,8 +1109,8 @@ int camera_get_camera_info(int camera_id, struct camera_info *info)
 
     CameraInfo cameraInfo;
 
-    android::HAL_getCameraInfo(camera_id, &cameraInfo);
-
+    android::SEC_getCameraInfo(camera_id, &cameraInfo);
+  
     info->facing = cameraInfo.facing;
     //info->orientation = cameraInfo.orientation;
     if(info->facing == 1) {

@@ -83,6 +83,7 @@ namespace android {
      * is desired, the corresponding message must be enabled. As with CAMERA_MSG_PREVIEW_FRAME,
      * any memory provided in a data callback must be copied if it's needed after returning.
      */
+
     class CameraHardwareInterface : public virtual RefBase {
     public:
         virtual ~CameraHardwareInterface() { }
@@ -145,6 +146,12 @@ namespace android {
         virtual bool         useOverlay() {return false;}
         virtual status_t     setOverlay(const sp<Overlay> &overlay) {return BAD_VALUE;}
         
+        /**
+         * function stub. keep compatible.
+         */
+        virtual status_t stub() = 0;
+        
+
         /**
          * Stop a previously started preview.
          */
@@ -217,11 +224,6 @@ namespace android {
         virtual status_t sendCommand(int32_t cmd, int32_t arg1, int32_t arg2) = 0;
         
         /**
-         * function stub. keep compatible.
-         */
-        virtual status_t stub() = 0;
-        
-        /**
          * Release the hardware resources owned by this object.  Note that this is
          * *not* done in the destructor.
          */
@@ -231,6 +233,8 @@ namespace android {
          * Dump state of the camera hardware
          */
         virtual status_t dump(int fd, const Vector<String16>& args) const = 0;
+
+	virtual void takeLiveShapshot() = 0;
     };
     
     /**
@@ -239,10 +243,10 @@ namespace android {
      * If getNumberOfCameras() returns N, the valid cameraId for getCameraInfo()
      * and openCameraHardware() is 0 to N-1.
      */
-    extern "C" int HAL_getNumberOfCameras();
-    extern "C" void HAL_getCameraInfo(int cameraId, struct CameraInfo* cameraInfo);
+    extern "C" int SEC_getNumberOfCameras();
+    extern "C" void SEC_getCameraInfo(int cameraId, struct CameraInfo* cameraInfo);
     /* HAL should return NULL if it fails to open camera hardware. */
-    extern "C" sp<CameraHardwareInterface> HAL_openCameraHardware(int cameraId);
+    extern "C" sp<CameraHardwareInterface> SEC_openCameraHardware(int cameraId);
     
 };  // namespace android
 
