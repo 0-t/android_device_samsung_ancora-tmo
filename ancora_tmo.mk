@@ -151,6 +151,9 @@ PRODUCT_PACKAGES += \
 # Build GanOptimizer
 PRODUCT_PACKAGES += GanOptimizer
 
+# Add Torch app
+PRODUCT_PACKAGES += Torch
+
 # For userdebug builds
 ADDITIONAL_DEFAULT_PROPERTIES += \
     ro.secure=0 \
