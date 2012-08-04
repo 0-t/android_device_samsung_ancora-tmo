@@ -51,7 +51,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/etc/vold.fstab:system/etc/vold.fstab \
     $(LOCAL_PATH)/etc/wifi/nvram_net.txt:system/vendor/firmware/nvram_net.txt \
     $(LOCAL_PATH)/recovery/fix_reboot.sh:recovery/root/sbin/fix_reboot.sh \
-    $(LOCAL_PATH)/prebuilt/FileManager.apk:system/app/FileManager.apk \
+    $(LOCAL_PATH)/prebuilt/com.estrongs.android.pop.apk:system/app/com.estrongs.android.pop.apk \
     $(LOCAL_PATH)/prebuilt/remount:system/xbin/remount \
     $(LOCAL_PATH)/prebuilt/cifsmanager.apk:system/app/cifsmanager.apk \
     $(LOCAL_PATH)/prebuilt/SamsungServiceMode.apk:system/app/SamsungServiceMode.apk \
