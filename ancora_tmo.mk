@@ -108,22 +108,14 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/lpm/media/chargingwarning.qmg:system/media/chargingwarning.qmg
 
 PRODUCT_PACKAGES += \
-    librs_jni \
     camera.msm7x30 \
     copybit.msm7x30 \
     gralloc.msm7x30 \
     hwcomposer.msm7x30 \
     audio.primary.msm7x30 \
     audio_policy.msm7x30 \
-    gps.ancora_tmo \
     audio.a2dp.default \
-    libaudioutils \
-    libgenlock \
-    libmemalloc \
-    liboverlay \
-    libtilerenderer \
-    libQcomUI \
-    com.android.future.usb.accessory
+    gps.ancora_tmo
 
 PRODUCT_PACKAGES += \
     libmm-omxcore \
