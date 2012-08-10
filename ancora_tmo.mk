@@ -54,7 +54,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/com.estrongs.android.pop.apk:system/app/com.estrongs.android.pop.apk \
     $(LOCAL_PATH)/prebuilt/remount:system/xbin/remount \
     $(LOCAL_PATH)/prebuilt/cifsmanager.apk:system/app/cifsmanager.apk \
-    $(LOCAL_PATH)/prebuilt/soft.kinoko.SilentCamera-1.apk:system/app/soft.kinoko.SilentCamera-1.apk \
     $(LOCAL_PATH)/prebuilt/SamsungServiceMode.apk:system/app/SamsungServiceMode.apk \
     $(LOCAL_PATH)/prebuilt/WiFi-Calling.apk:system/app/WiFi-Calling.apk \
     $(LOCAL_PATH)/prebuilt/be.watana.rebootlogger-1.apk:system/app/be.watana.rebootlogger-1.apk \
