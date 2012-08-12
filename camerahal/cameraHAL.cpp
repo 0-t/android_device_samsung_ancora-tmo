@@ -339,7 +339,8 @@ static void wrap_data_callback(int32_t msg_type, const sp<IMemory>& dataPtr,
 
     if(msg_type ==CAMERA_MSG_RAW_IMAGE)
     {
-    	gCameraHals[dev->cameraid]->disableMsgType(CAMERA_MSG_RAW_IMAGE);
+        gCameraHals[dev->cameraid]->disableMsgType(CAMERA_MSG_RAW_IMAGE);
+        gCameraHals[dev->cameraid]->disableMsgType(CAMERA_MSG_SHUTTER);
         return;
     }
 
@@ -555,6 +556,11 @@ void camera_disable_msg_type(struct camera_device * device, int32_t msg_type)
         return;
 
     dev = (priv_camera_device_t*) device;
+
+    if (msg_type == CAMERA_MSG_SHUTTER) {
+        LOGI("%s---", __FUNCTION__);
+        return;
+    }
 
     gCameraHals[dev->cameraid]->disableMsgType(msg_type);
     LOGI("%s---", __FUNCTION__);
