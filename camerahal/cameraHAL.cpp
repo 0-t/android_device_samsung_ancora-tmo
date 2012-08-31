@@ -408,6 +408,10 @@ void CameraHAL_FixupParams(android::CameraParameters &camParams,priv_camera_devi
             camParams.set(CameraParameters::KEY_MAX_NUM_FOCUS_AREAS, 1);
         }
     }
+
+    camParams.set(CameraParameters::KEY_MAX_EXPOSURE_COMPENSATION, 4);
+    camParams.set(CameraParameters::KEY_MIN_EXPOSURE_COMPENSATION, -4);
+    camParams.set(CameraParameters::KEY_EXPOSURE_COMPENSATION_STEP, 1);
 }
 
 int camera_set_preview_window(struct camera_device * device,
