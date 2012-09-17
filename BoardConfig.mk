@@ -84,7 +84,7 @@ BOARD_HAVE_FM_RADIO := true
 BOARD_GLOBAL_CFLAGS += -DHAVE_FM_RADIO
 BOARD_FM_DEVICE := si4709
 
-BOARD_EGL_CFG := device/samsung/config/ancora_tmo/egl.cfg
+BOARD_EGL_CFG := device/samsung/ancora_tmo/config/egl.cfg
 
 USE_OPENGL_RENDERER := true
 ENABLE_WEBGL := true
