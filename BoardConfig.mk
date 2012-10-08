@@ -28,6 +28,15 @@ USE_CAMERA_STUB := true
 # inherit from the proprietary version
 -include vendor/samsung/ancora_tmo/BoardConfigVendor.mk
 
+# Camera
+#TARGET_DISABLE_ARM_PIE := true
+#BOARD_NEEDS_MEMORYHEAPPMEM := true
+#BOARD_USE_NASTY_PTHREAD_CREATE_HACK := true
+#COMMON_GLOBAL_CFLAGS += -DBINDER_COMPAT
+#COMMON_GLOBAL_CFLAGS += -DQCOM_ICS_COMPAT
+#BOARD_CAMERA_USE_GETBUFFERINFO := true
+#BOARD_USE_CAF_LIBCAMERA := true
+
 TARGET_SPECIFIC_HEADER_PATH := device/samsung/ancora_tmo/include
 
 TARGET_BOARD_PLATFORM := msm7x30
