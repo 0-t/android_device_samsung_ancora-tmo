@@ -122,6 +122,8 @@ BOARD_VOLD_MAX_PARTITIONS := 28
 
 BOARD_MTP_DEVICE := "/dev/usb_mtp_gadget"
 
+BOARD_USES_LEGACY_RIL := true
+
 # Begin recovery stuff
 #
 # Partition sizes must match your phone, or all hell will break loose!
