@@ -88,6 +88,10 @@ BOARD_HAVE_SAMSUNG_AUDIO := true
 BOARD_USES_QCOM_AUDIO_RESETALL := true
 TARGET_USES_QCOM_LPA := true
 
+# disable errors from msm_rotator driver
+TARGET_NO_HW_VSYNC := true
+QCOM_NO_SECURE_PLAYBACK := true
+
 # FM Radio
 #BOARD_HAVE_FM_RADIO := true
 #BOARD_GLOBAL_CFLAGS += -DHAVE_FM_RADIO
