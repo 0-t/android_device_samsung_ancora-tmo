@@ -119,12 +119,14 @@
     </integer-array>
 
     <!-- Component name of the service providing network location support. -->
-    <add-resource type="string" name="config_networkLocationProvider"></add-resource>
-    <string name="config_networkLocationProvider">com.google.android.location.NetworkLocationProvider</string>
+    <string name="config_networkLocationProviderPackageName" translatable="false">com.google.android.location</string>
+<!--    <add-resource type="string" name="config_networkLocationProvider"></add-resource>
+    <string name="config_networkLocationProvider">com.google.android.location.NetworkLocationProvider</string> -->
 
     <!-- Component name of the service providing geocoder API support. -->
-    <add-resource type="string" name="config_geocodeProvider"></add-resource>
-    <string name="config_geocodeProvider">com.google.android.location.GeocodeProvider</string>
+    <string name="config_geocodeProviderPackageName" translatable="false">com.google.android.location</string>
+    <!--<add-resource type="string" name="config_geocodeProvider"></add-resource>
+    <string name="config_geocodeProvider">com.google.android.location.GeocodeProvider</string> -->
 
     <!-- Boolean indicating if current platform supports quick switch-on/off of
          Bluetooth Module -->
@@ -148,6 +150,9 @@
     <!-- Timeout in MS for how long you have to long-press the back key to
          kill the foreground app. -->
     <integer name="config_backKillTimeout">1500</integer>
+
+    <!-- True will enable the electron beam screen-off animation. -->
+    <bool name="config_screenOffAnimation">true</bool>
 
     <!-- Boolean to enable stk functionality on Samsung phones -->
     <bool name="config_samsung_stk">true</bool>
