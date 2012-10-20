@@ -1,6 +1,5 @@
-ifeq ($(BOARD_USES_HTC_CAMERA),true)
-
-#ifeq ($(TARGET_BOARD_PLATFORM),msm7x30) // From htc http://review.cyanogenmod.com/#/c/12793/12/camerahal/Android.mk
+ifeq ($(BOARD_USES_HTC_CAMERA),true) 
+#|| ifeq ($(TARGET_BOARD_PLATFORM),msm7x30) # From htc http://review.cyanogenmod.com/#/c/12793/12/camerahal/Android.mk
 
 LOCAL_PATH:= $(call my-dir)
 
