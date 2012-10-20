@@ -124,7 +124,7 @@ PRODUCT_COPY_FILES += \
     vendor/samsung/ancora_tmo/proprietary/etc/firmware/yamato_pfp.fw:system/etc/firmware/yamato_pfp.fw \
     vendor/samsung/ancora_tmo/proprietary/etc/firmware/yamato_pm4.fw:system/etc/firmware/yamato_pm4.fw
 
-PRODUCT_PACKAGE_OVERLAYS += device/samsung/ancora_tmo/overlay
+#PRODUCT_PACKAGE_OVERLAYS += device/samsung/ancora_tmo/overlay
 
 # Audio
 PRODUCT_PACKAGES += \
