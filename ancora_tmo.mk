@@ -126,7 +126,6 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_PACKAGE_OVERLAYS += device/samsung/ancora_tmo/overlay
 
-
 # Audio
 PRODUCT_PACKAGES += \
     camera.msm7x30 \
