@@ -67,6 +67,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/config/sec_touchscreen.idc:system/usr/idc/sec_touchscreen.idc
 
+# Bluetooth configuration files
+#PRODUCT_COPY_FILES += \
+#    system/bluetooth/data/main.conf:system/etc/bluetooth/main.conf
+
 # Keychars and keylayout files
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keyfiles/Broadcom_Bluetooth_HID.kcm.bin:system/usr/keychars/Broadcom_Bluetooth_HID.kcm.bin \
@@ -79,6 +83,7 @@ PRODUCT_COPY_FILES += \
 
 # LPM
 PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/lpm/etc/audio_policy.conf:system/etc/audio_policy.conf \
     $(LOCAL_PATH)/lpm/bin/charging_mode:system/bin/charging_mode \
     $(LOCAL_PATH)/lpm/bin/playlpm:system/bin/playlpm \
     $(LOCAL_PATH)/lpm/lib/libQmageDecoder.so:system/lib/libQmageDecoder.so \
@@ -107,6 +112,22 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/lpm/media/battery_error.qmg:system/media/battery_error.qmg \
     $(LOCAL_PATH)/lpm/media/chargingwarning.qmg:system/media/chargingwarning.qmg
 
+# Common 7x30 firmware
+PRODUCT_COPY_FILES += \
+    vendor/samsung/ancora_tmo/proprietary/etc/firmware/vidc_720p_command_control.fw:system/etc/firmware/vidc_720p_command_control.fw \
+    vendor/samsung/ancora_tmo/proprietary/etc/firmware/vidc_720p_h263_dec_mc.fw:system/etc/firmware/vidc_720p_h263_dec_mc.fw \
+    vendor/samsung/ancora_tmo/proprietary/etc/firmware/vidc_720p_h264_dec_mc.fw:system/etc/firmware/vidc_720p_h264_dec_mc.fw \
+    vendor/samsung/ancora_tmo/proprietary/etc/firmware/vidc_720p_h264_enc_mc.fw:system/etc/firmware/vidc_720p_h264_enc_mc.fw \
+    vendor/samsung/ancora_tmo/proprietary/etc/firmware/vidc_720p_mp4_dec_mc.fw:system/etc/firmware/vidc_720p_mp4_dec_mc.fw \
+    vendor/samsung/ancora_tmo/proprietary/etc/firmware/vidc_720p_mp4_enc_mc.fw:system/etc/firmware/vidc_720p_mp4_enc_mc.fw \
+    vendor/samsung/ancora_tmo/proprietary/etc/firmware/vidc_720p_vc1_dec_mc.fw:system/etc/firmware/vidc_720p_vc1_dec_mc.fw \
+    vendor/samsung/ancora_tmo/proprietary/etc/firmware/yamato_pfp.fw:system/etc/firmware/yamato_pfp.fw \
+    vendor/samsung/ancora_tmo/proprietary/etc/firmware/yamato_pm4.fw:system/etc/firmware/yamato_pm4.fw
+
+PRODUCT_PACKAGE_OVERLAYS += device/samsung/ancora_tmo/overlay
+
+
+# Audio
 PRODUCT_PACKAGES += \
     camera.msm7x30 \
     copybit.msm7x30 \
@@ -117,6 +138,7 @@ PRODUCT_PACKAGES += \
     audio_policy.msm7x30 \
     audio.a2dp.default
 
+# Media
 PRODUCT_PACKAGES += \
     libmm-omxcore \
     libOmxCore \
@@ -124,6 +146,7 @@ PRODUCT_PACKAGES += \
     libOmxVdec \
     libstagefrighthw
 
+# Filesystem management tools
 PRODUCT_PACKAGES += \
     badblocks \
     e2fsck \
@@ -133,7 +156,8 @@ PRODUCT_PACKAGES += \
     resize2fs\
     tune2fs \
     make_ext4fs \
-    setup_fs
+    setup_fs \
+    rild
 
 PRODUCT_PACKAGES += \
     hciconfig \

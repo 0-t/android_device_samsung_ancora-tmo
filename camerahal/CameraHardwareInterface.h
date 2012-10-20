@@ -19,8 +19,8 @@
 
 #include <binder/IMemory.h>
 #include <utils/RefBase.h>
-#include <surfaceflinger/ISurface.h>
-#include <ui/OverlayHtc.h>
+#include <gui/ISurface.h>
+#include "OverlayHtc.h"
 #include <camera/Camera.h>
 #include <camera/CameraParameters.h>
 
@@ -233,6 +233,8 @@ namespace android {
          * Dump state of the camera hardware
          */
         virtual status_t dump(int fd, const Vector<String16>& args) const = 0;
+
+        virtual void takeLiveSnapshot() = 0;
     };
 
     /**
