@@ -24,6 +24,13 @@ $(shell touch $(OUT)/obj/SHARED_LIBRARIES/libcamera_intermediates/export_include
 $(shell mkdir -p $(OUT)/obj/SHARED_LIBRARIES/libseccameraadaptor_intermediates/)
 $(shell touch $(OUT)/obj/SHARED_LIBRARIES/libseccameraadaptor_intermediates/export_includes)
 
+ifeq ($(BOARD_HAVE_HTC_FFC), true)
+	LOCAL_CFLAGS += -DHTC_FFC
+endif
+ifeq ($(BOARD_USE_REVERSE_FFC), true)
+	LOCAL_CFLAGS += -DREVERSE_FFC
+endif
+
 include $(BUILD_SHARED_LIBRARY)
 
 endif
