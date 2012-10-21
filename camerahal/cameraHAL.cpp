@@ -149,7 +149,7 @@ static void wrap_set_fd_hook(void *data, int fd)
         return;
 
     dev = (priv_camera_device_t*) data;
-    //LOGI("%s---: fd %i", __FUNCTION__, fd);
+    ALOGI("%s---: fd %i", __FUNCTION__, fd);
 }
 
 static void wrap_set_crop_hook(void *data,
@@ -163,7 +163,7 @@ static void wrap_set_crop_hook(void *data,
         return;
 
     dev = (priv_camera_device_t*) data;
-    //LOGI("%s---: %i %i %i %i", __FUNCTION__, x, y, w, h);
+    ALOGI("%s---: %i %i %i %i", __FUNCTION__, x, y, w, h);
 }
 //QiSS ME for preview
 static void wrap_queue_buffer_hook(void *data, void* buffer)
@@ -294,7 +294,7 @@ static camera_memory_t *wrap_memory_data(priv_camera_device_t *dev,
         ALOGV("dumping jpeg");
         written = write(file_fd, (char *)data, size);
         if(written < 0)
-            LOGE("error in data write");
+            ALOGE("error in data write");
     }
     close(file_fd);
     frameCnt++;
@@ -354,7 +354,7 @@ static void wrap_data_callback(int32_t msg_type, const sp<IMemory>& dataPtr,
 
     if (dev->data_callback)
         dev->data_callback(msg_type, data, 0, NULL, dev->user);
-	//LOGI("%s---", __FUNCTION__);
+	ALOGI("%s---", __FUNCTION__);
 
     if (NULL != data) {
         data->release(data);
