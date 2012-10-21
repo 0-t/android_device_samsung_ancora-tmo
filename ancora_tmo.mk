@@ -86,6 +86,7 @@ PRODUCT_COPY_FILES += \
 
 # LPM
 PRODUCT_COPY_FILES += \
+	$(LOCAL_PATH)/lpm/etc/audio_policy.conf:system/etc/audio_policy.conf \
     $(LOCAL_PATH)/lpm/bin/charging_mode:system/bin/charging_mode \
     $(LOCAL_PATH)/lpm/bin/playlpm:system/bin/playlpm \
     $(LOCAL_PATH)/lpm/lib/libQmageDecoder.so:system/lib/libQmageDecoder.so \
@@ -116,14 +117,13 @@ PRODUCT_COPY_FILES += \
 
 #$(LOCAL_PATH)/lpm/etc/audio_policy.conf:system/etc/audio_policy.conf \ 
 
-# Audio
+# Audio // audio_policy.conf \
 PRODUCT_PACKAGES += \
     camera.msm7x30 \
     copybit.msm7x30 \
     gralloc.msm7x30 \
     hwcomposer.msm7x30 \
     gps.msm7x30 \
-	audio_policy.conf \
     audio.primary.msm7x30 \
     audio_policy.msm7x30 \
     audio.a2dp.default
