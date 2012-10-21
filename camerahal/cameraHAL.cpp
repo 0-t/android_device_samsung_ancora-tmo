@@ -20,8 +20,8 @@
 
 #define LOG_TAG "CameraHAL"
 
-#define LOG_NDEBUG 1 /* disable LOGV */
-//#define DUMP_PARAMS 1 /* dump parameteters after get/set operation */
+/*#define LOG_NDEBUG 1 // disable LOGV */
+/* #define DUMP_PARAMS 1 // dump parameteters after get/set operation */
 
 #define MAX_CAMERAS_SUPPORTED 2
 #define GRALLOC_USAGE_PMEM_PRIVATE_ADSP GRALLOC_USAGE_PRIVATE_0
@@ -520,7 +520,7 @@ int camera_set_preview_window(struct camera_device * device,
 
     gCameraHals[dev->cameraid]->setOverlay(dev->overlay);
     
-    ALOGI("%s---,rv %d", __FUNCTION__,rv);
+    ALOGI("%s---", __FUNCTION__);
     return 0;
 }
 
@@ -752,7 +752,7 @@ void camera_release_recording_frame(struct camera_device * device,
     priv_camera_device_t* dev = NULL;
     //camera_memory_t *data = (camera_memory_t *)(&opaque);
 
-    ALOGI("%s+++: device %p,opaque %p,data %p", __FUNCTION__, device,opaque,data);
+    //ALOGI("%s+++: device %p,opaque %p,data %p", __FUNCTION__, device,opaque,data);
 
     if(!device)
         return;

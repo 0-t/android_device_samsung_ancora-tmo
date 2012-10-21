@@ -10,7 +10,7 @@ LOCAL_MODULE := camera.$(TARGET_BOARD_PLATFORM)
 
 LOCAL_MODULE_TAGS := optional
 
-LOCAL_SRC_FILES := cameraHAL.cpp
+LOCAL_SRC_FILES := cameraHAL.cpp OverlayHtc.cpp
 LOCAL_C_INCLUDES := frameworks/av/include frameworks/base/include frameworks/native/include
 LOCAL_C_INCLUDES += hardware/libhardware/include/ hardware
 

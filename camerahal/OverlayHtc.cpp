@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "Overlay"
+//#define LOG_TAG "Overlay"
 
 #include <binder/IMemory.h>
 #include <binder/Parcel.h>
