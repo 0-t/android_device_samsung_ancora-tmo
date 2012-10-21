@@ -132,7 +132,7 @@ TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
 BOARD_VOLD_MAX_PARTITIONS := 28
 
-BOARD_MTP_DEVICE := "/dev/usb_mtp_gadget"
+#BOARD_MTP_DEVICE := "/dev/usb_mtp_gadget"
 
 BOARD_USES_LEGACY_RIL := true
 
@@ -156,6 +156,7 @@ BOARD_CUSTOM_GRAPHICS := ../../../device/samsung/ancora_tmo/recovery/graphics.c
 TARGET_RECOVERY_INITRC := device/samsung/ancora_tmo/config/init.recovery.rc
 # End recovery stuff
 
-TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/usb_mass_storage/lun%d/file
+TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/file
+#TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/usb_mass_storage/lun%d/file
 
 TARGET_KERNEL_CONFIG := ancora_tmo_defconfig

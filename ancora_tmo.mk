@@ -34,7 +34,9 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
     frameworks/native/data/etc/android.hardware.sensor.proximity.xml:system/etc/permissions/android.hardware.sensor.proximity.xml \
     frameworks/native/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml \
-    frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml
+    frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
+    frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
+    frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml
 
 # Feature live wallpaper
 PRODUCT_COPY_FILES += \
@@ -83,7 +85,6 @@ PRODUCT_COPY_FILES += \
 
 # LPM
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/lpm/etc/audio_policy.conf:system/etc/audio_policy.conf \
     $(LOCAL_PATH)/lpm/bin/charging_mode:system/bin/charging_mode \
     $(LOCAL_PATH)/lpm/bin/playlpm:system/bin/playlpm \
     $(LOCAL_PATH)/lpm/lib/libQmageDecoder.so:system/lib/libQmageDecoder.so \
@@ -112,19 +113,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/lpm/media/battery_error.qmg:system/media/battery_error.qmg \
     $(LOCAL_PATH)/lpm/media/chargingwarning.qmg:system/media/chargingwarning.qmg
 
-# Common 7x30 firmware
-#PRODUCT_COPY_FILES += \
-#    vendor/samsung/ancora_tmo/proprietary/etc/firmware/vidc_720p_command_control.fw:system/etc/firmware/vidc_720p_command_control.fw \
-#    vendor/samsung/ancora_tmo/proprietary/etc/firmware/vidc_720p_h263_dec_mc.fw:system/etc/firmware/vidc_720p_h263_dec_mc.fw \
-#    vendor/samsung/ancora_tmo/proprietary/etc/firmware/vidc_720p_h264_dec_mc.fw:system/etc/firmware/vidc_720p_h264_dec_mc.fw \
-#    vendor/samsung/ancora_tmo/proprietary/etc/firmware/vidc_720p_h264_enc_mc.fw:system/etc/firmware/vidc_720p_h264_enc_mc.fw \
-#    vendor/samsung/ancora_tmo/proprietary/etc/firmware/vidc_720p_mp4_dec_mc.fw:system/etc/firmware/vidc_720p_mp4_dec_mc.fw \
-#    vendor/samsung/ancora_tmo/proprietary/etc/firmware/vidc_720p_mp4_enc_mc.fw:system/etc/firmware/vidc_720p_mp4_enc_mc.fw \
-#    vendor/samsung/ancora_tmo/proprietary/etc/firmware/vidc_720p_vc1_dec_mc.fw:system/etc/firmware/vidc_720p_vc1_dec_mc.fw \
-#    vendor/samsung/ancora_tmo/proprietary/etc/firmware/yamato_pfp.fw:system/etc/firmware/yamato_pfp.fw \
-#    vendor/samsung/ancora_tmo/proprietary/etc/firmware/yamato_pm4.fw:system/etc/firmware/yamato_pm4.fw
-
-#PRODUCT_PACKAGE_OVERLAYS += device/samsung/ancora_tmo/overlay
+#$(LOCAL_PATH)/lpm/etc/audio_policy.conf:system/etc/audio_policy.conf \ 
 
 # Audio
 PRODUCT_PACKAGES += \
@@ -133,6 +122,7 @@ PRODUCT_PACKAGES += \
     gralloc.msm7x30 \
     hwcomposer.msm7x30 \
     gps.msm7x30 \
+	audio_policy.conf \
     audio.primary.msm7x30 \
     audio_policy.msm7x30 \
     audio.a2dp.default
@@ -159,6 +149,7 @@ PRODUCT_PACKAGES += \
     rild
 
 PRODUCT_PACKAGES += \
+	com.android.future.usb.accessory \
     hciconfig \
     hcitool \
     libaudioutils
