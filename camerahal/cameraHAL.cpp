@@ -269,11 +269,7 @@ static camera_memory_t *wrap_memory_data(priv_camera_device_t *dev,
 
     //LOGI("%s: data: %p size: %i", __FUNCTION__, data, size);
 
-    //LOGI(" offset:0x%x ",  offset);
-
-    ALOGI("%s: data: %p size: %i", __FUNCTION__, data, size);
-
-    ALOGI(" offset:0x%x ", (unsigned int)offset);
+    //ALOGI(" offset:0x%x ",  offset);
 
     //#define DUMP_CAPTURE_JPEG
 #ifdef DUMP_CAPTURE_JPEG
