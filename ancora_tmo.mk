@@ -116,8 +116,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/lpm/media/chargingwarning.qmg:system/media/chargingwarning.qmg
 
 #$(LOCAL_PATH)/lpm/etc/audio_policy.conf:system/etc/audio_policy.conf \ 
-#PRODUCT_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
-PRODUCT_PACKAGE_OVERLAYS += device/samsung/ancora_tmo/overlay
+PRODUCT_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
+#PRODUCT_PACKAGE_OVERLAYS += device/samsung/ancora_tmo/overlay
 
 # Audio // audio_policy.conf \
 PRODUCT_PACKAGES += \
