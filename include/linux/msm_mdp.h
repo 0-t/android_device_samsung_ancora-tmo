@@ -345,7 +345,7 @@ struct mdp_histogram_start_req {
 
 /*
    mdp_histogram_data is used to return the histogram data, once
-   the histogram is done/stopped/cance
+   the histogram is done/stopped/canceled
 */
 struct mdp_histogram_data {
 	uint32_t block;

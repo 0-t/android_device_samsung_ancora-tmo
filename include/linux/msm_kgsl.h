@@ -38,7 +38,7 @@
  * Reset status values for context
  */
 enum kgsl_ctx_reset_stat {
-	KGSL_CTX_STAT_NO_ERROR				= 0x00000000,
+	KGSL_CTX_STAT_NO_ERROR				        = 0x00000000,
 	KGSL_CTX_STAT_GUILTY_CONTEXT_RESET_EXT		= 0x00000001,
 	KGSL_CTX_STAT_INNOCENT_CONTEXT_RESET_EXT	= 0x00000002,
 	KGSL_CTX_STAT_UNKNOWN_CONTEXT_RESET_EXT		= 0x00000003
@@ -62,10 +62,10 @@ enum kgsl_user_mem_type {
 	KGSL_USER_MEM_TYPE_ASHMEM	= 0x00000001,
 	KGSL_USER_MEM_TYPE_ADDR		= 0x00000002,
 	KGSL_USER_MEM_TYPE_ION		= 0x00000003,
+	KGSL_USER_MEM_TYPE_MAX      = 0x00000004
 };
 
 struct kgsl_devinfo {
-
 	unsigned int device_id;
 	/* chip revision id
 	* coreid:8 majorrev:8 minorrev:8 patch:8
@@ -100,7 +100,6 @@ struct kgsl_devmemstore {
 
 #define KGSL_DEVICE_MEMSTORE_OFFSET(field) \
 	offsetof(struct kgsl_devmemstore, field)
-
 
 /* timestamp id*/
 enum kgsl_timestamp_type {
@@ -197,7 +196,6 @@ struct kgsl_device_getproperty {
 #define IOCTL_KGSL_DEVICE_GETPROPERTY \
 	_IOWR(KGSL_IOC_TYPE, 0x2, struct kgsl_device_getproperty)
 
-
 /* read a GPU register.
    offsetwords it the 32 bit word offset from the beginning of the
    GPU register space.
@@ -209,7 +207,6 @@ struct kgsl_device_regread {
 
 #define IOCTL_KGSL_DEVICE_REGREAD \
 	_IOWR(KGSL_IOC_TYPE, 0x3, struct kgsl_device_regread)
-
 
 /* block until the GPU has executed past a given timestamp
  * timeout is in milliseconds.

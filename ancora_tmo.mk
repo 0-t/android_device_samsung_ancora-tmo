@@ -70,10 +70,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/config/sec_touchscreen.idc:system/usr/idc/sec_touchscreen.idc
 
-# Bluetooth configuration files
-#PRODUCT_COPY_FILES += \
-#    system/bluetooth/data/main.conf:system/etc/bluetooth/main.conf
-
 # Keychars and keylayout files
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keyfiles/Broadcom_Bluetooth_HID.kcm.bin:system/usr/keychars/Broadcom_Bluetooth_HID.kcm.bin \
@@ -170,6 +166,15 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
 
 # PRODUCT_COPY_FILES += \
 #   $(LOCAL_KERNEL):kernel
+
+#ifeq ($(TARGET_PREBUILT_KERNEL),)
+#    LOCAL_KERNEL := $(LOCAL_PATH)/prebuilt/zImage
+#else
+#    LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
+#endif
+
+#PRODUCT_COPY_FILES += \
+#    $(LOCAL_KERNEL):kernel
 
 # We have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
