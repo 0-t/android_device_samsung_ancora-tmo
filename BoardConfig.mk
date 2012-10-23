@@ -26,7 +26,7 @@
 USE_CAMERA_STUB := true
 
 # inherit from the proprietary version
-include vendor/samsung/ancora_tmo/BoardConfigVendor.mk
+-include vendor/samsung/ancora_tmo/BoardConfigVendor.mk
 
 TARGET_SPECIFIC_HEADER_PATH := device/samsung/ancora_tmo/include
 
@@ -43,6 +43,7 @@ TARGET_USE_SCORPION_BIONIC_OPTIMIZATION := true
 # Camera
 TARGET_DISABLE_ARM_PIE := true
 BOARD_NEEDS_MEMORYHEAPPMEM := true
+BOARD_USES_HTC_CAMERA := true
 #TARGET_PROVIDES_LIBCAMERA := true
 #BOARD_USE_NASTY_PTHREAD_CREATE_HACK := true
 #BOARD_CAMERA_USE_GETBUFFERINFO := true
@@ -58,7 +59,6 @@ TARGET_OTA_ASSERT_DEVICE := ancora_tmo,SGH-T679,ancora
 
 TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
-
 TARGET_NO_INITLOGO := true
 
 # Wifi related defines
@@ -92,11 +92,6 @@ TARGET_USES_QCOM_LPA := true
 TARGET_NO_HW_VSYNC := true
 #QCOM_NO_SECURE_PLAYBACK := true
 
-# FM Radio
-#BOARD_HAVE_FM_RADIO := true
-#BOARD_GLOBAL_CFLAGS += -DHAVE_FM_RADIO
-#BOARD_FM_DEVICE := si4709
-
 BOARD_EGL_CFG := device/samsung/ancora_tmo/config/egl.cfg
 
 USE_OPENGL_RENDERER := true
@@ -118,10 +113,7 @@ TARGET_FORCE_CPU_UPLOAD := true
 BOARD_USES_QCOM_HARDWARE := true
 BOARD_USES_QCOM_GPS := true
 
-BOARD_USES_HTC_CAMERA := true
-
 BOARD_USE_LEGACY_TOUCHSCREEN := true
-
 TARGET_PROVIDES_LIBLIGHTS := true
 
 BOARD_VENDOR_QCOM_AMSS_VERSION := 6225
@@ -155,9 +147,11 @@ TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/samsung/ancora_tmo/recovery/recovery_keys.c
 BOARD_CUSTOM_GRAPHICS := ../../../device/samsung/ancora_tmo/recovery/graphics.c
 TARGET_RECOVERY_INITRC := device/samsung/ancora_tmo/config/init.recovery.rc
+BOARD_UMS_LUNFILE := /sys/devices/platform/msm_hsusb/gadget/lun%d/file
 # End recovery stuff
 
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/file
 #TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/usb_mass_storage/lun%d/file
 #TARGET_KERNEL_SOURCE := kernel/samsung-kernel-msm7x30
+#TARGET_PREBUILT_KERNEL := device/samsung/ariesve/prebuilt/zImage
 TARGET_KERNEL_CONFIG := ancora_tmo_defconfig
