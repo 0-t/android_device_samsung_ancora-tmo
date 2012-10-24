@@ -10,7 +10,7 @@ LOCAL_MODULE := camera.$(TARGET_BOARD_PLATFORM)
 
 LOCAL_MODULE_TAGS := optional
 
-LOCAL_SRC_FILES := cameraHAL.cpp
+LOCAL_SRC_FILES := cameraHAL.cpp OverlayHtc.cpp
 LOCAL_C_INCLUDES := frameworks/av/include frameworks/base/include frameworks/native/include
 LOCAL_C_INCLUDES += hardware/libhardware/include/ hardware
 
@@ -27,6 +27,13 @@ $(shell mkdir -p $(OUT)/obj/SHARED_LIBRARIES/libcamera_intermediates/)
 $(shell touch $(OUT)/obj/SHARED_LIBRARIES/libcamera_intermediates/export_includes)
 $(shell mkdir -p $(OUT)/obj/SHARED_LIBRARIES/libseccameraadaptor_intermediates/)
 $(shell touch $(OUT)/obj/SHARED_LIBRARIES/libseccameraadaptor_intermediates/export_includes)
+
+ifeq ($(BOARD_HAVE_HTC_FFC), true)
+	LOCAL_CFLAGS += -DHTC_FFC
+endif
+ifeq ($(BOARD_USE_REVERSE_FFC), true)
+	LOCAL_CFLAGS += -DREVERSE_FFC
+endif
 
 include $(BUILD_SHARED_LIBRARY)
 
