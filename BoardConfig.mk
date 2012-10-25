@@ -91,11 +91,6 @@ TARGET_USES_QCOM_LPA := true
 TARGET_NO_HW_VSYNC := true
 #QCOM_NO_SECURE_PLAYBACK := true
 
-# FM Radio
-#BOARD_HAVE_FM_RADIO := true
-#BOARD_GLOBAL_CFLAGS += -DHAVE_FM_RADIO
-#BOARD_FM_DEVICE := si4709
-
 BOARD_EGL_CFG := device/samsung/ancora_tmo/config/egl.cfg
 
 USE_OPENGL_RENDERER := true

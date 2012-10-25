@@ -20,7 +20,7 @@
 
 #define LOG_TAG "CameraHAL"
 
-/*#define LOG_NDEBUG 1 // disable LOGV */
+/*#define ALOG_NDEBUG 1 // disable LOGV */
 /* #define DUMP_PARAMS 1 // dump parameteters after get/set operation */
 
 #define MAX_CAMERAS_SUPPORTED 2
