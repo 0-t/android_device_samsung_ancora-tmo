@@ -81,9 +81,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keyfiles/sec_power_key.kl:system/usr/keylayout/sec_power_key.kl \
     $(LOCAL_PATH)/keyfiles/sec_touchscreen.kl:system/usr/keylayout/sec_touchscreen.kl
 
-# LPM
+# LPM $(LOCAL_PATH)/lpm/etc/audio_policy.conf:system/etc/audio_policy.conf \
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/lpm/etc/audio_policy.conf:system/etc/audio_policy.conf \
     $(LOCAL_PATH)/lpm/bin/charging_mode:system/bin/charging_mode \
     $(LOCAL_PATH)/lpm/bin/playlpm:system/bin/playlpm \
     $(LOCAL_PATH)/lpm/lib/libQmageDecoder.so:system/lib/libQmageDecoder.so \
