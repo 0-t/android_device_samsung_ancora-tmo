@@ -14,10 +14,6 @@ LOCAL_SRC_FILES := cameraHAL.cpp OverlayHtc.cpp
 LOCAL_C_INCLUDES := frameworks/av/include frameworks/base/include frameworks/native/include
 LOCAL_C_INCLUDES += hardware/libhardware/include/ hardware
 
-#LOCAL_C_INCLUDES := frameworks/av/include
-#LOCAL_C_INCLUDES += frameworks/native/include
-#LOCAL_C_INCLUDES := $(TOP)/frameworks/native/include
-
 LOCAL_SHARED_LIBRARIES := liblog libutils libcutils libbinder libdl libcamera
 LOCAL_SHARED_LIBRARIES += libcamera_client libui libhardware libseccameraadaptor
 LOCAL_PRELINK_MODULE := false
