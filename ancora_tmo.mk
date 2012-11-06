@@ -118,7 +118,8 @@ PRODUCT_PACKAGES += \
     gps.msm7x30 \
     audio.primary.msm7x30 \
     audio_policy.msm7x30 \
-    audio.a2dp.default
+    audio.a2dp.default \
+    audio_policy.conf
 
 # Media
 PRODUCT_PACKAGES += \
