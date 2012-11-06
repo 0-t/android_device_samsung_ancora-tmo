@@ -59,12 +59,11 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/cifsmanager.apk:system/app/cifsmanager.apk \
     $(LOCAL_PATH)/prebuilt/SamsungServiceMode.apk:system/app/SamsungServiceMode.apk \
     $(LOCAL_PATH)/prebuilt/be.watana.rebootlogger-1.apk:system/app/be.watana.rebootlogger-1.apk \
-	$(LOCAL_PATH)/prebuilt/soft.kinoko.SilentCamera-1.apk:system/app/soft.kinoko.SilentCamera-1.apk \
     $(LOCAL_PATH)/prebuilt/aLogcat_2.6.1.apk:system/app/aLogcat_2.6.1.apk \
     $(LOCAL_PATH)/prebuilt/Torch.apk:system/app/Torch.apk \
     $(LOCAL_PATH)/prebuilt/get_macaddrs:system/bin/get_macaddrs
 
-#    $(LOCAL_PATH)/prebuilt/WiFi-Calling.apk:system/app/WiFi-Calling.apk \
+# $(LOCAL_PATH)/prebuilt/WiFi-Calling.apk:system/app/WiFi-Calling.apk \
 
 # Input device calibration files
 PRODUCT_COPY_FILES += \
@@ -82,7 +81,6 @@ PRODUCT_COPY_FILES += \
 
 # LPM
 PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/lpm/etc/audio_policy.conf:system/etc/audio_policy.conf \
     $(LOCAL_PATH)/lpm/bin/charging_mode:system/bin/charging_mode \
     $(LOCAL_PATH)/lpm/bin/playlpm:system/bin/playlpm \
     $(LOCAL_PATH)/lpm/lib/libQmageDecoder.so:system/lib/libQmageDecoder.so \
@@ -111,11 +109,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/lpm/media/battery_error.qmg:system/media/battery_error.qmg \
     $(LOCAL_PATH)/lpm/media/chargingwarning.qmg:system/media/chargingwarning.qmg
 
-#$(LOCAL_PATH)/lpm/etc/audio_policy.conf:system/etc/audio_policy.conf \ 
-PRODUCT_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
-#PRODUCT_PACKAGE_OVERLAYS += device/samsung/ancora_tmo/overlay
-
-# Audio // audio_policy.conf \
+# Audio
 PRODUCT_PACKAGES += \
     camera.msm7x30 \
     copybit.msm7x30 \
