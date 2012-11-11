@@ -21,7 +21,7 @@
 #include <binder/IMemory.h>
 #include <utils/RefBase.h>
 #include <gui/ISurface.h>
-#include "OverlayHtc.h"
+#include <ui/OverlayHtc.h>
 #include <camera/Camera.h>
 #include <camera/CameraParameters.h>
 

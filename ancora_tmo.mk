@@ -143,7 +143,7 @@ PRODUCT_PACKAGES += \
     rild
 
 PRODUCT_PACKAGES += \
-	com.android.future.usb.accessory \
+    com.android.future.usb.accessory \
     hciconfig \
     hcitool \
     libaudioutils
@@ -157,19 +157,14 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
     ro.allow.mock.location=1 \
     ro.debuggable=1
 
-# LOCAL_KERNEL := $(LOCAL_PATH)/prebuilt/kernel
+ifeq ($(TARGET_PREBUILT_KERNEL),)
+    LOCAL_KERNEL := $(LOCAL_PATH)/prebuilt/zImage
+else
+    LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
+ endif
 
-# PRODUCT_COPY_FILES += \
-#   $(LOCAL_KERNEL):kernel
-
-#ifeq ($(TARGET_PREBUILT_KERNEL),)
-#    LOCAL_KERNEL := $(LOCAL_PATH)/prebuilt/zImage
-#else
-#    LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
-#endif
-
-#PRODUCT_COPY_FILES += \
-#    $(LOCAL_KERNEL):kernel
+PRODUCT_COPY_FILES += \
+    $(LOCAL_KERNEL):kernel
 
 # We have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
