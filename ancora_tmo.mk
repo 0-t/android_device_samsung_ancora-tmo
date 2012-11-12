@@ -109,6 +109,10 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/lpm/media/battery_error.qmg:system/media/battery_error.qmg \
     $(LOCAL_PATH)/lpm/media/chargingwarning.qmg:system/media/chargingwarning.qmg
 
+# camera file
+PRODUCT_COPY_FILES += \
+    device/samsung/ancora_tmo/prebuilt/libsurfaceflinger_client.so:system/lib/libsurfaceflinger_client.so
+
 PRODUCT_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 # Audio

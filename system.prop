@@ -43,7 +43,7 @@ dev.pm.dyn_samplingrate=1
 lpa.decode=false
 lpa.use-stagefright=false
 
-# Set default USB interface
+# Set default USB interface // manually change to mass storage in settings >> storage >> menu >> usb computer connection
 persist.sys.usb.config=mtp
 
 # Enable debug mode by default
