@@ -25,6 +25,9 @@
 #define MAX_CAMERAS_SUPPORTED 2
 #define GRALLOC_USAGE_PMEM_PRIVATE_ADSP GRALLOC_USAGE_PRIVATE_0
 
+#define CAMERA_ID_FRONT 1
+#define CAMERA_ID_BACK 0
+
 #include <fcntl.h>
 #include <stdint.h>
 #include <string.h>
@@ -428,13 +431,13 @@ void CameraHAL_FixupParams(android::CameraParameters &camParams, priv_camera_dev
         if (!camParams.get(android::CameraParameters::KEY_MAX_NUM_FOCUS_AREAS)) {
             camParams.set(CameraParameters::KEY_MAX_NUM_FOCUS_AREAS, 1);
         }
-	/* may not need this
+	
 	camParams.set(CameraParameters::KEY_SUPPORTED_FOCUS_MODES, "auto,macro");
 	camParams.set(CameraParameters::KEY_SUPPORTED_ISO_MODES, "auto,ISO50,ISO100,ISO200,ISO400");
 
 	camParams.set(CameraParameters::KEY_MAX_ZOOM, "8");
 	camParams.set(CameraParameters::KEY_ZOOM_RATIOS, "100,125,150,175,200,225,250,275,300");
-	camParams.set(CameraParameters::KEY_ZOOM_SUPPORTED, CameraParameters::TRUE); */
+	camParams.set(CameraParameters::KEY_ZOOM_SUPPORTED, CameraParameters::TRUE);
     }
 
     camParams.set(CameraParameters::KEY_MAX_EXPOSURE_COMPENSATION, 4);
@@ -898,7 +901,7 @@ char* camera_get_parameters(struct camera_device * device)
     camParams.dump();
 #endif
 
-    CameraHAL_FixupParams(camParams);
+    CameraHAL_FixupParams(camParams, dev);
 
 #ifdef HTC_FFC
     if (dev->cameraid == 1) {
