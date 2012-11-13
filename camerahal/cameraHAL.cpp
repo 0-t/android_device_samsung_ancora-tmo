@@ -387,7 +387,7 @@ static void wrap_data_callback_timestamp(nsecs_t timestamp, int32_t msg_type,
  * implementation of priv_camera_device_ops functions
  *******************************************************************/
 
-void CameraHAL_FixupParams(android::CameraParameters &camParams)
+void CameraHAL_FixupParams(android::CameraParameters &camParams, priv_camera_device_t* dev)
 {
     const char *preferred_size = "640x480";
     const char *preview_frame_rates  = "30,27,24,15";
@@ -414,6 +414,33 @@ void CameraHAL_FixupParams(android::CameraParameters &camParams)
     if (!camParams.get(android::CameraParameters::KEY_PREVIEW_FRAME_RATE)) {
         camParams.set(CameraParameters::KEY_PREVIEW_FRAME_RATE, preferred_rate);
     }
+
+    if (!camParams.get(android::CameraParameters::KEY_SUPPORTED_FLASH_MODES)) {
+        camParams.set(CameraParameters::KEY_SUPPORTED_FLASH_MODES, "off,auto,on,torch");
+        /* camParams.set(CameraParameters::KEY_FLASH_MODE, "auto"); */
+    }
+
+    if (dev->cameraid == CAMERA_ID_FRONT) {
+        camParams.set(CameraParameters::KEY_SUPPORTED_ISO_MODES, "");
+    }
+
+    if (dev->cameraid == CAMERA_ID_BACK) {
+        if (!camParams.get(android::CameraParameters::KEY_MAX_NUM_FOCUS_AREAS)) {
+            camParams.set(CameraParameters::KEY_MAX_NUM_FOCUS_AREAS, 1);
+        }
+	/* may not need this
+	camParams.set(CameraParameters::KEY_SUPPORTED_FOCUS_MODES, "auto,macro");
+	camParams.set(CameraParameters::KEY_SUPPORTED_ISO_MODES, "auto,ISO50,ISO100,ISO200,ISO400");
+
+	camParams.set(CameraParameters::KEY_MAX_ZOOM, "8");
+	camParams.set(CameraParameters::KEY_ZOOM_RATIOS, "100,125,150,175,200,225,250,275,300");
+	camParams.set(CameraParameters::KEY_ZOOM_SUPPORTED, CameraParameters::TRUE); */
+    }
+
+    camParams.set(CameraParameters::KEY_MAX_EXPOSURE_COMPENSATION, 4);
+    camParams.set(CameraParameters::KEY_MIN_EXPOSURE_COMPENSATION, -4);
+    camParams.set(CameraParameters::KEY_EXPOSURE_COMPENSATION_STEP, 1);
+
 }
 
 int camera_set_preview_window(struct camera_device * device,
