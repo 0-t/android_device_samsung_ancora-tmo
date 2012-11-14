@@ -1,5 +1,5 @@
 # From htc http://review.cyanogenmod.com/#/c/19965/2/camerahal/Android.mk
-ifeq ($(BOARD_USES_HTC_CAMERA),true)
+ifeq ($(BOARD_USES_LEGACY_CAMERA),true)
 
 $(shell mkdir -p $(OUT)/obj/SHARED_LIBRARIES/libcamera_intermediates/)
 $(shell touch $(OUT)/obj/SHARED_LIBRARIES/libcamera_intermediates/export_includes)

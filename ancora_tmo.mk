@@ -133,7 +133,8 @@ PRODUCT_PACKAGES += \
     libOmxCore \
     libOmxVenc \
     libOmxVdec \
-    libstagefrighthw
+    libstagefrighthw \
+    libI420colorconvert
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
