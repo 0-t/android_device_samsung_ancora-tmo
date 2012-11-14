@@ -15,7 +15,7 @@ LOCAL_MODULE := camera.$(TARGET_BOARD_PLATFORM)
 LOCAL_MODULE_TAGS := optional
 
 LOCAL_SRC_FILES := cameraHAL.cpp
-LOCAL_C_INCLUDES := $(TOP)/frameworks/native/include $(TOP)/frameworks/av/include
+LOCAL_C_INCLUDES := $(TOP)/frameworks/native/include
 
 LOCAL_SHARED_LIBRARIES := liblog libutils libcutils
 LOCAL_SHARED_LIBRARIES := libseccameraadaptor libcamera
