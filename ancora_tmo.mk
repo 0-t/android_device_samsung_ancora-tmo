@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
+DEVICE_PACKAGE_OVERLAYS := $(LOCAL_PATH)/overlay
 
 # This device is hdpi
 PRODUCT_AAPT_CONFIG := normal hdpi
@@ -110,9 +110,10 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/lpm/media/battery_error.qmg:system/media/battery_error.qmg \
     $(LOCAL_PATH)/lpm/media/chargingwarning.qmg:system/media/chargingwarning.qmg
 
+PRODUCT_PACKAGE_OVERLAYS := $(LOCAL_PATH)/overlay
+
 # Audio
 PRODUCT_PACKAGES += \
-    camera.msm7x30 \
     copybit.msm7x30 \
     gralloc.msm7x30 \
     hwcomposer.msm7x30 \
@@ -121,6 +122,11 @@ PRODUCT_PACKAGES += \
     audio_policy.msm7x30 \
     audio.a2dp.default \
     audio_policy.conf
+
+# Camera
+PRODUCT_PACKAGES += \
+    camera.msm7x30 \
+    surfaceflinger_client
 
 # Media
 PRODUCT_PACKAGES += \

@@ -22,7 +22,6 @@ LOCAL_SHARED_LIBRARIES += libseccameraadaptor libcamera
 LOCAL_SHARED_LIBRARIES += libui libhardware libcamera_client
 LOCAL_PRELINK_MODULE := false
 
-
 include $(BUILD_SHARED_LIBRARY)
 
 endif
