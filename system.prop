@@ -17,15 +17,9 @@ wifi.interface=wlan0
 # appropriately. If this property is not defined, the default value is 160 dpi.
 ro.sf.lcd_density=240
 
-<<<<<<< HEAD
 # Set Default Timezone as America/New_York
 persist.sys.timezone=America/New_York
 
-# Wifi interface device
-wifi.interface=wlan0
-
-=======
->>>>>>> cfe0e3c... Initial changes for Jelly Bean
 # The OpenGL ES API level that is natively supported by this device.
 # This is a 16.16 fixed point number.
 ro.opengles.version=131072
