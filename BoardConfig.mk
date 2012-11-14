@@ -46,7 +46,6 @@ BOARD_KERNEL_BASE := 0x00400000
 BOARD_KERNEL_PAGESIZE := 4096
 TARGET_KERNEL_CONFIG := ancora_tmo_defconfig
 TARGET_PREBUILT_KERNEL := device/samsung/ancora_tmo/prebuilt/zImage
-
 COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE -DQCOM_NO_SECURE_PLAYBACK
 COMMON_GLOBAL_CFLAGS += -DBINDER_COMPAT -DSAMSUNG_CAMERA_QCOM
 
@@ -92,7 +91,6 @@ TARGET_NO_HW_VSYNC := true
 # Audio
 BOARD_HAVE_SAMSUNG_AUDIO := true
 BOARD_USES_QCOM_AUDIO_RESETALL := true
-TARGET_USES_QCOM_LPA := true
 
 # Graphics
 BOARD_EGL_CFG := device/samsung/ancora_tmo/config/egl.cfg
@@ -143,4 +141,7 @@ TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/samsung/ancora_tmo/recovery/recovery_keys.c
 BOARD_CUSTOM_GRAPHICS := ../../../device/samsung/ancora_tmo/recovery/graphics.c
 TARGET_RECOVERY_INITRC := device/samsung/ancora_tmo/config/init.recovery.rc
+TARGET_RECOVERY_FSTAB := device/samsung/ancora_tmo/recovery.fstab
+# Enable below line if compiling for a recovery version before 6.0.1.2
+#BOARD_UMS_LUNFILE := /sys/devices/platform/usb_mass_storage/lun%d/file
 # End recovery stuff
