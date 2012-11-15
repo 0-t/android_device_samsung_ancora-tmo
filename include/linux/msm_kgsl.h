@@ -26,28 +26,17 @@
 #define KGSL_FLAGS_RESERVED2   0x00000080
 #define KGSL_FLAGS_SOFT_RESET  0x00000100
 
-/* Clock flags to show which clocks should be controled by a given platform */
-#define KGSL_CLK_SRC	0x00000001
-#define KGSL_CLK_CORE	0x00000002
-#define KGSL_CLK_IFACE	0x00000004
-#define KGSL_CLK_MEM	0x00000008
-#define KGSL_CLK_MEM_IFACE 0x00000010
-#define KGSL_CLK_AXI	0x00000020
-
 /*
  * Reset status values for context
  */
 enum kgsl_ctx_reset_stat {
-	KGSL_CTX_STAT_NO_ERROR				        = 0x00000000,
+	KGSL_CTX_STAT_NO_ERROR				= 0x00000000,
 	KGSL_CTX_STAT_GUILTY_CONTEXT_RESET_EXT		= 0x00000001,
 	KGSL_CTX_STAT_INNOCENT_CONTEXT_RESET_EXT	= 0x00000002,
 	KGSL_CTX_STAT_UNKNOWN_CONTEXT_RESET_EXT		= 0x00000003
 };
 
 #define KGSL_MAX_PWRLEVELS 5
-
-#define KGSL_CONVERT_TO_MBPS(val) \
-	(val*1000*1000U)
 
 /* device id */
 enum kgsl_deviceid {
@@ -62,10 +51,10 @@ enum kgsl_user_mem_type {
 	KGSL_USER_MEM_TYPE_ASHMEM	= 0x00000001,
 	KGSL_USER_MEM_TYPE_ADDR		= 0x00000002,
 	KGSL_USER_MEM_TYPE_ION		= 0x00000003,
-	KGSL_USER_MEM_TYPE_MAX      = 0x00000004
 };
 
 struct kgsl_devinfo {
+
 	unsigned int device_id;
 	/* chip revision id
 	* coreid:8 majorrev:8 minorrev:8 patch:8
@@ -100,6 +89,7 @@ struct kgsl_devmemstore {
 
 #define KGSL_DEVICE_MEMSTORE_OFFSET(field) \
 	offsetof(struct kgsl_devmemstore, field)
+
 
 /* timestamp id*/
 enum kgsl_timestamp_type {
@@ -149,7 +139,12 @@ struct kgsl_version {
 #define KGSL_2D1_REG_MEMORY	"kgsl_2d1_reg_memory"
 #define KGSL_2D1_IRQ		"kgsl_2d1_irq"
 
-struct kgsl_device_platform_data  {
+struct kgsl_grp_clk_name {
+	const char *clk;
+	const char *pclk;
+};
+
+struct kgsl_device_pwr_data {
 	struct kgsl_pwrlevel pwrlevel[KGSL_MAX_PWRLEVELS];
 	int init_level;
 	int num_levels;
@@ -157,9 +152,20 @@ struct kgsl_device_platform_data  {
 	unsigned int idle_timeout;
 	bool strtstp_sleepwake;
 	unsigned int nap_allowed;
-	unsigned int clk_map;
 	unsigned int idle_needed;
+	unsigned int idle_pass;
+};
+
+struct kgsl_clk_data {
+	struct kgsl_grp_clk_name name;
 	struct msm_bus_scale_pdata *bus_scale_table;
+};
+
+struct kgsl_device_platform_data {
+	struct kgsl_device_pwr_data pwr_data;
+	struct kgsl_clk_data clk;
+	/* imem_clk_name is for 3d only, not used in 2d devices */
+	struct kgsl_grp_clk_name imem_clk_name;
 	const char *iommu_user_ctx_name;
 	const char *iommu_priv_ctx_name;
 };
@@ -196,6 +202,7 @@ struct kgsl_device_getproperty {
 #define IOCTL_KGSL_DEVICE_GETPROPERTY \
 	_IOWR(KGSL_IOC_TYPE, 0x2, struct kgsl_device_getproperty)
 
+
 /* read a GPU register.
    offsetwords it the 32 bit word offset from the beginning of the
    GPU register space.
@@ -208,6 +215,7 @@ struct kgsl_device_regread {
 #define IOCTL_KGSL_DEVICE_REGREAD \
 	_IOWR(KGSL_IOC_TYPE, 0x3, struct kgsl_device_regread)
 
+
 /* block until the GPU has executed past a given timestamp
  * timeout is in milliseconds.
  */
@@ -218,6 +226,7 @@ struct kgsl_device_waittimestamp {
 
 #define IOCTL_KGSL_DEVICE_WAITTIMESTAMP \
 	_IOW(KGSL_IOC_TYPE, 0x6, struct kgsl_device_waittimestamp)
+
 
 /* issue indirect commands to the GPU.
  * drawctxt_id must have been created with IOCTL_KGSL_DRAWCTXT_CREATE
