@@ -21,7 +21,7 @@
 #include <binder/IMemory.h>
 #include <utils/RefBase.h>
 #include <gui/ISurface.h>
-#include <ui/Overlay.h>
+/* #include <ui/Overlay.h> */
 #include <camera/Camera.h>
 #include <camera/CameraParameters.h>
 
@@ -232,7 +232,7 @@ public:
      */
     virtual status_t dump(int fd, const Vector<String16>& args) const = 0;
 
-    /* virtual void takeLiveSnapshot() = 0; */
+    virtual void takeLiveSnapshot() = 0;
 };
 
 /** factory function to instantiate a camera hardware object */

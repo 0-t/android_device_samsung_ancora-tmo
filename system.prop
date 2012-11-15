@@ -50,12 +50,12 @@ persist.sys.usb.config=mtp
 ro.vold.umsdirtyratio=50
 
 # Enable debug mode by default
-persist.sys.usb.config=mass_storage,adb
+# persist.sys.usb.config=mass_storage,adb
 persist.service.adb.enable=1
-persist.sys.strictmode.disable=true
-ro.secure=0
-ro.allow.mock.location=1
-ro.debuggable=1
+# persist.sys.strictmode.disable=true
+# ro.secure=0
+# ro.allow.mock.location=1
+# ro.debuggable=1
 
 # Storage configuration
 ro.vold.switchablepair=/mnt/sdcard,/mnt/external_sd

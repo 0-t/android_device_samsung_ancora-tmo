@@ -407,7 +407,7 @@ void CameraHAL_FixupParams(android::CameraParameters &camParams, priv_camera_dev
 
     if (!camParams.get(android::CameraParameters::KEY_SUPPORTED_FLASH_MODES)) {
         camParams.set(CameraParameters::KEY_SUPPORTED_FLASH_MODES, "off,auto,on,torch");
-        camParams.set(CameraParameters::KEY_FLASH_MODE, "auto");
+       /* camParams.set(CameraParameters::KEY_FLASH_MODE, "auto"); */
     }
 
     if (dev->cameraid == CAMERA_ID_FRONT) {
