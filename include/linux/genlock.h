@@ -5,8 +5,8 @@
 #define GENLOCK_WRLOCK 1
 #define GENLOCK_RDLOCK 2
 
-#define GENLOCK_NOBLOCK         (1 << 0)
-#define GENLOCK_WRITE_TO_READ   (1 << 1)
+#define GENLOCK_NOBLOCK       (1 << 0)
+#define GENLOCK_WRITE_TO_READ (1 << 1)
 
 struct genlock_lock {
 	int fd;
@@ -32,5 +32,5 @@ struct genlock_lock {
 #define GENLOCK_IOC_WAIT _IOW(GENLOCK_IOC_MAGIC, 5, \
 	struct genlock_lock)
 #define GENLOCK_IOC_DREADLOCK _IOW(GENLOCK_IOC_MAGIC, 6, \
-    struct genlock_lock)
+	struct genlock_lock)
 #endif
