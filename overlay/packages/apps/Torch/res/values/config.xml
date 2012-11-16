@@ -1,4 +1,5 @@
 <resources>
     <!-- If there is no sysfs-based control mechanism, enable this -->
     <bool name="useCameraInterface">true</bool>
+    <bool name="has_led_flash">true</bool>
 </resources>
