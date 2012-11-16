@@ -44,13 +44,22 @@ lpa.decode=false
 lpa.use-stagefright=false
 
 # Set default USB interface
+persist.sys.usb.config=mass_storage
 # persist.sys.usb.config=mtp
+
+# system prop for adb_notification
+# persist.adb.notify=0
+
+# system prop for usb_notification
+#persist.usb_mass_storage.notify=0
+
+# for 480x800 panel
+#ro.sf.lcd_density=240
 
 # Increase speed for UMS transfer
 ro.vold.umsdirtyratio=50
 
 # Enable debug mode by default
-persist.sys.usb.config=mass_storage,adb
 persist.service.adb.enable=1
 # persist.sys.strictmode.disable=true
 # ro.secure=0
@@ -62,3 +71,7 @@ ro.vold.switchablepair=/mnt/sdcard,/mnt/external_sd
 
 # Enable repeatable keys in recovery
 ro.cwm.enable_key_repeat=true
+
+# tweaks
+#persist.sys.ui.hw=1
+#dalvik.vm.verify_bytecode=false

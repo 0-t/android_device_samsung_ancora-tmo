@@ -107,11 +107,11 @@ BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := msm7x30
 BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 50000
 
 # Filesystem
-# BOARD_MTP_DEVICE := "/dev/usb_mtp_gadget"
+BOARD_MTP_DEVICE := "/dev/usb_mtp_gadget"
 BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
 BOARD_VOLD_MAX_PARTITIONS := 28
 TARGET_USERIMAGES_USE_EXT4 := true
-TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/file
+TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/usb_mass_storage/lun%d/file
 
 # Camera
 BOARD_USES_LEGACY_OVERLAY := true
