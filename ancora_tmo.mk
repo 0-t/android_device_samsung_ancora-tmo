@@ -121,9 +121,7 @@ PRODUCT_PACKAGES += \
 
 # Camera
 PRODUCT_PACKAGES += \
-    camera.msm7x30 \
-    
-#surfaceflinger_client
+    camera.msm7x30
 
 # Media
 PRODUCT_PACKAGES += \
@@ -160,11 +158,11 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
     ro.allow.mock.location=1 \
     ro.debuggable=1
 
-ifeq ($(TARGET_PREBUILT_KERNEL),)
-    LOCAL_KERNEL := $(LOCAL_PATH)/prebuilt/zImage
-else
-    LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
-endif
+#ifeq ($(TARGET_PREBUILT_KERNEL),)
+#    LOCAL_KERNEL := $(LOCAL_PATH)/prebuilt/zImage
+#else
+#    LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
+#endif
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_KERNEL):kernel

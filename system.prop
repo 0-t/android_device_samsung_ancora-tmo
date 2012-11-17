@@ -43,9 +43,16 @@ dev.pm.dyn_samplingrate=1
 lpa.decode=false
 lpa.use-stagefright=false
 
+# USB Mass Storage
+#sys.usb.config=mass_storage,adb
+
 # Set default USB interface
 persist.sys.usb.config=mass_storage
 # persist.sys.usb.config=mtp
+
+# Enable debug mode by default
+persist.service.adb.enable=1
+# persist.sys.strictmode.disable=true
 
 # system prop for adb_notification
 # persist.adb.notify=0
@@ -55,10 +62,6 @@ persist.sys.usb.config=mass_storage
 
 # Increase speed for UMS transfer
 ro.vold.umsdirtyratio=50
-
-# Enable debug mode by default
-persist.service.adb.enable=1
-# persist.sys.strictmode.disable=true
 
 # Storage configuration
 ro.vold.switchablepair=/mnt/sdcard,/mnt/external_sd
