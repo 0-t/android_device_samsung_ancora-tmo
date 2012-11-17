@@ -33,10 +33,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
     frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
     frameworks/native/data/etc/android.hardware.sensor.proximity.xml:system/etc/permissions/android.hardware.sensor.proximity.xml \
-    frameworks/native/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml \
-    frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
-    frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
-    frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml
+    frameworks/native/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml
 
 # Feature live wallpaper
 PRODUCT_COPY_FILES += \
@@ -59,7 +56,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/remount:system/xbin/remount \
     $(LOCAL_PATH)/prebuilt/cifsmanager.apk:system/app/cifsmanager.apk \
     $(LOCAL_PATH)/prebuilt/SamsungServiceMode.apk:system/app/SamsungServiceMode.apk \
-    $(LOCAL_PATH)/prebuilt/be.watana.rebootlogger-1.apk:system/app/be.watana.rebootlogger-1.apk \
     $(LOCAL_PATH)/prebuilt/aLogcat_2.6.1.apk:system/app/aLogcat_2.6.1.apk \
     $(LOCAL_PATH)/prebuilt/Torch.apk:system/app/Torch.apk \
     $(LOCAL_PATH)/prebuilt/get_macaddrs:system/bin/get_macaddrs
@@ -148,11 +144,9 @@ PRODUCT_PACKAGES += \
     resize2fs\
     tune2fs \
     make_ext4fs \
-    setup_fs \
-    rild
+    setup_fs
 
 PRODUCT_PACKAGES += \
-    com.android.future.usb.accessory \
     hciconfig \
     hcitool \
     libaudioutils
@@ -170,7 +164,7 @@ ifeq ($(TARGET_PREBUILT_KERNEL),)
     LOCAL_KERNEL := $(LOCAL_PATH)/prebuilt/zImage
 else
     LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
- endif
+endif
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_KERNEL):kernel

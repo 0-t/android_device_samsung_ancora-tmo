@@ -51,10 +51,7 @@ persist.sys.usb.config=mass_storage
 # persist.adb.notify=0
 
 # system prop for usb_notification
-#persist.usb_mass_storage.notify=0
-
-# for 480x800 panel
-#ro.sf.lcd_density=240
+# persist.usb_mass_storage.notify=0
 
 # Increase speed for UMS transfer
 ro.vold.umsdirtyratio=50
@@ -62,9 +59,6 @@ ro.vold.umsdirtyratio=50
 # Enable debug mode by default
 persist.service.adb.enable=1
 # persist.sys.strictmode.disable=true
-# ro.secure=0
-# ro.allow.mock.location=1
-# ro.debuggable=1
 
 # Storage configuration
 ro.vold.switchablepair=/mnt/sdcard,/mnt/external_sd
