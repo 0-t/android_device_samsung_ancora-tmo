@@ -20,8 +20,8 @@
 
 #define LOG_TAG "CameraHAL"
 
-/*#define ALOG_NDEBUG 1 // disable LOGV */
-/* #define DUMP_PARAMS 1 // dump parameteters after get/set operation */
+#define LOG_NDEBUG 1      /* disable LOGV */
+//#define DUMP_PARAMS 1   /* dump parameteters after get/set operation */
 
 #define MAX_CAMERAS_SUPPORTED 2
 #define GRALLOC_USAGE_PMEM_PRIVATE_ADSP GRALLOC_USAGE_PRIVATE_0
@@ -36,7 +36,7 @@
 #include <signal.h>
 
 #include <cutils/log.h>
-#include "OverlayHtc.h"
+#include <ui/Overlay.h>
 #include <camera/CameraParameters.h>
 #include <hardware/camera.h>
 #include <binder/IMemory.h>
@@ -68,23 +68,23 @@ static int camera_get_camera_info(int camera_id, struct camera_info *info);
 int camera_get_number_of_cameras(void);
 
 static struct hw_module_methods_t camera_module_methods = {
-	open: camera_device_open
+    open: camera_device_open
 };
 
 camera_module_t HAL_MODULE_INFO_SYM = {
-	common: {
-		tag: HARDWARE_MODULE_TAG,
-		version_major: 1,
-		version_minor: 0,
-		id: CAMERA_HARDWARE_MODULE_ID,
-		name: "7x30 CameraHal Module",
-		author: "Zhibin Wu",
-		methods: &camera_module_methods,
-		dso: NULL, /* remove compilation warnings */
-		reserved: {0}, /* remove compilation warnings */
-	},
-	get_number_of_cameras: camera_get_number_of_cameras,
-	get_camera_info: camera_get_camera_info,
+    common: {
+        tag: HARDWARE_MODULE_TAG,
+        version_major: 1,
+        version_minor: 0,
+        id: CAMERA_HARDWARE_MODULE_ID,
+        name: "7x30 CameraHal Module",
+        author: "Zhibin Wu",
+        methods: &camera_module_methods,
+        dso: NULL, /* remove compilation warnings */
+        reserved: {0}, /* remove compilation warnings */
+    },
+    get_number_of_cameras: camera_get_number_of_cameras,
+    get_camera_info: camera_get_camera_info,
 };
 
 typedef struct priv_camera_device {
@@ -149,7 +149,6 @@ static void wrap_set_fd_hook(void *data, int fd)
         return;
 
     dev = (priv_camera_device_t*) data;
-    ALOGI("%s---: fd %i", __FUNCTION__, fd);
 }
 
 static void wrap_set_crop_hook(void *data,
@@ -163,8 +162,8 @@ static void wrap_set_crop_hook(void *data,
         return;
 
     dev = (priv_camera_device_t*) data;
-    ALOGI("%s---: %i %i %i %i", __FUNCTION__, x, y, w, h);
 }
+
 //QiSS ME for preview
 static void wrap_queue_buffer_hook(void *data, void* buffer)
 {
@@ -180,13 +179,13 @@ static void wrap_queue_buffer_hook(void *data, void* buffer)
 
     window = dev->window;
 
-	//QiSS ME fix video preview crash
+    //QiSS ME fix video preview crash
     if(window == 0)
-		return;
+        return;
 
     heap = gCameraHals[dev->cameraid]->getPreviewHeap();
     if(heap == 0)
-		return;
+        return;
 
     int offset = (int)buffer;
     char *frame = (char *)(heap->base()) + offset;
@@ -273,8 +272,6 @@ static camera_memory_t *wrap_memory_data(priv_camera_device_t *dev,
     heap = dataPtr->getMemory(&offset, &size);
     data = (void *)((char *)(heap->base()) + offset);
 
-    //LOGI("%s: data: %p size: %i", __FUNCTION__, data, size);
-    //ALOGI(" offset:0x%x ",  offset);
     ALOGV("%s: data: %p size: %i", __FUNCTION__, data, size);
     ALOGV(" offset: %lu", (unsigned long)offset);
 
@@ -325,8 +322,8 @@ static void wrap_notify_callback(int32_t msg_type, int32_t ext1,
 
     if (dev->notify_callback)
         dev->notify_callback(msg_type, ext1, ext2, dev->user);
-    
-	ALOGV("%s---", __FUNCTION__);
+
+    ALOGV("%s---", __FUNCTION__);
 }
 
 //QiSS ME for capture
@@ -354,16 +351,15 @@ static void wrap_data_callback(int32_t msg_type, const sp<IMemory>& dataPtr,
 
     if (dev->data_callback)
         dev->data_callback(msg_type, data, 0, NULL, dev->user);
-	ALOGI("%s---", __FUNCTION__);
 
-    if (NULL != data) {
+    if ( NULL != data ) {
         data->release(data);
     }
 
-	 ALOGV("%s---", __FUNCTION__);
+    ALOGV("%s---", __FUNCTION__);
 }
-//QiSS ME for record
 
+//QiSS ME for record
 static void wrap_data_callback_timestamp(nsecs_t timestamp, int32_t msg_type,
                                          const sp<IMemory>& dataPtr, void* user)
 {
@@ -388,27 +384,32 @@ static void wrap_data_callback_timestamp(nsecs_t timestamp, int32_t msg_type,
     if ( NULL != data ) {
         data->release(data);
     }
-
-	ALOGV("%s---", __FUNCTION__);
+    ALOGV("%s---", __FUNCTION__);
 }
 
 /*******************************************************************
  * implementation of priv_camera_device_ops functions
  *******************************************************************/
 
-void CameraHAL_FixupParams(android::CameraParameters &camParams,priv_camera_device_t* dev)
+void CameraHAL_FixupParams(android::CameraParameters &camParams, priv_camera_device_t* dev)
 {
     const char *preferred_size = "640x480";
 
     camParams.set(android::CameraParameters::KEY_VIDEO_FRAME_FORMAT,
                   android::CameraParameters::PIXEL_FORMAT_YUV420SP);
 
-	if (!camParams.get(CameraParameters::KEY_PREFERRED_PREVIEW_SIZE_FOR_VIDEO)) {
-	    camParams.set(CameraParameters::KEY_PREFERRED_PREVIEW_SIZE_FOR_VIDEO, preferred_size);
-	}
+    if (!camParams.get(CameraParameters::KEY_PREFERRED_PREVIEW_SIZE_FOR_VIDEO)) {
+        camParams.set(CameraParameters::KEY_PREFERRED_PREVIEW_SIZE_FOR_VIDEO,
+                  preferred_size);
+    }
 
     if (!camParams.get(android::CameraParameters::KEY_SUPPORTED_FLASH_MODES)) {
         camParams.set(CameraParameters::KEY_SUPPORTED_FLASH_MODES, "off,auto,on,torch");
+       /* camParams.set(CameraParameters::KEY_FLASH_MODE, "auto"); */
+    }
+
+    if (dev->cameraid == CAMERA_ID_FRONT) {
+        camParams.set(CameraParameters::KEY_SUPPORTED_ISO_MODES, "");
     }
 
     if (dev->cameraid == CAMERA_ID_FRONT) {
@@ -419,11 +420,9 @@ void CameraHAL_FixupParams(android::CameraParameters &camParams,priv_camera_devi
         if (!camParams.get(android::CameraParameters::KEY_MAX_NUM_FOCUS_AREAS)) {
             camParams.set(CameraParameters::KEY_MAX_NUM_FOCUS_AREAS, 1);
         }
-		/* may not need this 
-		camParams.set(CameraParameters::KEY_SUPPORTED_FOCUS_MODES, "auto,macro");
+        camParams.set(CameraParameters::KEY_SUPPORTED_FOCUS_MODES, "auto,macro");
         camParams.set(CameraParameters::KEY_SUPPORTED_ISO_MODES, "auto,ISO50,ISO100,ISO200,ISO400");
-
-        camParams.set(CameraParameters::KEY_MAX_ZOOM, "8");
+        /* camParams.set(CameraParameters::KEY_MAX_ZOOM, "8");
         camParams.set(CameraParameters::KEY_ZOOM_RATIOS, "100,125,150,175,200,225,250,275,300");
         camParams.set(CameraParameters::KEY_ZOOM_SUPPORTED, CameraParameters::TRUE); */
     }
@@ -436,7 +435,6 @@ void CameraHAL_FixupParams(android::CameraParameters &camParams,priv_camera_devi
 int camera_set_preview_window(struct camera_device * device,
                               struct preview_stream_ops *window)
 {
-    //int rv = -EINVAL;
     int min_bufs = -1;
     int kBufferCount = 4;
     priv_camera_device_t* dev = NULL;
@@ -452,7 +450,7 @@ int camera_set_preview_window(struct camera_device * device,
 
     if (!window) {
         ALOGI("%s---: window is NULL", __FUNCTION__);
-		gCameraHals[dev->cameraid]->setOverlay(NULL);
+        gCameraHals[dev->cameraid]->setOverlay(NULL);
         return 0;
     }
 
@@ -495,7 +493,7 @@ int camera_set_preview_window(struct camera_device * device,
 
     //Enable panorama without camera application "hacks"
     //if (window->set_usage(window, GRALLOC_USAGE_SW_WRITE_MASK)) {
-    //    LOGE("%s---: could not set usage on gralloc buffer", __FUNCTION__);
+    //    ALOGE("%s---: could not set usage on gralloc buffer", __FUNCTION__);
     //    return -1;
     //}
 
@@ -512,14 +510,13 @@ int camera_set_preview_window(struct camera_device * device,
     dev->preview_height = preview_height;
 
     if (dev->overlay == NULL) {
-        dev->overlay = new Overlay(wrap_set_fd_hook,
+        dev->overlay =  new Overlay(wrap_set_fd_hook,
                                     wrap_set_crop_hook,
                                     wrap_queue_buffer_hook,
                                     (void *)dev);
-	}
-
+    }
     gCameraHals[dev->cameraid]->setOverlay(dev->overlay);
-    
+
     ALOGI("%s---", __FUNCTION__);
     return 0;
 }
@@ -560,7 +557,7 @@ void camera_enable_msg_type(struct camera_device * device, int32_t msg_type)
     if (msg_type & CAMERA_MSG_RAW_IMAGE_NOTIFY) {
         msg_type &= ~CAMERA_MSG_RAW_IMAGE_NOTIFY;
         msg_type |= CAMERA_MSG_RAW_IMAGE;
-	}
+    }
 
     dump_msg(__FUNCTION__, msg_type);
 
@@ -587,7 +584,7 @@ void camera_disable_msg_type(struct camera_device * device, int32_t msg_type)
     dev = (priv_camera_device_t*) device;
 
     /* The camera app disables the shutter too early which leads to crash.
-	* Leaving it enabled. */
+     * Leaving it enabled. */
     if (msg_type == CAMERA_MSG_SHUTTER)
         return;
 
@@ -629,7 +626,7 @@ int camera_start_preview(struct camera_device * device)
     ALOGI("%s--- rv %d", __FUNCTION__,rv);
 
     if(!rv)
-      dev->preview_started=1;
+      dev->preview_started = 1;
 
     return rv;
 }
@@ -644,7 +641,7 @@ void camera_stop_preview(struct camera_device * device)
         return;
 
     dev = (priv_camera_device_t*) device;
-    dev->preview_started=0;
+    dev->preview_started = 0;
 
     gCameraHals[dev->cameraid]->stopPreview();
     ALOGI("%s---", __FUNCTION__);
@@ -703,9 +700,8 @@ int camera_start_recording(struct camera_device * device)
     dev = (priv_camera_device_t*) device;
 
     rv = gCameraHals[dev->cameraid]->startRecording();
-    
-	ALOGI("%s--- rv %d", __FUNCTION__,rv);
 
+    ALOGI("%s--- rv %d", __FUNCTION__,rv);
     return rv;
 }
 
@@ -724,8 +720,8 @@ void camera_stop_recording(struct camera_device * device)
 
     //QiSS ME force start preview when recording stop
     gCameraHals[dev->cameraid]->startPreview();
-    
-	ALOGI("%s---", __FUNCTION__);
+
+    ALOGI("%s---", __FUNCTION__);
 }
 
 int camera_recording_enabled(struct camera_device * device)
@@ -741,8 +737,8 @@ int camera_recording_enabled(struct camera_device * device)
     dev = (priv_camera_device_t*) device;
 
     rv = gCameraHals[dev->cameraid]->recordingEnabled();
-    
-	ALOGI("%s--- rv %d", __FUNCTION__,rv);
+
+    ALOGI("%s--- rv %d", __FUNCTION__,rv);
     return rv;
 }
 
@@ -816,7 +812,7 @@ int camera_take_picture(struct camera_device * device)
 
     dev = (priv_camera_device_t*) device;
 
-	gCameraHals[dev->cameraid]->enableMsgType(CAMERA_MSG_SHUTTER |
+    gCameraHals[dev->cameraid]->enableMsgType(CAMERA_MSG_SHUTTER |
         CAMERA_MSG_POSTVIEW_FRAME |
         CAMERA_MSG_RAW_IMAGE |
         CAMERA_MSG_COMPRESSED_IMAGE);
@@ -895,7 +891,7 @@ char* camera_get_parameters(struct camera_device * device)
     camParams.dump();
 #endif
 
-    CameraHAL_FixupParams(camParams,dev);
+    CameraHAL_FixupParams(camParams, dev);
 
     params_str8 = camParams.flatten();
     params = (char*) malloc(sizeof(char) * (params_str8.length()+1));
@@ -922,7 +918,8 @@ int camera_send_command(struct camera_device * device,
     int rv = -EINVAL;
     priv_camera_device_t* dev = NULL;
 
-    ALOGI("%s: cmd %i,device %p", __FUNCTION__, cmd,device);
+    ALOGI("%s: cmd %i, arg1: %i arg2: %i, device %p", __FUNCTION__,
+        cmd, arg1, arg2, device);
 
     if(!device)
         return rv;
@@ -930,6 +927,7 @@ int camera_send_command(struct camera_device * device,
     dev = (priv_camera_device_t*) device;
 
     rv = gCameraHals[dev->cameraid]->sendCommand(cmd, arg1, arg2);
+
     ALOGI("%s--- rv %d", __FUNCTION__,rv);
     return rv;
 }
@@ -944,7 +942,7 @@ void camera_release(struct camera_device * device)
         return;
 
     dev = (priv_camera_device_t*) device;
-    dev->preview_started=0;
+    dev->preview_started = 0;
 
     gCameraHals[dev->cameraid]->release();
     ALOGI("%s---", __FUNCTION__);
@@ -992,7 +990,8 @@ int camera_device_close(hw_device_t* device)
         if (dev->base.ops) {
             free(dev->base.ops);
         }
-		if (dev->overlay != NULL) {
+
+        if (dev->overlay != NULL) {
             dev->overlay.clear();
             dev->overlay = NULL;
         }
@@ -1034,7 +1033,7 @@ int camera_device_open(const hw_module_t* module, const char* name,
 
     //android::Mutex::Autolock lock(gCameraDeviceLock);
 
-	/* add SIGFPE handler */
+    /* add SIGFPE handler */
     signal(SIGFPE, sigfpe_handle);
 
     ALOGI("camera_device open+++");
@@ -1116,7 +1115,6 @@ int camera_device_open(const hw_module_t* module, const char* name,
         priv_camera_device->cameraid = cameraid;
 
         camera = SEC_openCameraHardware(cameraid);
-
         if(camera == NULL)
         {
             ALOGE("Couldn't create instance of CameraHal class");

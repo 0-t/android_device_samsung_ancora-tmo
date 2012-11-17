@@ -4,9 +4,8 @@
 #define GENLOCK_UNLOCK 0
 #define GENLOCK_WRLOCK 1
 #define GENLOCK_RDLOCK 2
-
-#define GENLOCK_NOBLOCK         (1 << 0)
-#define GENLOCK_WRITE_TO_READ   (1 << 1)
+#define GENLOCK_NOBLOCK       (1 << 0)
+#define GENLOCK_WRITE_TO_READ (1 << 1)
 
 struct genlock_lock {
 	int fd;
