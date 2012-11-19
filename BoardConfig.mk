@@ -42,6 +42,13 @@ TARGET_BOOTANIMATION_PRELOAD := true
 TARGET_BOOTANIMATION_TEXTURE_CACHE := true
 TARGET_BOOTANIMATION_USE_RGB565 := true
 
+# Linaro
+ARCH_ARM_HAVE_ARMV7A := true
+TARGET_GLOBAL_CFLAGS += -mtune=cortex-a8 -mfpu=neon -mfloat-abi=softfp
+TARGET_GLOBAL_CPPFLAGS += -mtune=cortex-a8 -mfpu=neon -mfloat-abi=softfp 
+#TARGET_GLOBAL_CFLAGS += -O3 -mtune=cortex-a8 -mfpu=neon -mfloat-abi=softfp -fmodulo-sched -fmodulo-sched-allow-regmoves
+#TARGET_GLOBAL_CPPFLAGS += -O3 -mtune=cortex-a8 -mfpu=neon -mfloat-abi=softfp -fmodulo-sched -fmodulo-sched-allow-regmoves
+
 # CPU/Platform
 ARCH_ARM_HAVE_TLS_REGISTER := true
 TARGET_BOARD_PLATFORM := msm7x30
@@ -86,7 +93,7 @@ BOARD_USES_QCOM_HARDWARE := true
 BOARD_USES_QCOM_GPS := true
 BOARD_USES_LEGACY_RIL := true
 TARGET_PROVIDES_LIBLIGHTS := true
-TARGET_NO_HW_VSYNC := false
+TARGET_NO_HW_VSYNC := true
 
 # Audio
 BOARD_HAVE_SAMSUNG_AUDIO := true
@@ -108,9 +115,9 @@ TARGET_WEBKIT_USE_MORE_MEMORY := true
 ENABLE_WEBGL := true
 
 ## Smoothness hack from burstlam - default enabled
-ifndef NO_PB
-COMMON_GLOBAL_CFLAGS += -DUSES_LEGACY_EGL
-endif
+#ifndef NO_PB
+#COMMON_GLOBAL_CFLAGS += -DUSES_LEGACY_EGL
+#endif
 
 # GPS
 BOARD_VENDOR_QCOM_AMSS_VERSION := 6225

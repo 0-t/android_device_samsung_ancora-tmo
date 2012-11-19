@@ -106,8 +106,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/lpm/media/battery_error.qmg:system/media/battery_error.qmg \
     $(LOCAL_PATH)/lpm/media/chargingwarning.qmg:system/media/chargingwarning.qmg
 
-PRODUCT_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
-
 # Audio
 PRODUCT_PACKAGES += \
     copybit.msm7x30 \
@@ -120,6 +118,7 @@ PRODUCT_PACKAGES += \
     audio_policy.conf
 
 # Camera
+PRODUCT_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 PRODUCT_PACKAGES += \
     camera.msm7x30
 
@@ -144,6 +143,7 @@ PRODUCT_PACKAGES += \
     make_ext4fs \
     setup_fs
 
+# BT
 PRODUCT_PACKAGES += \
     hciconfig \
     hcitool \
@@ -158,14 +158,14 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
     ro.allow.mock.location=1 \
     ro.debuggable=1
 
-#ifeq ($(TARGET_PREBUILT_KERNEL),)
+# ifeq ($(TARGET_PREBUILT_KERNEL),)
 #    LOCAL_KERNEL := $(LOCAL_PATH)/prebuilt/zImage
-#else
+# else
 #    LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
-#endif
+# endif
 
-PRODUCT_COPY_FILES += \
-    $(LOCAL_KERNEL):kernel
+# PRODUCT_COPY_FILES += \
+#    $(LOCAL_KERNEL):kernel
 
 # We have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
