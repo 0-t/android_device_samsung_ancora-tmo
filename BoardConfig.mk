@@ -114,7 +114,7 @@ ENABLE_JSC_JIT := true
 TARGET_WEBKIT_USE_MORE_MEMORY := true
 ENABLE_WEBGL := true
 
-## Smoothness hack from burstlam - default enabled
+## Smoothness hack from burstlam - default enabled.
 #ifndef NO_PB
 #COMMON_GLOBAL_CFLAGS += -DUSES_LEGACY_EGL
 #endif
