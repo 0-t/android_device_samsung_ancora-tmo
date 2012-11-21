@@ -1,5 +1,3 @@
-$(shell mkdir -p $(OUT)/obj/SHARED_LIBRARIES/libcamera_intermediates/)
-$(shell touch $(OUT)/obj/SHARED_LIBRARIES/libcamera_intermediates/export_includes)
 $(shell mkdir -p $(OUT)/obj/SHARED_LIBRARIES/libseccameraadaptor_intermediates/)
 $(shell touch $(OUT)/obj/SHARED_LIBRARIES/libseccameraadaptor_intermediates/export_includes)
 
@@ -16,8 +14,8 @@ LOCAL_SRC_FILES := cameraHAL.cpp
 LOCAL_C_INCLUDES := $(TOP)/frameworks/native/include
 
 LOCAL_SHARED_LIBRARIES := liblog libutils libcutils
-LOCAL_SHARED_LIBRARIES += libcamera libcamera_client
-LOCAL_SHARED_LIBRARIES += libui libhardware libseccameraadaptor
+LOCAL_SHARED_LIBRARIES += libui libhardware libcamera_client
+LOCAL_SHARED_LIBRARIES += libseccameraadaptor
 LOCAL_PRELINK_MODULE := false
 
 include $(BUILD_SHARED_LIBRARY)
