@@ -37,6 +37,16 @@ debug.sf.hw=1
 debug.egl.hw=1
 debug.enabletr=true
 
+# Common Display Settings (120,150,240)
+# windowsmgr.max_events_per_sec=240
+
+# Qualcomm display settings
+# debug.qctwa.statusbar=1
+# debug.qctwa.preservebuf=1
+
+# Scrolling FPS (4000-8000)
+# ro.max.fling_velocity=4000
+
 # QCOM CpuGovernorService
 dev.pm.dyn_samplingrate=1
 
