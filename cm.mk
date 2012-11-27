@@ -9,8 +9,8 @@ $(call inherit-product, $(LOCAL_PATH)/full_ancora_tmo.mk)
 
 PRODUCT_RELEASE_NAME := ancora_tmo
 
-#CM_EXPERIMENTAL := true
-#CM_EXTRAVERSION := alpha1
+CM_EXPERIMENTAL := true
+CM_EXTRAVERSION := alpha2
 
 # Setup device configuration
 PRODUCT_NAME := cm_ancora_tmo
@@ -20,5 +20,3 @@ PRODUCT_MANUFACTURER := Samsung
 PRODUCT_MODEL := SGH-T679
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_FINGERPRINT=samsung/SGH-T679/SGH-T679:2.3.6/GINGERBREAD/UVLE1:user/release-keys PRIVATE_BUILD_DESC="SGH-T679-user 2.3.6 GINGERBREAD UVLE1 release-keys"
-
-# TARGET_BOOTANIMATION_NAME := 480

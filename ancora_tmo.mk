@@ -141,8 +141,7 @@ PRODUCT_PACKAGES += \
     resize2fs\
     tune2fs \
     make_ext4fs \
-    setup_fs \
-    rild
+    setup_fs
 
 # BT
 PRODUCT_PACKAGES += \
