@@ -46,6 +46,7 @@ static int write_int(char const *path, int value)
     static int already_warned = 0;
 
     ALOGV("write_int: path=\"%s\", value=\"%d\".", path, value);
+
     fd = open(path, O_RDWR);
 
     if (fd >= 0) {
@@ -80,6 +81,7 @@ static int write_str(char const *path, char const *str)
     static int already_warned = 0;
 
     ALOGV("write_str: path=\"%s\", str=\"%s\".", path, str);
+
     fd = open(path, O_RDWR);
 
     if (fd >= 0) {
@@ -153,6 +155,7 @@ static int set_light_buttons(struct light_device_t *dev,
 static int close_lights(struct light_device_t *dev)
 {
     ALOGV("close_light is called");
+
     if (dev)
         free(dev);
 
