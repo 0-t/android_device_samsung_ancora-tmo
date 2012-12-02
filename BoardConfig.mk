@@ -84,6 +84,7 @@ WIFI_DRIVER_MODULE_ARG           := "iface_name=wlan0 firmware_path=/vendor/firm
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
 TARGET_NEEDS_BLUETOOTH_INIT_DELAY := true
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/ancora_tmo/bluetooth
 
 # Hardware
 BOARD_MOBILEDATA_INTERFACE_NAME = "pdp0"
