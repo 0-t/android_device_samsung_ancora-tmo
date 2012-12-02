@@ -4,7 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.hardware.TvOut;
+// import android.hardware.TvOut;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
@@ -21,8 +21,8 @@ public class DeviceSettings extends PreferenceActivity  {
     public static final String KEY_BACKLIGHT_TIMEOUT = "backlight_timeout";
     public static final String KEY_HSPA = "hspa";
     public static final String KEY_HSPA_CATEGORY = "category_radio";
-    public static final String KEY_TVOUT_ENABLE = "tvout_enable";
-    public static final String KEY_TVOUT_SYSTEM = "tvout_system";
+//    public static final String KEY_TVOUT_ENABLE = "tvout_enable";
+//    public static final String KEY_TVOUT_SYSTEM = "tvout_system";
     public static final String KEY_VOLUME_BOOST = "volume_boost";
     public static final String KEY_VOLUME_CATEGORY = "category_volume_boost";
 
@@ -149,5 +149,5 @@ public class DeviceSettings extends PreferenceActivity  {
         super.onDestroy();
     }
 */
-	private void updateTvOutEnable(boolean connected) {}
+	// private void updateTvOutEnable(boolean connected) {}
 }
