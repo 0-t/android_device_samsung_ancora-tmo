@@ -28,7 +28,7 @@ persist.sys.timezone=America/New_York
 ro.opengles.version=131072
 
 # Performance settings.
-ro.kernel.android.checkjni=1
+ro.kernel.android.checkjni=0
 dalvik.vm.checkjni=false
 dalvik.vm.dexopt-data-only=1
 ro.zram.default=0
@@ -46,17 +46,9 @@ lpa.use-stagefright=false
 
 # Set default USB interface
 persist.sys.usb.config=mass_storage
-# persist.sys.usb.config=mtp,adb
 
 # Enable debug mode by default
 persist.service.adb.enable=1
-# persist.sys.strictmode.disable=true
-
-# system prop for adb_notification
-# persist.adb.notify=0
-
-# system prop for usb_notification
-# persist.usb_mass_storage.notify=0
 
 # Increase speed for UMS transfer
 ro.vold.umsdirtyratio=50

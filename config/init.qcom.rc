@@ -125,8 +125,6 @@ on boot
 
     chown radio system sys/devices/virtual/sec/switch/disable_vbus
     chown radio system sys/devices/virtual/sec/switch/usb_sel
-    chown system system sys/class/misc/notification/led
-    chown system system sys/class/misc/notification/bl_timeout
 
     chown system /sys/devices/platform/rs300000a7.65536/force_sync
     chown system /sys/devices/platform/rs300000a7.65536/sync_sts
@@ -146,17 +144,6 @@ on boot
     chown system system /sys/devices/system/cpu/cpufreq/ondemand/sampling_rate
     chown system system /sys/devices/system/cpu/cpufreq/ondemand/sampling_down_factor
     chown system system /sys/devices/system/cpu/cpufreq/ondemand/io_is_busy
-
-    # Permissions for Camera
-    #chmod 0666 /dev/msm_camera/config0
-    #chmod 0666 /dev/msm_camera/control0
-    #chmod 0666 /dev/msm_camera/frame0
-    #chmod 0666 /dev/msm_camera/config1
-    #chmod 0666 /dev/msm_camera/control1
-    #chmod 0666 /dev/msm_camera/frame1
-
-    # framebuffer permission for copybit
-    #chmod 0666 /dev/graphics/fb0
 
 on emmc-fs
     chmod 0666 /dev/block/mmcblk0p14
