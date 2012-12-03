@@ -149,7 +149,7 @@ PRODUCT_PACKAGES += \
     hciconfig \
     hcitool \
     libaudioutils \
-	ancora_tmoParts
+    ancora_tmoParts
 
 # Build GanOptimizer
 PRODUCT_PACKAGES += GanOptimizer
