@@ -123,6 +123,21 @@ on boot
     chown system audio /sys/devices/virtual/misc/amp/gain_all
     chown system audio /sys/devices/virtual/misc/amp/save
 
+    # Codec Tun (QTR)
+    chown system audio /sys/class/marimba/marimba_gain/codec_tune_enable
+    chown system audio /sys/class/marimba/marimba_gain/analog_headset_rx_left_gain
+    chown system audio /sys/class/marimba/marimba_gain/analog_headset_rx_right_gain
+    chown system audio /sys/class/marimba/marimba_gain/digital_rx_left_gain
+    chown system audio /sys/class/marimba/marimba_gain/digital_rx_right_gain
+    chown system audio /sys/class/marimba/marimba_gain/digital_tx_left_gain
+    chown system audio /sys/class/marimba/marimba_gain/digital_tx_right_gain
+    chown system audio /sys/class/marimba/marimba_gain/analog_tx_left_gain
+    chown system audio /sys/class/marimba/marimba_gain/analog_tx_right_gain
+    chown system audio /sys/class/marimba/marimba_gain/auxpga_left_gain
+    chown system audio /sys/class/marimba/marimba_gain/auxpga_right_gain
+    chown system audio /sys/devices/virtual/misc/amp/gain_all
+    chown system audio /sys/class/marimba/marimba_gain/save
+
     chown radio system sys/devices/virtual/sec/switch/disable_vbus
     chown radio system sys/devices/virtual/sec/switch/usb_sel
 
