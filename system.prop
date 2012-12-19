@@ -6,8 +6,8 @@ rilswitch.vendorlibpath=/system/lib/libsec-ril.so
 rilswitch.ganlibpath=/system/lib/libganril.so
 rild.libargs=-d /dev/smd0
 
-ro.ril.hsxpa=4 # 1
-ro.ril.gprsclass=12 # 10
+ro.ril.hsxpa=4
+ro.ril.gprsclass=12
 ro.ril.hsdpa.category=28
 ro.ril.hsupa.category=7
 ro.telephony.ril_class=SamsungRIL
