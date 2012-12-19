@@ -12,8 +12,6 @@ on init
     symlink /storage/sdcard1 /external_sd
     symlink /storage/sdcard1 /mnt/external_sd
 
-    mkdir /mnt/usbdisk 0755 system system
-
     insmod /lib/modules/bthid.ko
 
 on early-boot
@@ -36,8 +34,6 @@ on boot
     chown bluetooth bluetooth /sys/devices/platform/msm_serial_hs.0/clock
     chmod 0660 /sys/devices/platform/msm_serial_hs.0/clock
 
-    chmod 0444 /sys/devices/platform/msm_hsusb/gadget/usb_state
-
     # Force Power Down
     chmod 0660 /sys/class/sec/pm/power_down
     chown root system /sys/class/sec/pm/power_down
@@ -59,19 +55,11 @@ on boot
     chown system input /sys/class/input/input4/data
     chown system input /sys/class/input/input4/calibration
 
-    # orientation
+    # proximity
     chown system input /sys/class/input/input5/enable
     chown system input /sys/class/input/input5/delay
     chown system input /sys/class/input/input5/wake
     chown system input /sys/class/input/input5/data
-    chown system input /sys/class/input/input5/status
-
-    # proximity
-    chown system input /sys/class/input/input6/enable
-    chown system input /sys/class/input/input6/delay
-    chown system input /sys/class/input/input6/wake
-    chown system input /sys/class/input/input6/data
-    chown system input /sys/class/input/input6/status
 
     chown system system /sys/devices/platform/msm_sdcc.1/polling
     chown system system /sys/devices/platform/msm_sdcc.2/polling
@@ -140,6 +128,7 @@ on boot
 
     chown radio system sys/devices/virtual/sec/switch/disable_vbus
     chown radio system sys/devices/virtual/sec/switch/usb_sel
+    chown radio system sys/devices/platform/android_usb/UsbMenuSel
 
     chown system /sys/devices/platform/rs300000a7.65536/force_sync
     chown system /sys/devices/platform/rs300000a7.65536/sync_sts
@@ -152,7 +141,11 @@ on boot
     chown system system /proc/nosim_handler
     copy /data/dump_enable /proc/dump_enable
 
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 245760
+    # disable performance capturing
+    write /sys/devices/platform/msm_sdcc.1/perf 0
+    write /sys/devices/platform/msm_sdcc.2/perf 0
+    write /sys/devices/platform/msm_sdcc.4/perf 0
+
     write /sys/devices/system/cpu/cpufreq/ondemand/up_threshold 90
     write /sys/devices/system/cpu/cpufreq/ondemand/sampling_rate 75000
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 245760
@@ -163,12 +156,6 @@ on boot
 on emmc-fs
     chmod 0666 /dev/block/mmcblk0p14
 
-    wait /dev/block/mmcblk0p15
-    mount ext4 /dev/block/mmcblk0p15 /system ro barrier=1
-    mount ext4 /dev/block/mmcblk0p16 /cache nosuid nodev barrier=0
-    wait /dev/block/mmcblk0p17
-    exec /system/bin/e2fsck -p /dev/block/mmcblk0p17
-    mount ext4 /dev/block/mmcblk0p17 /data nosuid nodev noatime wait crypt barrier=1 noauto_da_alloc errors=continue
     mount_all fstab.qcom
 
     setprop ro.crypto.tmpfs_options size=128m,mode=0771,uid=1000,gid=1000
@@ -267,3 +254,4 @@ on property:init.svc.playlpm=running
     chmod 666 /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor powersave
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq 122880
+
