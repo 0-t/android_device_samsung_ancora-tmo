@@ -37,8 +37,9 @@ ro.zram.default=0
 com.qc.hardware=true
 debug.sf.hw=1
 debug.egl.hw=1
-debug.enabletr=false
+debug.enabletr=true
 com.qc.hdmi_out=false
+ro.sf.compbypass.enable=1
 
 # Low Power Audio
 lpa.decode=false
