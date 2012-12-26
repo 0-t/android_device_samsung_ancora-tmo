@@ -59,7 +59,7 @@ ro.vold.switchablepair=/storage/sdcard0,/storage/sdcard1
 # Enable repeatable keys in recovery
 ro.cwm.enable_key_repeat=true
 
-#Grpahics & performances tweaks
+# Graphics & performances tweaks
 debug.composition.type=gpu
 debug.egl.profiler=1
 debug.performance.tuning=1
@@ -72,7 +72,7 @@ persist.sys.use_dithering=1
 ro.max.fling_velocity=12000
 ro.min.fling_velocity=8000
 
-#Media quality improvements
+# Media quality improvements
 media.stagefright.enable-player=true
 media.stagefright.enable-meta=true
 media.stagefright.enable-scan=true
@@ -84,7 +84,7 @@ ro.media.enc.hprof.vid.bps=8000000
 ro.media.enc.hprof.vid.fps=75
 video.accelerate.hw=1
 
-#Dalvik tweaks
+# Dalvik tweaks
 dalvik.gc.type=precise
 dalvik.vm.heapstartsize=5m
 dalvik.vm.dexopt-data-only=1
@@ -93,7 +93,7 @@ dalvik.vm.jniopts=forcecopy
 dalvik.vm.dexopt-flags=m=v,o=y
 dalvik.vm.execution-mode=int:jit
 
-#Other Performance Tweaks
+# Other Performance Tweaks
 ENFORCE_PROCESS_LIMIT=false
 persist.android.strictmode=0
 persist.service.lgospd.enable=0
@@ -109,9 +109,6 @@ windowsmgr.max_events_per_sec=240
 # Qualcomm display settings
 debug.qctwa.statusbar=1
 debug.qctwa.preservebuf=1
-
-# Scrolling FPS (4000-8000)
-# ro.max.fling_velocity=4000
 
 # QCOM CpuGovernorService
 dev.pm.dyn_samplingrate=1
