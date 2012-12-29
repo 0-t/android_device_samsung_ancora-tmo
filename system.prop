@@ -30,6 +30,7 @@ ro.opengles.version=131072
 # Performance settings.
 ro.kernel.android.checkjni=0
 dalvik.vm.checkjni=false
+dalvik.vm.dexopt-data-only=1
 ro.zram.default=0
 
 # QCOM
@@ -59,56 +60,19 @@ ro.vold.switchablepair=/storage/sdcard0,/storage/sdcard1
 # Enable repeatable keys in recovery
 ro.cwm.enable_key_repeat=true
 
-# Graphics & performances tweaks
-debug.composition.type=gpu
-debug.egl.profiler=1
-debug.performance.tuning=1
-debug.gr.swapinterval=1
-persist.sampling_profiler=0
-persist.sys.NV_FPSLIMIT=60
+# Tweaks
 persist.sys.ui.hw=1
-persist.sys.use_16bpp_alpha=1
-persist.sys.use_dithering=1
-ro.max.fling_velocity=12000
-ro.min.fling_velocity=8000
-
-# Media quality improvements
-media.stagefright.enable-player=true
-media.stagefright.enable-meta=true
-media.stagefright.enable-scan=true
-media.stagefright.enable-http=true
-media.stagefright.enable-record=true
-ro.media.enc.jpeg.quality=100
-ro.media.dec.jpeg.memcap=8000000
-ro.media.enc.hprof.vid.bps=8000000
-ro.media.enc.hprof.vid.fps=75
-video.accelerate.hw=1
-
-# Dalvik tweaks
-dalvik.gc.type=precise
-dalvik.vm.heapstartsize=5m
-dalvik.vm.dexopt-data-only=1
 dalvik.vm.verify_bytecode=false
-dalvik.vm.jniopts=forcecopy
-dalvik.vm.dexopt-flags=m=v,o=y
-dalvik.vm.execution-mode=int:jit
-
-# Other Performance Tweaks
-ENFORCE_PROCESS_LIMIT=false
-persist.android.strictmode=0
-persist.service.lgospd.enable=0
-persist.service.pcsync.enable=0
-ro.min_pointer_dur=1
-ro.telephony.call_ring.delay=0
-ro.sec.proximity.delay=0
-ro.HOME_APP_ADJ=1
 
 # Common Display Settings (120,150,240)
-windowsmgr.max_events_per_sec=240
+windowsmgr.max_events_per_sec=150
 
 # Qualcomm display settings
 debug.qctwa.statusbar=1
 debug.qctwa.preservebuf=1
+
+# Scrolling FPS (4000-8000)
+ro.max.fling_velocity=4000
 
 # QCOM CpuGovernorService
 dev.pm.dyn_samplingrate=1
