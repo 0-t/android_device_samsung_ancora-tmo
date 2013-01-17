@@ -54,6 +54,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/config/fstab.qcom:root/fstab.qcom \
     $(LOCAL_PATH)/config/nvram_net.txt:system/vendor/firmware/nvram_net.txt \
     $(LOCAL_PATH)/prebuilt/com.estrongs.android.pop.apk:system/app/com.estrongs.android.pop.apk \
+    $(LOCAL_PATH)/prebuilt/cifsmanager.apk:system/app/cifsmanager.apk \
     $(LOCAL_PATH)/prebuilt/SamsungServiceMode.apk:system/app/SamsungServiceMode.apk \
     $(LOCAL_PATH)/prebuilt/aLogcat_2.6.1.apk:system/app/aLogcat_2.6.1.apk \
     $(LOCAL_PATH)/prebuilt/get_macaddrs:system/bin/get_macaddrs
@@ -80,9 +81,9 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keyfiles/sec_touchscreen.kl:system/usr/keylayout/sec_touchscreen.kl
 
 # Modules
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilt/cifs.ko:root/lib/modules/cifs.ko \
-    $(LOCAL_PATH)/prebuilt/dhd.ko:root/lib/modules/dhd.ko
+# PRODUCT_COPY_FILES += \
+#    $(LOCAL_PATH)/prebuilt/cifs.ko:root/lib/modules/cifs.ko \
+#    $(LOCAL_PATH)/prebuilt/dhd.ko:root/lib/modules/dhd.ko
 
 # LPM
 PRODUCT_COPY_FILES += \
