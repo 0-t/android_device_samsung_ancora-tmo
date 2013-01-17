@@ -36,23 +36,27 @@ ro.zram.default=0
 # QCOM
 com.qc.hardware=true
 debug.sf.hw=1
+debug.sf.swaprect=1
 debug.egl.hw=1
 debug.enabletr=true
-com.qc.hdmi_out=false
 ro.sf.compbypass.enable=1
+debug.hwui.render_dirty_regions=true
+
+# QCOM CpuGovernorService
+dev.pm.dyn_samplingrate=1
 
 # Low Power Audio
 lpa.decode=false
 lpa.use-stagefright=false
 
 # Set default USB interface
-persist.sys.usb.config=mass_storage,adb
-
-# Enable debug mode by default
-persist.service.adb.enable=1
+persist.sys.usb.config=mtp
 
 # Increase speed for UMS transfer
 ro.vold.umsdirtyratio=50
+
+# Enable debug mode by default
+persist.service.adb.enable=1
 
 # Storage configuration
 ro.vold.switchablepair=/storage/sdcard0,/storage/sdcard1
@@ -73,6 +77,3 @@ debug.qctwa.preservebuf=1
 
 # Scrolling FPS (4000-8000)
 ro.max.fling_velocity=4000
-
-# QCOM CpuGovernorService
-dev.pm.dyn_samplingrate=1

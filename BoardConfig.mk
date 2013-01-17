@@ -89,7 +89,6 @@ BOARD_USES_LIBSECRIL_STUB := true
 BOARD_USE_LEGACY_TOUCHSCREEN := true
 BOARD_USES_LEGACY_RIL := true
 TARGET_PROVIDES_LIBLIGHTS := true
-TARGET_NO_HW_VSYNC := true
 TARGET_SCREEN_HEIGHT := 800
 TARGET_SCREEN_WIDTH := 480
 
@@ -101,10 +100,10 @@ BOARD_USES_QCOM_AUDIO_RESETALL := true
 BOARD_USES_QCOM_HARDWARE := true
 BOARD_ADRENO_DECIDE_TEXTURE_TARGET := true
 BOARD_EGL_CFG := device/samsung/ancora_tmo/config/egl.cfg
-BOARD_USES_LEGACY_OVERLAY := true
 BOARD_USES_ADRENO_200 := true
 USE_OPENGL_RENDERER := true
-BOARD_USE_SKIA_LCDTEXT := true
+# TARGET_NO_HW_VSYNC := true
+TARGET_USES_ION := true
 TARGET_USES_C2D_COMPOSITION := true
 TARGET_USES_SF_BYPASS := false
 TARGET_HAVE_BYPASS := false
@@ -122,13 +121,12 @@ BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := msm7x30
 BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 50000
 
 # Filesystem
-BOARD_MTP_DEVICE := "/dev/usb_mtp_gadget"
 BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
 BOARD_VOLD_MAX_PARTITIONS := 28
 TARGET_USERIMAGES_USE_EXT4 := true
-TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/usb_mass_storage/lun%d/file
 
 # Camera
+BOARD_USES_LEGACY_OVERLAY := true
 BOARD_CAMERA_USE_MM_HEAP := true
 BOARD_NEEDS_MEMORYHEAPPMEM := true
 TARGET_DISABLE_ARM_PIE := true
@@ -153,5 +151,7 @@ BOARD_CUSTOM_GRAPHICS := ../../../device/samsung/ancora_tmo/recovery/graphics.c
 TARGET_RECOVERY_INITRC := device/samsung/ancora_tmo/config/init.recovery.rc
 TARGET_RECOVERY_FSTAB := device/samsung/ancora_tmo/recovery.fstab
 # Enable below line if compiling for a recovery version before 6.0.1.2
-#BOARD_UMS_LUNFILE := /sys/devices/platform/usb_mass_storage/lun%d/file
+#BOARD_UMS_LUNFILE := /sys/devices/platform/msm_hsusb/gadget/lun%d/file
 # End recovery stuff
+
+TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/file
