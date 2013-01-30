@@ -60,10 +60,8 @@ BOARD_KERNEL_BASE := 0x00400000
 BOARD_KERNEL_PAGESIZE := 4096
 TARGET_KERNEL_CONFIG := ancora_tmo_defconfig
 # TARGET_PREBUILT_KERNEL := device/samsung/ancora_tmo/prebuilt/zImage
-COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE -DQCOM_ROTATOR_KERNEL_FORMATS
-COMMON_GLOBAL_CFLAGS += -DBINDER_COMPAT -DFFC_BROKEN_MIRROR
-COMMON_GLOBAL_CFLAGS += -DICS_CAMERA_BLOB
-COMMON_GLOBAL_CFLAGS += -DWITH_QCOM_LPA
+COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE -DQCOM_NO_SECURE_PLAYBACK
+COMMON_GLOBAL_CFLAGS += -DBINDER_COMPAT -DSAMSUNG_CAMERA_QCOM
 
 # Wifi related defines
 BOARD_WPA_SUPPLICANT_DRIVER      := WEXT
@@ -153,5 +151,7 @@ TARGET_RECOVERY_FSTAB := device/samsung/ancora_tmo/recovery.fstab
 # Enable below line if compiling for a recovery version before 6.0.1.2
 #BOARD_UMS_LUNFILE := /sys/devices/platform/msm_hsusb/gadget/lun%d/file
 # End recovery stuff
+
+TARGET_PREBUILT_KERNEL := device/samsung/ancora_tmo/prebuilt/zImage
 
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/file
