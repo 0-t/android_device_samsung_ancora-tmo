@@ -62,17 +62,3 @@ ro.vold.switchablepair=/storage/sdcard0,/storage/sdcard1
 
 # Enable repeatable keys in recovery
 ro.cwm.enable_key_repeat=true
-
-# Tweaks
-persist.sys.ui.hw=1
-dalvik.vm.verify_bytecode=false
-
-# Common Display Settings (120,150,240)
-windowsmgr.max_events_per_sec=150
-
-# Qualcomm display settings
-debug.qctwa.statusbar=1
-debug.qctwa.preservebuf=1
-
-# Scrolling FPS (4000-8000)
-ro.max.fling_velocity=4000
