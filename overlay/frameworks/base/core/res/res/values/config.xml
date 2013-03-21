@@ -120,11 +120,14 @@
         <item>40</item>
     </integer-array>
 
+    <!-- Minimum screen brightness allowed by the power manager. -->
+    <integer name="config_screenBrightnessDim">30</integer>
+
     <!-- Component name of the service providing network location support. -->
-    <string name="config_networkLocationProviderPackageName" translatable="false">com.google.android.location.NetworkLocationProvider</string>
+    <string name="config_networkLocationProviderPackageName">com.google.android.location.NetworkLocationProvider</string>
 
     <!-- Component name of the service providing geocoder API support. -->
-    <string name="config_geocodeProviderPackageName" translatable="false">com.google.android.location.GeocodeProvider</string>
+    <string name="config_geocodeProviderPackageName">com.google.android.location.GeocodeProvider</string>
 
     <!-- Boolean indicating if current platform supports quick switch-on/off of
          Bluetooth Module -->
@@ -153,7 +156,7 @@
             16 - App switch
          For example, a device with Home, Back and Menu keys would set this
          config to 7. -->
-    <integer name="config_deviceHardwareKeys">15</integer>
+    <integer name="config_deviceHardwareKeys">7</integer>
 
     <!-- Boolean to enable stk functionality on Samsung phones -->
     <bool name="config_samsung_stk">true</bool>
@@ -161,3 +164,4 @@
     <!-- Boolean to enable electron beam animation to be shown on Qualcomm devices -->
     <bool name="config_qualcommElectronBeam">true</bool>
 </resources>
+
