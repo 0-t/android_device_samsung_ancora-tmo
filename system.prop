@@ -1,15 +1,11 @@
 #
 # system.prop for ancora_tmo
 #
-rild.libpath=/system/lib/librilswitch.so
-rilswitch.vendorlibpath=/system/lib/libsec-ril.so
-rilswitch.ganlibpath=/system/lib/libganril.so
+rild.libpath=/system/lib/libsec-ril.so
 rild.libargs=-d /dev/smd0
 
-ro.ril.hsxpa=4
-ro.ril.gprsclass=12
-ro.ril.hsdpa.category=28
-ro.ril.hsupa.category=7
+ro.ril.hsxpa=1
+ro.ril.gprsclass=10
 ro.telephony.ril_class=SamsungRIL
 ro.telephony.ril.v3=datacall,icccardstatus
 
@@ -52,7 +48,7 @@ lpa.decode=false
 lpa.use-stagefright=false
 
 # Set default USB interface
-persist.sys.usb.config=mass_storage
+persist.sys.usb.config=mtp
 
 # Increase speed for UMS transfer
 ro.vold.umsdirtyratio=50
