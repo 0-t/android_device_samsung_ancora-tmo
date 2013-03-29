@@ -10,10 +10,6 @@ $(call inherit-product, $(LOCAL_PATH)/full_ancora_tmo.mk)
 PRODUCT_RELEASE_NAME := ancora_tmo
 
 CM_EXPERIMENTAL := true
-CM_EXTRAVERSION := alpha3
-
-CM_BUILDTYPE := jfbs-alpha3
-CM_NUMERICAL_VERSION := 0.0.3
 
 # Setup device configuration
 PRODUCT_NAME := cm_ancora_tmo
