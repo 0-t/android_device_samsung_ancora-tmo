@@ -78,9 +78,7 @@ PRODUCT_COPY_FILES += \
 # Modules
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/dhd.ko:root/lib/modules/dhd.ko \
-    $(LOCAL_PATH)/prebuilt/cifs.ko:root/lib/modules/cifs.ko \
-    $(LOCAL_PATH)/prebuilt/dhd.ko:system/lib/modules/dhd.ko \
-    $(LOCAL_PATH)/prebuilt/cifs.ko:system/lib/modules/cifs.ko
+    $(LOCAL_PATH)/prebuilt/cifs.ko:root/lib/modules/cifs.ko
 
 # LPM
 PRODUCT_COPY_FILES += \

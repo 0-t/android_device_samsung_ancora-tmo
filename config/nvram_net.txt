@@ -83,4 +83,3 @@ RAW1=80 32 fe 21 02 0c 00 22 2a 01 01 00 00 c5 0 e6 00 00 00 00 00 40 00 00 ff f
 btc_params8=10000
 btc_params80=0
 btc_params6=10
-
