@@ -53,8 +53,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/get_macaddrs:system/bin/get_macaddrs \
     $(LOCAL_PATH)/prebuilt/com.estrongs.android.pop.apk:system/app/com.estrongs.android.pop.apk \
     $(LOCAL_PATH)/prebuilt/SamsungServiceMode.apk:system/app/SamsungServiceMode.apk \
-    $(LOCAL_PATH)/prebuilt/aLogcat_2.6.1.apk:system/app/aLogcat_2.6.1.apk \
-    $(LOCAL_PATH)/prebuilt/Torch.apk:system/app/Torch.apk
+    $(LOCAL_PATH)/prebuilt/aLogcat_2.6.1.apk:system/app/aLogcat_2.6.1.apk
 
 # Needed to reset bootmode when leaving recovery
 PRODUCT_COPY_FILES += \
