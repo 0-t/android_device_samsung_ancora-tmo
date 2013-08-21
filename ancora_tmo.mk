@@ -155,6 +155,9 @@ PRODUCT_PACKAGES += \
     com.android.future.usb.accessory \
     libnetcmdiface
 
+# Torch
+PRODUCT_PACKAGES += Torch
+
 # For userdebug builds
 ADDITIONAL_DEFAULT_PROPERTIES += \
     ro.secure=0
