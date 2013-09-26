@@ -401,8 +401,11 @@ void CameraHAL_FixupParams(android::CameraParameters &camParams, priv_camera_dev
                   android::CameraParameters::PIXEL_FORMAT_YUV420SP);
 
     if (!camParams.get(CameraParameters::KEY_PREFERRED_PREVIEW_SIZE_FOR_VIDEO)) {
-        camParams.set(CameraParameters::KEY_PREFERRED_PREVIEW_SIZE_FOR_VIDEO,
-                  preferred_size);
+        camParams.set(CameraParameters::KEY_PREFERRED_PREVIEW_SIZE_FOR_VIDEO, preferred_size);
+    }
+
+    if (!camParams.get(android::CameraParameters::KEY_SUPPORTED_FLASH_MODES)) {
+        camParams.set(CameraParameters::KEY_SUPPORTED_FLASH_MODES, "off,auto,on,torch");
     }
 
     if (dev->cameraid == CAMERA_ID_FRONT) {
@@ -418,20 +421,7 @@ void CameraHAL_FixupParams(android::CameraParameters &camParams, priv_camera_dev
         if (!camParams.get(android::CameraParameters::KEY_MAX_NUM_FOCUS_AREAS)) {
             camParams.set(CameraParameters::KEY_MAX_NUM_FOCUS_AREAS, 1);
         }
-        camParams.set(CameraParameters::KEY_SUPPORTED_FOCUS_MODES, "auto,macro");
-        camParams.set(CameraParameters::KEY_SUPPORTED_ISO_MODES, "auto,ISO50,ISO100,ISO200,ISO400");
-
-        camParams.set(CameraParameters::KEY_MAX_ZOOM, "8");
-        camParams.set(CameraParameters::KEY_ZOOM_RATIOS, "100,125,150,175,200,225,250,275,300");
-        camParams.set(CameraParameters::KEY_ZOOM_SUPPORTED, CameraParameters::TRUE);
-
-        camParams.set(CameraParameters::KEY_SUPPORTED_PREVIEW_FRAME_RATES, "30");
     }
-
-   /* if (!camParams.get(android::CameraParameters::KEY_SUPPORTED_FLASH_MODES)) {
-        camParams.set(CameraParameters::KEY_SUPPORTED_FLASH_MODES, "off,auto,on,torch");
-        camParams.set(CameraParameters::KEY_FLASH_MODE, "off");
-    } */
 
     camParams.set(CameraParameters::KEY_MAX_EXPOSURE_COMPENSATION, 4);
     camParams.set(CameraParameters::KEY_MIN_EXPOSURE_COMPENSATION, -4);
