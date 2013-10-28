@@ -175,6 +175,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.camcorder.disablemeta=1
 
+PRODUCT_PACKAGES += \
+    libexifa \
+    libjpega
+
 # For userdebug builds
 ADDITIONAL_DEFAULT_PROPERTIES += \
     ro.secure=0
