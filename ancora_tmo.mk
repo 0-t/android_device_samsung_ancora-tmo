@@ -175,6 +175,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.camera.mem.usecache=0 \
     persist.video.mem.usecache=0
 
+PRODUCT_PACKAGES += \
+    libexifa \
+    libjpega
+
 # For userdebug builds
 ADDITIONAL_DEFAULT_PROPERTIES += \
     ro.secure=0
