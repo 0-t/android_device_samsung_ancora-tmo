@@ -158,7 +158,7 @@ TARGET_RECOVERY_INITRC := device/samsung/ancora_tmo/config/init.recovery.rc
 TARGET_RECOVERY_FSTAB := device/samsung/ancora_tmo/config/fstab.qcom
 # End recovery stuff
 
-TARGET_KERNEL_SOURCE := kernel/samsung/msm7x30-common
+TARGET_KERNEL_SOURCE := kernel/samsung/ancora_tmo
 TARGET_KERNEL_CONFIG := ancora_tmo_defconfig
 
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/file
