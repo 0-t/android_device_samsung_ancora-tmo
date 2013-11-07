@@ -125,6 +125,9 @@ BOARD_USES_QCOM_GPS := true
 
 BOARD_USE_LEGACY_TOUCHSCREEN := true
 
+# Override healthd HAL
+BOARD_HAL_STATIC_LIBRARIES := libhealthd.qcom
+
 # Camera
 BOARD_USES_LEGACY_OVERLAY := true
 BOARD_CAMERA_USE_MM_HEAP := true
