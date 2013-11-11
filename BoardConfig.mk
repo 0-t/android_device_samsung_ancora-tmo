@@ -176,4 +176,29 @@ TARGET_KERNEL_CONFIG := ancora_tmo_defconfig
 
 BOARD_KERNEL_CMDLINE := androidboot.selinux=permissive
 
+# SELinux
+BOARD_SEPOLICY_DIRS += \
+    device/samsung/ancora_tmo/sepolicy
+
+BOARD_SEPOLICY_UNION += \
+    file_contexts \
+    property_contexts \
+    bridge.te \
+    camera.te \
+    device.te \
+    dhcp.te \
+    domain.te \
+    drmserver.te \
+    file.te \
+    init.te \
+    mac_update.te \
+    mediaserver.te \
+    rild.te \
+    rmt.te \
+    surfaceflinger.te \
+    system.te \
+    tee.te \
+    ueventd.te \
+    wpa_supplicant.te
+
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/file
