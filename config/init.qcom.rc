@@ -133,10 +133,6 @@ on boot
     chown radio system sys/devices/virtual/sec/switch/disable_vbus
     chown radio system sys/devices/virtual/sec/switch/usb_sel
 
-    # Torch permission
-    chown system camera /sys/class/ledflash/ledflash/ledflash_file
-    chmod 666 /sys/class/ledflash/ledflash/ledflash_file
-
     # for silent reset
     chown system system /proc/dump_enable
     chown system system /proc/silent
