@@ -103,9 +103,8 @@ public class SamsungRIL extends RIL implements CommandsInterface {
         send(rr);
     }
 
-    @Override
-    protected void
-    processSolicited (Parcel p) {
+    // @Override
+    protected RILRequest processSolicited (Parcel p) {
         int serial, error;
 
         serial = p.readInt();
@@ -121,7 +120,7 @@ public class SamsungRIL extends RIL implements CommandsInterface {
         if (rr == null) {
             Rlog.w(RILJ_LOG_TAG, "Unexpected solicited response! sn: "
                     + serial + " error: " + error);
-            return;
+            return null;
         }
 
         Object ret = null;
@@ -141,7 +140,7 @@ public class SamsungRIL extends RIL implements CommandsInterface {
             case RIL_REQUEST_ENTER_SIM_PUK2: ret =  responseInts(p); break;
             case RIL_REQUEST_CHANGE_SIM_PIN: ret =  responseInts(p); break;
             case RIL_REQUEST_CHANGE_SIM_PIN2: ret =  responseInts(p); break;
-            case RIL_REQUEST_ENTER_DEPERSONALIZATION_CODE: ret =  responseInts(p); break;
+            case RIL_REQUEST_ENTER_NETWORK_DEPERSONALIZATION: ret =  responseInts(p); break;
             case RIL_REQUEST_GET_CURRENT_CALLS: ret =  responseCallList(p); break;
             case RIL_REQUEST_DIAL: ret =  responseVoid(p); break;
             case RIL_REQUEST_GET_IMSI: ret =  responseString(p); break;
@@ -253,7 +252,7 @@ public class SamsungRIL extends RIL implements CommandsInterface {
                     rr.mResult.sendToTarget();
                 }
                 rr.release();
-                return;
+				return rr;
             }
         }
 
@@ -270,12 +269,12 @@ public class SamsungRIL extends RIL implements CommandsInterface {
                             + " exception, Processing Samsung SMS fix ", tr);
                     rr.onError(error, ret);
                     rr.release();
-                    return;
+					return rr;
                 }
             } else {
                 rr.onError(error, ret);
                 rr.release();
-                return;
+				return rr;
             }
         }
 
@@ -288,6 +287,7 @@ public class SamsungRIL extends RIL implements CommandsInterface {
         }
 
         rr.release();
+		return rr;
     }
 
     @Override
