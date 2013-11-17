@@ -145,7 +145,7 @@ PRODUCT_PACKAGES += \
     libnetcmdiface
 
 # Torch
-PRODUCT_PACKAGES += Torch
+# PRODUCT_PACKAGES += Torch
 
 # For userdebug builds
 ADDITIONAL_DEFAULT_PROPERTIES += \
