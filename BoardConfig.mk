@@ -171,4 +171,6 @@ TARGET_RECOVERY_FSTAB := device/samsung/ancora_tmo/config/fstab.qcom
 TARGET_KERNEL_SOURCE := kernel/samsung/ancora_tmo
 TARGET_KERNEL_CONFIG := ancora_tmo_defconfig
 
+BOARD_KERNEL_CMDLINE := androidboot.selinux=permissive
+
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/file
