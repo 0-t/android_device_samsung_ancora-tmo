@@ -57,9 +57,6 @@ ro.vold.umsdirtyratio=50
 # Storage configuration
 ro.vold.switchablepair=/storage/sdcard0,/storage/sdcard1
 
-# Low RAM
-ro.config.low_ram=1
-
 # Change to 1 for swapping SD cards
 persist.sys.vold.switchexternal=0
 
