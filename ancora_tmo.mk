@@ -147,6 +147,9 @@ PRODUCT_PACKAGES += \
 # Torch
 # PRODUCT_PACKAGES += Torch
 
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.config.low_ram=1
+
 # For userdebug builds
 ADDITIONAL_DEFAULT_PROPERTIES += \
     ro.secure=0
