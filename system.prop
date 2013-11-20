@@ -62,6 +62,3 @@ persist.sys.vold.switchexternal=0
 
 # Enable repeatable keys in recovery
 ro.cwm.enable_key_repeat=true
-
-# Enable adb default
-persist.service.adb.enable=1
