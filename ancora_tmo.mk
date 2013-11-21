@@ -126,7 +126,8 @@ PRODUCT_PACKAGES += \
     libOmxVenc \
     libOmxVdec \
     libstagefrighthw \
-    libc2dcolorconvert
+    libc2dcolorconvert \
+    libaudiohw_legacy
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
@@ -148,7 +149,9 @@ PRODUCT_PACKAGES += \
 # PRODUCT_PACKAGES += Torch
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.config.low_ram=1
+    ro.config.low_ram=1 \
+    ro.zygote.disable_gl_preload=true \
+    ro.bq.gpu_to_cpu_unsupported=1
 
 # For userdebug builds
 ADDITIONAL_DEFAULT_PROPERTIES += \
