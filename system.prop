@@ -68,3 +68,11 @@ persist.sys.vold.switchexternal=0
 
 # Enable repeatable keys in recovery
 ro.cwm.enable_key_repeat=true
+
+# Hardware Info
+ro.device.chipset=Qualcomm MSM8255 Snapdragon
+ro.device.cpu=1 GHz Scorpion
+ro.device.gpu=Adreno 205
+ro.device.rear_cam=3.15 MP, 2048x1536 pixels
+ro.device.front_cam=VGA
+ro.device.screen_res=400x800
