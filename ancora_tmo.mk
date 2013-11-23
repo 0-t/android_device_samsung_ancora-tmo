@@ -126,8 +126,9 @@ PRODUCT_PACKAGES += \
     libOmxVenc \
     libOmxVdec \
     libstagefrighthw \
-    libc2dcolorconvert \
-    libaudiohw_legacy
+    libc2dcolorconvert
+
+# \   libaudiohw_legacy
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \

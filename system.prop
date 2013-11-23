@@ -45,7 +45,7 @@ debug.mdpcomp.logs=0
 dalvik.vm.jit.codecachesize=0
 ro.config.low_ram=true
 ro.zygote.disable_gl_preload=true
-ro.bq.gpu_to_cpu_unsupported=1
+# ro.bq.gpu_to_cpu_unsupported=1
 
 # Low Power Audio
 lpa.decode=false
