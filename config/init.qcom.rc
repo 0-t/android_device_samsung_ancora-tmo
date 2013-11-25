@@ -11,7 +11,7 @@ on init
     mkdir /mnt/media_rw/usbdisk 0700 media_rw media_rw
     mkdir /storage/sdcard0 0700 root root
     mkdir /storage/sdcard1 0700 root root
-    mkdir /storage/usbdisk 0700 root root
+    mkdir /storage/usbdisk 0000 system system
 
     # for backwards compatibility
     symlink /storage/sdcard0 /sdcard
