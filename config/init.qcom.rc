@@ -5,15 +5,13 @@ on early-init
     chmod 644 /proc/cmdline
 
 on init
-    export EXTERNAL_STORAGE /storage/sdcard0
-    export SECONDARY_STORAGE /storage/sdcard1:/storage/usbdisk
-
+    mkdir /storage 0050 system sdcard_r
     mkdir /mnt/media_rw/sdcard0 0700 media_rw media_rw
     mkdir /mnt/media_rw/sdcard1 0700 media_rw media_rw
     mkdir /mnt/media_rw/usbdisk 0700 media_rw media_rw
-    mkdir /storage/sdcard0 0770 root root
-    mkdir /storage/sdcard1 0770 root root
-    mkdir /storage/usbdisk 0770 root root
+    mkdir /storage/sdcard0 0700 root root
+    mkdir /storage/sdcard1 0700 root root
+    mkdir /storage/usbdisk 0700 root root
 
     # for backwards compatibility
     symlink /storage/sdcard0 /sdcard
@@ -22,6 +20,9 @@ on init
     symlink /storage/sdcard1 /mnt/external_sd
     symlink /storage/usbdisk /usbdisk
     symlink /storage/usbdisk /mnt/usbdisk
+
+    export EXTERNAL_STORAGE /storage/sdcard0
+    export SECONDARY_STORAGE /storage/sdcard1:/storage/usbdisk
 
 on early-boot
     # set RLIMIT_MEMLOCK to 64MB
