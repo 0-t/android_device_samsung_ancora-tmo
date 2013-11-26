@@ -5,13 +5,16 @@ on early-init
     chmod 644 /proc/cmdline
 
 on init
-    mkdir /storage 0050 system sdcard_r
-    mkdir /mnt/media_rw/sdcard0 0700 media_rw media_rw
-    mkdir /mnt/media_rw/sdcard1 0700 media_rw media_rw
-    mkdir /mnt/media_rw/usbdisk 0700 media_rw media_rw
-    mkdir /storage/sdcard0 0700 root root
-    mkdir /storage/sdcard1 0700 root root
+    mkdir /storage 0555 system system
+    mkdir /storage/sdcard0 0000 system system
+    mkdir /storage/sdcard1 0000 system system
     mkdir /storage/usbdisk 0000 system system
+    mkdir /mnt/media_rw/sdcard0 0000 system system
+    mkdir /mnt/media_rw/sdcard1 0000 system system
+    mkdir /mnt/media_rw/usbdisk 0000 system system
+
+    export EXTERNAL_STORAGE /storage/sdcard0
+    export SECONDARY_STORAGE /storage/sdcard1:/storage/usbdisk
 
     # for backwards compatibility
     symlink /storage/sdcard0 /sdcard
@@ -20,9 +23,6 @@ on init
     symlink /storage/sdcard1 /mnt/external_sd
     symlink /storage/usbdisk /usbdisk
     symlink /storage/usbdisk /mnt/usbdisk
-
-    export EXTERNAL_STORAGE /storage/sdcard0
-    export SECONDARY_STORAGE /storage/sdcard1:/storage/usbdisk
 
 on early-boot
     # set RLIMIT_MEMLOCK to 64MB
@@ -195,6 +195,19 @@ on post-fs-data
 
     setprop vold.post_fs_data_done 1
 
+# fusewrapped external sdcard daemon running as media_rw (1023)
+service fuse_sdcard0 /system/bin/sdcard -u 1023 -g 1023 -d /mnt/media_rw/sdcard0 /storage/sdcard0
+    class late_start
+    disabled
+
+service fuse_sdcard1 /system/bin/sdcard -u 1023 -g 1023 -d /mnt/media_rw/sdcard1 /storage/sdcard1
+    class late_start
+    disabled
+
+service fuse_usbdisk /system/bin/sdcard -u 1023 -g 1023 -d /mnt/media_rw/usbdisk /storage/usbdisk
+    class late_start
+    disabled
+
 service wpa_supplicant /system/bin/wpa_supplicant \
     -iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf -e/data/misc/wifi/entropy.bin \
      -O/data/misc/wifi/sockets -g@android:wpa_wlan0
@@ -267,15 +280,6 @@ on property:init.svc.playlpm=running
 on property:sys.boot_completed=1
     write /sys/module/pm2/parameters/idle_sleep_mode 1
 
-# fusewrapped external sdcard daemon running as media_rw (1023)
-service fuse_sdcard0 /system/bin/sdcard -u 1023 -g 1023 -d /mnt/media_rw/sdcard0 /storage/sdcard0
-    class late_start
-    disabled
-
-service fuse_sdcard1 /system/bin/sdcard -u 1023 -g 1023 -d /mnt/media_rw/sdcard1 /storage/sdcard1
-    class late_start
-    disabled
-
-service fuse_usbdisk /system/bin/sdcard -u 1023 -g 1023 -d /mnt/media_rw/usbdisk /storage/usbdisk
-    class late_start
-    disabled
+on property:init.svc.ril-daemon=running
+    start get_macaddrs
+    chown bluetooth bluetooth /data/.bt.info
