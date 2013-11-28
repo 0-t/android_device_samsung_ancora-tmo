@@ -6,6 +6,8 @@
 /dev/msm_amrwb.*               u:object_r:audio_device:s0
 /dev/msm_aac.*                 u:object_r:audio_device:s0
 
+/data/data2/com.android.providers.downloads/cache u:object_r:download_file:s0
+
 # Jpeg Engine support
 /dev/gemini.*                  u:object_r:camera_device:s0
 # MSM camera related
