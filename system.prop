@@ -57,6 +57,9 @@ af.resampler.quality=255
 # Set default USB interface
 persist.sys.usb.config=mass_storage
 
+# Date/Time
+ro.com.android.dateformat=MM-dd-yyyy
+
 # Network
 ro.com.google.locationfeatures=1
 ro.com.google.networklocation=1
