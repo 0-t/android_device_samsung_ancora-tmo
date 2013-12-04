@@ -27,9 +27,6 @@ on init
     symlink /storage/usbdisk /usbdisk
     symlink /storage/usbdisk /mnt/usbdisk
 
-    # FIXME: Market checks this variable for space-checking, but downloads to /datadata
-    export DOWNLOAD_CACHE /data/download
-
 on early-boot
     # set RLIMIT_MEMLOCK to 64MB
     setrlimit 8 67108864 67108864
