@@ -5,18 +5,19 @@ on early-init
     chmod 644 /proc/cmdline
 
 on init
-    setenforce 0
-    setprop ro.boot.selinux disabled
+    export EXTERNAL_STORAGE /storage/sdcard0
+    export SECONDARY_STORAGE /storage/sdcard1
 
     mkdir /mnt/media_rw/sdcard0 0700 media_rw media_rw
     mkdir /mnt/media_rw/sdcard1 0700 media_rw media_rw
     mkdir /mnt/media_rw/usbdisk 0700 media_rw media_rw
-    mkdir /storage/sdcard0 0700 root root
-    mkdir /storage/sdcard1 0700 root root
-    mkdir /storage/usbdisk 0700 root root
 
-    export EXTERNAL_STORAGE /storage/sdcard0
-    export SECONDARY_STORAGE /storage/sdcard1:/storage/usbdisk
+    mkdir /storage/sdcard0 0770 root root
+    mkdir /storage/sdcard1 0770 root root
+    mkdir /storage/usbdisk 0770 root root
+
+    setenforce 0
+    setprop ro.boot.selinux disabled
 
     # for backwards compatibility
     symlink /storage/sdcard0 /sdcard
