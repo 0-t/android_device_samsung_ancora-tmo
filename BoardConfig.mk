@@ -220,6 +220,7 @@ BOARD_SEPOLICY_UNION += \
     system.te \
     tee.te \
     ueventd.te \
-    wpa_supplicant.te
+    wpa_supplicant.te \
+    vold.te
 
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/file
