@@ -149,6 +149,23 @@ PRODUCT_PACKAGES += \
 # Torch
 # PRODUCT_PACKAGES += Torch
 
+# Fix screenshots with legacy FB
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.bq.gpu_to_cpu_unsupported=1
+
+# For applications to determine if they should turn off specific memory-intensive
+# features that work poorly on low-memory devices.
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.config.low_ram=true
+
+# Fix legacy fb on kitkat
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.zygote.disable_gl_preload=1
+
+# Disable JIT cache
+PRODUCT_PROPERTY_OVERRIDES += \
+    dalvik.vm.jit.codecachesize=0
+
 # Fix camcorder
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.camcorder.disablemeta=1
