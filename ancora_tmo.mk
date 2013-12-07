@@ -175,6 +175,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libskia_legacy
 
+# Fix camcorder
+PRODUCT_PROPERTY_OVERRIDES += \
+    debug.camcorder.disablemeta=1
+
 # For userdebug builds
 ADDITIONAL_DEFAULT_PROPERTIES += \
     ro.secure=0
