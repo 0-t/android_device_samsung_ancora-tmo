@@ -184,6 +184,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.camera.mem.usecache=0 \
     persist.video.mem.usecache=0
 
+# Fix camcorder
+PRODUCT_PROPERTY_OVERRIDES += \
+    debug.camcorder.disablemeta=1
+
 # For userdebug builds
 ADDITIONAL_DEFAULT_PROPERTIES += \
     ro.secure=0
