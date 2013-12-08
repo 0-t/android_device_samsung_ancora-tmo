@@ -179,6 +179,11 @@ PRODUCT_PACKAGES += \
     libexifa \
     libjpega
 
+# Use ION uncached buffers for video recording and video playback
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.camera.mem.usecache=0 \
+    persist.video.mem.usecache=0
+
 # For userdebug builds
 ADDITIONAL_DEFAULT_PROPERTIES += \
     ro.secure=0
