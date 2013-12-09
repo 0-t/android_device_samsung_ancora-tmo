@@ -51,7 +51,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/config/fstab.qcom:root/fstab.qcom \
     $(LOCAL_PATH)/config/nvram_net.txt:system/vendor/firmware/nvram_net.txt \
     $(LOCAL_PATH)/prebuilt/get_macaddrs:system/bin/get_macaddrs \
-    $(LOCAL_PATH)/prebuilt/ES_File_Explorer_3.0.6.0.apk:system/app/ES_File_Explorer_3.0.6.0.apk \
+    $(LOCAL_PATH)/prebuilt/ES_File_Explorer_3.0.7.0.apk:system/app/ES_File_Explorer_3.0.7.0.apk \
     $(LOCAL_PATH)/prebuilt/SamsungServiceMode.apk:system/app/SamsungServiceMode.apk
 
 # Needed to reset bootmode when leaving recovery
