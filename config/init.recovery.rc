@@ -3,6 +3,7 @@ on early-init
 
 on init
     export PATH /sbin
+    export LD_LIBRARY_PATH .:/sbin /system/lib
     export ANDROID_ROOT /system
     export ANDROID_DATA /data
     export EXTERNAL_STORAGE /sdcard
@@ -23,9 +24,8 @@ on init
     chmod 0775 /tmp
 
     mkdir /mnt 0775 root system
-    mkdir /storage 0751 root sdcard_r
+    mkdir /storage 0050 root sdcard_r
     mount tmpfs tmpfs /storage mode=0050,uid=0,gid=1028
-    mkdir /mnt/media_rw 0700 media_rw media_rw
 
     # See storage config details at http://source.android.com/tech/storage/
     mkdir /mnt/shell 0700 shell shell
@@ -66,6 +66,9 @@ on boot
 
 service ueventd /sbin/ueventd
     critical
+
+# Required to fix shutdown issue
+service rmt_storage /sbin/rmt_storage
 
 service recovery /sbin/recovery
 
