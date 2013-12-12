@@ -127,9 +127,11 @@ PRODUCT_PACKAGES += \
     libOmxVdec \
     libstagefrighthw \
     libc2dcolorconvert \
-    libdashplayer \
-    libtilerenderer \
-    qcmediaplayer
+    libdashplayer
+
+# \
+#    libtilerenderer \
+#    qcmediaplayer
 
 # \   libaudiohw_legacy
 
