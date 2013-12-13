@@ -190,20 +190,23 @@ BOARD_SEPOLICY_DIRS += \
     device/samsung/ancora_tmo/sepolicy
 
 BOARD_SEPOLICY_UNION += \
-    file_contexts \
-    property_contexts \
     bridge.te \
     camera.te \
     device.te \
     dhcp.te \
     domain.te \
     drmserver.te \
+    file_contexts \
     file.te \
     init.te \
+    installd.te \
+    mac_permissions.xml \
     mac_update.te \
     mediaserver.te \
+    property_contexts \
     rild.te \
     rmt.te \
+    seapp_contexts \
     surfaceflinger.te \
     system.te \
     tee.te \
