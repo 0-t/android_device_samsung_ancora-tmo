@@ -421,10 +421,10 @@ void CameraHAL_FixupParams(android::CameraParameters &camParams, priv_camera_dev
         if (!camParams.get(android::CameraParameters::KEY_MAX_NUM_FOCUS_AREAS)) {
             camParams.set(CameraParameters::KEY_MAX_NUM_FOCUS_AREAS, 1);
         }
-        camParams.set(CameraParameters::KEY_SUPPORTED_FOCUS_MODES, "off");
+        camParams.set(CameraParameters::KEY_SUPPORTED_FOCUS_MODES, "auto,macro");
         camParams.set(CameraParameters::KEY_SUPPORTED_ISO_MODES, "auto,ISO50,ISO100,ISO200,ISO400");
 
-        camParams.set(CameraParameters::KEY_ZOOM_SUPPORTED, CameraParameters::FALSE);
+        camParams.set(CameraParameters::KEY_ZOOM_SUPPORTED, CameraParameters::TRUE);
 
         camParams.set(CameraParameters::KEY_SUPPORTED_PREVIEW_FRAME_RATES, "30");
     }
