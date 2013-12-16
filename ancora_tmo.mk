@@ -171,10 +171,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.jit.codecachesize=0
 
-# Fix camcorder
-PRODUCT_PROPERTY_OVERRIDES += \
-    debug.camcorder.disablemeta=1
-
 PRODUCT_PACKAGES += \
     libexifa \
     libjpega
