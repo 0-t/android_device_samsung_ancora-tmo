@@ -152,6 +152,10 @@ PRODUCT_PACKAGES += \
     com.android.future.usb.accessory \
     libnetcmdiface
 
+# Other apps
+PRODUCT_PACKAGES += \
+    PhotoTable
+
 # Torch
 # PRODUCT_PACKAGES += Torch
 
