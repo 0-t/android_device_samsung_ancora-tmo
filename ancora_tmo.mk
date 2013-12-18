@@ -41,7 +41,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/config/media_codecs.xml:system/etc/media_codecs.xml \
     $(LOCAL_PATH)/config/media_profiles.xml:system/etc/media_profiles.xml \
-    $(LOCAL_PATH)/config/audio_policy.conf:system/etc/audio_effects.conf
+    $(LOCAL_PATH)/config/audio_policy.conf:system/etc/audio_policy.conf
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/config/init.qcom.rc:root/init.qcom.rc \
