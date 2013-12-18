@@ -235,7 +235,6 @@ BOARD_SEPOLICY_UNION += \
     system.te \
     tee.te \
     ueventd.te \
-    wpa_supplicant.te \
-    vold.te
+    wpa_supplicant.te
 
 USE_SET_METADATA := true
