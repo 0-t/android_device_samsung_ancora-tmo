@@ -165,7 +165,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # For applications to determine if they should turn off specific memory-intensive
 # features that work poorly on low-memory devices.
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.config.low_ram=false
+    ro.config.low_ram=true
 
 # Fix legacy fb on kitkat
 PRODUCT_PROPERTY_OVERRIDES += \
