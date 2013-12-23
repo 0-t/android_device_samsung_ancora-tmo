@@ -222,7 +222,7 @@ BOARD_SEPOLICY_UNION += \
     drmserver.te \
     file_contexts \
     file.te \
-    healthd.te \ 
+    healthd.te \
     init.te \
     installd.te \
     mac_permissions.xml \
