@@ -126,10 +126,9 @@ PRODUCT_PACKAGES += \
     libOmxVenc \
     libOmxVdec \
     libstagefrighthw \
-    libc2dcolorconvert \
-    libdashplayer
+    libc2dcolorconvert
 
-# \
+# \  libdashplayer
 #    libtilerenderer \
 #    qcmediaplayer
 
