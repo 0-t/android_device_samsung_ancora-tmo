@@ -154,8 +154,8 @@ PRODUCT_PACKAGES += \
 # PRODUCT_PACKAGES += Torch
 
 # Enable zRAM by default
-PRODUCT_PROPERTY_OVERRIDES += \
-	ro.zram.default=18
+# PRODUCT_PROPERTY_OVERRIDES += \
+#	ro.zram.default=18
 
 # Fix screenshots with legacy FB
 PRODUCT_PROPERTY_OVERRIDES += \
