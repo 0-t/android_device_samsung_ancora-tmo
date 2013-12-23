@@ -5,11 +5,7 @@ on early-init
     chmod 644 /proc/cmdline
 
 on init
-#   mkdir /mnt/shell/emulated 0700 shell shell #reference http://source.android.com/devices/tech/storage/config-example.html
-#   mkdir /storage/emulated 0555 root root     #reference
-
-#   mkdir /mnt/media_rw/sdcard1 0700 media_rw media_rw
-#   mkdir /storage/sdcard1 0700 root root
+# reference http://source.android.com/devices/tech/storage/config-example.html
 
     mkdir /mnt/media_rw/sdcard0 0700 media_rw media_rw
     mkdir /mnt/media_rw/sdcard1 0700 media_rw media_rw
