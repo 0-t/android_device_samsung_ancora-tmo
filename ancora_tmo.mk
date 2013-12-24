@@ -151,7 +151,7 @@ PRODUCT_PACKAGES += \
     libnetcmdiface
 
 # Torch
-PRODUCT_PACKAGES += Torch
+# PRODUCT_PACKAGES += Torch
 
 # Enable zRAM by default
 PRODUCT_PROPERTY_OVERRIDES += \
