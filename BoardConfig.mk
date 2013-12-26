@@ -27,6 +27,9 @@
 # inherit from the proprietary version
 -include vendor/samsung/ancora_tmo/BoardConfigVendor.mk
 
+# create the folder /usr to prevent the build from failing
+$(shell mkdir -p $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/)
+
 # Platform
 TARGET_BOOTLOADER_BOARD_NAME := ancora_tmo
 TARGET_OTA_ASSERT_DEVICE := ancora_tmo,SGH-T679,ancora
@@ -56,6 +59,7 @@ TARGET_KERNEL_CONFIG := ancora_tmo_defconfig
 TARGET_KERNEL_SOURCE := kernel/samsung/ancora_tmo
 
 # Wifi related defines
+BOARD_HAVE_SAMSUNG_WIFI          := true
 WIFI_BAND                        := 802_11_ABG
 WPA_SUPPLICANT_VERSION           := VER_0_8_X
 BOARD_WPA_SUPPLICANT_DRIVER      := NL80211
@@ -118,7 +122,7 @@ BOARD_USE_LEGACY_TOUCHSCREEN := true
 
 # HAL power and lights
 TARGET_PROVIDES_LIBLIGHT := true
-TARGET_USES_CM_POWERHAL := true
+TARGET_USES_POWERHAL := true
 # TARGET_PROVIDES_POWERHAL := true
 
 # Override healthd HAL
@@ -143,11 +147,11 @@ BOARD_USES_LEGACY_ALSA_AUDIO := true
 # Webkit webgl
 TARGET_FORCE_CPU_UPLOAD := true
 ENABLE_WEBGL := true
-BOARD_EGL_NEEDS_FNW := true
-TARGET_DOESNT_USE_FENCE_SYNC := true
+# BOARD_EGL_NEEDS_FNW := true
+# TARGET_DOESNT_USE_FENCE_SYNC := true
 
 # Sensors
-# BOARD_USE_LEGACY_SENSORS_FUSION := false
+BOARD_USE_LEGACY_SENSORS_FUSION := false
 
 # USB mass storage
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/file
@@ -222,8 +226,6 @@ BOARD_SEPOLICY_UNION += \
     file.te \
     healthd.te \
     init.te \
-    installd.te \
-    mac_permissions.xml \
     mac_update.te \
     mediaserver.te \
     property_contexts \
