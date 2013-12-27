@@ -179,10 +179,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.jit.codecachesize=0
 
-PRODUCT_PACKAGES += \
-    libexifa \
-    libjpega
-
 # Use ION uncached buffers for video recording and video playback
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.camera.mem.usecache=0 \
