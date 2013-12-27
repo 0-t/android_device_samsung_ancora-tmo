@@ -204,6 +204,9 @@ TW_USE_MODEL_HARDWARE_ID_FOR_DEVICE_ID := true
 TW_INCLUDE_FB2PNG := true
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 
+PRODUCT_COPY_FILES += \
+    device/samsung/ancora_tmo/recovery/twrp.fstab:recovery/root/etc/twrp.fstab
+
 # Bootanimation
 TARGET_BOOTANIMATION_PRELOAD := true
 TARGET_BOOTANIMATION_TEXTURE_CACHE := true

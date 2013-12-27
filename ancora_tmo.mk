@@ -196,8 +196,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.build.selinux=1
 
 # SELinux filesystem labels
-PRODUCT_COPY_FILES += \
-    device/samsung/ancora_tmo/prebuilt/etc/init.d/50selinuxrelabel:system/etc/init.d/50selinuxrelabel
+# PRODUCT_COPY_FILES += \
+#    device/samsung/ancora_tmo/prebuilt/etc/init.d/50selinuxrelabel:system/etc/init.d/50selinuxrelabel
 
 # We have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
