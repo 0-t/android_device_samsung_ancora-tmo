@@ -59,6 +59,9 @@ ro.vold.umsdirtyratio=50
 # Enable repeatable keys in recovery
 ro.cwm.enable_key_repeat=true
 
+# DUN settings: 2 = not set, 0 = DUN not required, 1 = DUN required
+persist.cm.dun.override=0
+
 # Hardware Info
 ro.device.chipset=Qualcomm MSM8255 Snapdragon
 ro.device.cpu=1 GHz Scorpion
