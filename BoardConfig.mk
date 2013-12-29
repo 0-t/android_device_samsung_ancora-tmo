@@ -145,22 +145,16 @@ BOARD_HAVE_SAMSUNG_AUDIO := true
 BOARD_USES_QCOM_AUDIO_RESETALL := true
 BOARD_USES_QCOM_AUDIO_VOIPMUTE := true
 BOARD_USES_LEGACY_ALSA_AUDIO := true
-# BOARD_USES_LEGACY_QCOM := true
 
 # Webkit webgl
 TARGET_FORCE_CPU_UPLOAD := true
 ENABLE_WEBGL := true
-# BOARD_EGL_NEEDS_FNW := true
-# TARGET_DOESNT_USE_FENCE_SYNC := true
 
 # Sensors
 BOARD_USE_LEGACY_SENSORS_FUSION := false
 
 # USB mass storage
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/file
-
-# BOARD_USES_QCOM_LIBS := true
-# BOARD_USES_QCOM_LIBRPC := true
 
 # Filesystem and vold
 TARGET_USERIMAGES_USE_EXT4 := true
