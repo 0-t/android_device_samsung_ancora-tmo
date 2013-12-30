@@ -127,12 +127,11 @@ PRODUCT_PACKAGES += \
     libOmxVenc \
     libOmxVdec \
     libstagefrighthw \
-    libc2dcolorconvert
+    libc2dcolorconvert \
+    libdashplayer
 
-# \  libdashplayer
 #    libtilerenderer \
 #    qcmediaplayer
-
 # \   libaudiohw_legacy
 
 # Filesystem management tools
