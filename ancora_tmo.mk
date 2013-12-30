@@ -130,10 +130,6 @@ PRODUCT_PACKAGES += \
     libc2dcolorconvert \
     libdashplayer
 
-#    libtilerenderer \
-#    qcmediaplayer
-# \   libaudiohw_legacy
-
 # Filesystem management tools
 PRODUCT_PACKAGES += \
     badblocks \
