@@ -149,31 +149,10 @@ PRODUCT_PACKAGES += \
 # Torch
 # PRODUCT_PACKAGES += Torch
 
-# Enable zRAM by default
-PRODUCT_PROPERTY_OVERRIDES += \
-	ro.zram.default=18
-
 # For applications to determine if they should turn off specific memory-intensive
 # features that work poorly on low-memory devices.
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.config.low_ram=false
-
-# Fix legacy fb on kitkat
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.zygote.disable_gl_preload=1
-
-# Disable JIT cache
-PRODUCT_PROPERTY_OVERRIDES += \
-    dalvik.vm.jit.codecachesize=0
-
-PRODUCT_PACKAGES += \
-    libexifa \
-    libjpega
-
-# Use ION uncached buffers for video recording and video playback
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.camera.mem.usecache=0 \
-    persist.video.mem.usecache=0
 
 PRODUCT_PACKAGES += \
     libexifa \
@@ -182,13 +161,6 @@ PRODUCT_PACKAGES += \
 # For userdebug builds
 ADDITIONAL_DEFAULT_PROPERTIES += \
     ro.secure=0
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.build.selinux=1
-
-# SELinux filesystem labels
-# PRODUCT_COPY_FILES += \
-#    device/samsung/ancora_tmo/prebuilt/etc/init.d/50selinuxrelabel:system/etc/init.d/50selinuxrelabel
 
 # We have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
