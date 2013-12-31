@@ -178,6 +178,8 @@ TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/samsung/ancora_tmo/recovery/recovery_keys.c
 TARGET_RECOVERY_INITRC := device/samsung/ancora_tmo/config/init.recovery.rc
 TARGET_RECOVERY_FSTAB := device/samsung/ancora_tmo/config/fstab.qcom
+PRODUCT_COPY_FILES += \
+    device/samsung/ancora_tmo/recovery/twrp.fstab:recovery/root/etc/twrp.fstab
 # End recovery stuff
 
 # TWRP recovery stuff
@@ -199,9 +201,7 @@ TW_HAS_DOWNLOAD_MODE := true
 TW_USE_MODEL_HARDWARE_ID_FOR_DEVICE_ID := true
 TW_INCLUDE_FB2PNG := true
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
-
-# PRODUCT_COPY_FILES += \
-#    device/samsung/ancora_tmo/recovery/twrp.fstab:recovery/root/etc/twrp.fstab
+TW_NO_SCREEN_TIMEOUT := true
 
 # Bootanimation
 TARGET_BOOTANIMATION_PRELOAD := true
