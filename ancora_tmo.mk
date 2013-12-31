@@ -128,7 +128,14 @@ PRODUCT_PACKAGES += \
     libOmxVdec \
     libstagefrighthw \
     libc2dcolorconvert \
-    libdashplayer
+    libdashplayer \
+    libdivxdrmdecrypt \
+    libOmxAacEnc \
+    libOmxAmrEnc \
+    libOmxEvrcEnc \
+    libOmxQcelp13Enc \
+    qcmediaplayer \
+    libtilerenderer
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
@@ -161,6 +168,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += \
     libexifa \
     libjpega
+
+# Support for Browser's saved page feature. This allows
+# for pages saved on previous versions of the OS to be
+# viewed on the current OS.
+PRODUCT_PACKAGES += \
+    libskia_legacy
 
 # For userdebug builds
 ADDITIONAL_DEFAULT_PROPERTIES += \
