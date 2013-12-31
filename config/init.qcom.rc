@@ -225,6 +225,8 @@ on fs
 
     setprop ro.crypto.tmpfs_options size=128m,mode=0771,uid=1000,gid=1000
 
+    setprop ro.crypto.fuse_sdcard true
+
 on post-fs-data
     # create log system
     mkdir /data/log 0775 system log

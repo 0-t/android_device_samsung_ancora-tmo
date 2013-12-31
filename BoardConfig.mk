@@ -43,7 +43,7 @@ TARGET_NO_INITLOGO := true
 TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_ARCH_LOWMEM := true
-TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
+# TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
 TARGET_CPU_VARIANT := scorpion
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
@@ -130,7 +130,7 @@ TARGET_PROVIDES_POWERHAL := true
 BOARD_HAL_STATIC_LIBRARIES := libhealthd.qcom
 
 # Camera
-COMMON_GLOBAL_CFLAGS += -DSAMSUNG_CAMERA_LEGACY -DNEEDS_VECTORIMPL_SYMBOLS
+COMMON_GLOBAL_CFLAGS += -DSAMSUNG_CAMERA_LEGACY -DQCOM_BSP_CAMERA_ABI_HACK -DNEEDS_VECTORIMPL_SYMBOLS
 USE_CAMERA_STUB := true
 BOARD_USES_QCOM_LEGACY_CAM_PARAMS := true
 BOARD_USES_LEGACY_OVERLAY := true
@@ -180,6 +180,7 @@ TARGET_RECOVERY_INITRC := device/samsung/ancora_tmo/config/init.recovery.rc
 TARGET_RECOVERY_FSTAB := device/samsung/ancora_tmo/config/fstab.qcom
 PRODUCT_COPY_FILES += \
     device/samsung/ancora_tmo/recovery/twrp.fstab:recovery/root/etc/twrp.fstab
+#   device/samsung/ancora_tmo/config/fstab.qcom:recovery/root/fstab.qcom
 # End recovery stuff
 
 # TWRP recovery stuff
