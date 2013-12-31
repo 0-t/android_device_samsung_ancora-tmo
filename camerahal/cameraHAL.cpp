@@ -353,7 +353,7 @@ static void wrap_data_callback(int32_t msg_type, const sp<IMemory>& dataPtr,
     if (dev->data_callback)
         dev->data_callback(msg_type, data, 0, NULL, dev->user);
 
-    if ( NULL != data ) {
+    if (NULL != data) {
         data->release(data);
     }
 
@@ -430,6 +430,16 @@ void CameraHAL_FixupParams(android::CameraParameters &camParams, priv_camera_dev
     camParams.set(CameraParameters::KEY_MAX_EXPOSURE_COMPENSATION, 4);
     camParams.set(CameraParameters::KEY_MIN_EXPOSURE_COMPENSATION, -4);
     camParams.set(CameraParameters::KEY_EXPOSURE_COMPENSATION_STEP, 1);
+
+    camParams.set(CameraParameters::KEY_MAX_SATURATION, 10);
+    camParams.set(CameraParameters::KEY_MAX_CONTRAST, 10);
+    camParams.set(CameraParameters::KEY_MAX_SHARPNESS, 30);
+
+    //keys for compatibility with other apps
+    camParams.set("max-saturation", 10);
+    camParams.set("max-contrast", 10);
+    camParams.set("max-sharpness", 30);
+
 }
 
 int camera_set_preview_window(struct camera_device * device,
@@ -625,10 +635,6 @@ int camera_start_preview(struct camera_device * device)
     rv = gCameraHals[dev->cameraid]->startPreview();
 
     ALOGI("%s--- rv %d", __FUNCTION__,rv);
-
-    if(!rv)
-      dev->preview_started = 1;
-
     return rv;
 }
 
@@ -642,7 +648,6 @@ void camera_stop_preview(struct camera_device * device)
         return;
 
     dev = (priv_camera_device_t*) device;
-    dev->preview_started = 0;
 
     gCameraHals[dev->cameraid]->stopPreview();
     ALOGI("%s---", __FUNCTION__);
@@ -661,7 +666,6 @@ int camera_preview_enabled(struct camera_device * device)
     dev = (priv_camera_device_t*) device;
 
     rv = gCameraHals[dev->cameraid]->previewEnabled();
-    return dev->preview_started;
 
     ALOGI("%s--- rv %d", __FUNCTION__,rv);
 
@@ -947,7 +951,6 @@ void camera_release(struct camera_device * device)
         return;
 
     dev = (priv_camera_device_t*) device;
-    dev->preview_started = 0;
 
     gCameraHals[dev->cameraid]->release();
     ALOGI("%s---", __FUNCTION__);
@@ -987,7 +990,6 @@ int camera_device_close(hw_device_t* device)
     dev = (priv_camera_device_t*) device;
 
     if (dev) {
-        dev->preview_started = 0;
         gCameraHals[dev->cameraid].clear();
         gCameraHals[dev->cameraid] = NULL;
         gCamerasOpen--;
