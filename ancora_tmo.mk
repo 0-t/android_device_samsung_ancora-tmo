@@ -146,6 +146,10 @@ PRODUCT_PACKAGES += \
     com.android.future.usb.accessory \
     libnetcmdiface
 
+# Camera
+PRODUCT_PACKAGES += \
+    libsurfaceflinger_client
+
 # Torch
 # PRODUCT_PACKAGES += Torch
 
