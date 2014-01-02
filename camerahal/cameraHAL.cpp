@@ -98,7 +98,6 @@ typedef struct priv_camera_device {
     camera_data_timestamp_callback data_timestamp_callback;
     camera_request_memory request_memory;
     void *user;
-    int preview_started;
     /* old world*/
     int preview_width;
     int preview_height;
@@ -626,9 +625,6 @@ int camera_start_preview(struct camera_device * device)
 
     ALOGI("%s--- rv %d", __FUNCTION__,rv);
 
-    if(!rv)
-      dev->preview_started = 1;
-
     return rv;
 }
 
@@ -642,7 +638,6 @@ void camera_stop_preview(struct camera_device * device)
         return;
 
     dev = (priv_camera_device_t*) device;
-    dev->preview_started = 0;
 
     gCameraHals[dev->cameraid]->stopPreview();
     ALOGI("%s---", __FUNCTION__);
@@ -661,7 +656,6 @@ int camera_preview_enabled(struct camera_device * device)
     dev = (priv_camera_device_t*) device;
 
     rv = gCameraHals[dev->cameraid]->previewEnabled();
-    return dev->preview_started;
 
     ALOGI("%s--- rv %d", __FUNCTION__,rv);
 
@@ -820,10 +814,6 @@ int camera_take_picture(struct camera_device * device)
 
     rv = gCameraHals[dev->cameraid]->takePicture();
 
-    dev->preview_started = 0;
-
-    gCameraHals[dev->cameraid]->stopPreview();
-
     ALOGI("%s--- rv %d", __FUNCTION__,rv);
     return rv;
 }
@@ -947,7 +937,6 @@ void camera_release(struct camera_device * device)
         return;
 
     dev = (priv_camera_device_t*) device;
-    dev->preview_started = 0;
 
     gCameraHals[dev->cameraid]->release();
     ALOGI("%s---", __FUNCTION__);
@@ -987,7 +976,6 @@ int camera_device_close(hw_device_t* device)
     dev = (priv_camera_device_t*) device;
 
     if (dev) {
-        dev->preview_started = 0;
         gCameraHals[dev->cameraid].clear();
         gCameraHals[dev->cameraid] = NULL;
         gCamerasOpen--;
