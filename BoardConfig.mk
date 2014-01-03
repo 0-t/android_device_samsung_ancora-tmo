@@ -214,9 +214,6 @@ TARGET_BOOTANIMATION_PRELOAD := true
 TARGET_BOOTANIMATION_TEXTURE_CACHE := true
 TARGET_BOOTANIMATION_USE_RGB565 := true
 
-# SELinux
-BOARD_KERNEL_CMDLINE := androidboot.selinux=permissive
-
 BOARD_SEPOLICY_DIRS += \
     device/samsung/ancora_tmo/sepolicy
 
