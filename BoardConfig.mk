@@ -216,7 +216,7 @@ BOARD_SEPOLICY_DIRS += \
     device/samsung/ancora_tmo/sepolicy
 
 BOARD_SEPOLICY_UNION += \
-    bdaddr_read.tx \
+    bdaddr_read.te \
     bridge.te \
     camera.te \
     device.te \
