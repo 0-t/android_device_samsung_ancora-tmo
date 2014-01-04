@@ -152,6 +152,10 @@ PRODUCT_PACKAGES += \
     com.android.future.usb.accessory \
     libnetcmdiface
 
+# Camera
+PRODUCT_PACKAGES += \
+    libsurfaceflinger_client
+
 # Torch
 # PRODUCT_PACKAGES += Torch
 
@@ -163,6 +167,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += \
     libexifa \
     libjpega
+
+# Fix camcorder
+PRODUCT_PROPERTY_OVERRIDES += \
+    debug.camcorder.disablemeta=1
 
 # For userdebug builds
 ADDITIONAL_DEFAULT_PROPERTIES += \
