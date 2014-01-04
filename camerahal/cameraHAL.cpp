@@ -409,12 +409,12 @@ void CameraHAL_FixupParams(android::CameraParameters &camParams, priv_camera_dev
     camParams.set(CameraParameters::KEY_FLASH_MODE, "off");
 
     if (dev->cameraid == CAMERA_ID_FRONT) {
-        camParams.set(CameraParameters::KEY_SUPPORTED_EFFECTS, "");
         camParams.set(CameraParameters::KEY_SUPPORTED_FLASH_MODES, "");
         camParams.set(CameraParameters::KEY_SUPPORTED_ISO_MODES, "");
         camParams.set(CameraParameters::KEY_SUPPORTED_SCENE_MODES, "");
         camParams.set(CameraParameters::KEY_SUPPORTED_WHITE_BALANCE, "");
         camParams.set(CameraParameters::KEY_SUPPORTED_PREVIEW_FRAME_RATES, "15");
+        const char *record_size = "320x240,176x144";
     }
 
     if (dev->cameraid == CAMERA_ID_BACK) {
@@ -425,6 +425,11 @@ void CameraHAL_FixupParams(android::CameraParameters &camParams, priv_camera_dev
         camParams.set(CameraParameters::KEY_SUPPORTED_ISO_MODES, "auto,ISO50,ISO100,ISO200,ISO400");
 
         camParams.set(CameraParameters::KEY_SUPPORTED_PREVIEW_FRAME_RATES, "30");
+
+        camParams.set(CameraParameters::KEY_SUPPORTED_EFFECTS, "none,mono,negative,sepia");
+        camParams.set(CameraParameters::KEY_SUPPORTED_FOCUS_MODES, "auto,infinity,normal,macro,facedetect,touchaf");
+
+        const char *record_size = "640x480,352x288,320x240,176x144";
     }
 
     camParams.set(CameraParameters::KEY_MAX_EXPOSURE_COMPENSATION, 4);
@@ -821,7 +826,6 @@ int camera_take_picture(struct camera_device * device)
     rv = gCameraHals[dev->cameraid]->takePicture();
 
     dev->preview_started = 0;
-
     gCameraHals[dev->cameraid]->stopPreview();
 
     ALOGI("%s--- rv %d", __FUNCTION__,rv);
