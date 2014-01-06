@@ -4,7 +4,6 @@ on early-init
 
 on init
     export PATH /sbin
-    export LD_LIBRARY_PATH .:/sbin /system/lib
     export ANDROID_ROOT /system
     export ANDROID_DATA /data
     export EXTERNAL_STORAGE /sdcard
@@ -70,9 +69,6 @@ service ueventd /sbin/ueventd
 
 service healthd /sbin/healthd -n
     critical
-
-# Required to fix shutdown issue
-service rmt_storage /sbin/rmt_storage
 
 service recovery /sbin/recovery
 
