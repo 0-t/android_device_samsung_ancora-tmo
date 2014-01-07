@@ -27,9 +27,6 @@ on boot
     # Disable idle power collapse during boot.
     # These features will be enabled at the end of boot
     write /sys/module/pm2/parameters/idle_sleep_mode 3
-  
-    setprop ro.build.product ancora_tmo
-    setprop ro.product.device ancora_tmo
 
     chown bluetooth bluetooth /sys/module/bluetooth_power/parameters/power
     chown bluetooth net_bt_stack /sys/class/rfkill/rfkill0/type
