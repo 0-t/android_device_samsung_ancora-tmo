@@ -127,14 +127,7 @@ PRODUCT_PACKAGES += \
     libOmxVdec \
     libstagefrighthw \
     libc2dcolorconvert \
-    libdashplayer \
-    libdivxdrmdecrypt \
-    libOmxAacEnc \
-    libOmxAmrEnc \
-    libOmxEvrcEnc \
-    libOmxQcelp13Enc \
-    qcmediaplayer \
-    libtilerenderer
+    libdashplayer
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
