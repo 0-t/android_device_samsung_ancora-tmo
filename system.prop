@@ -51,7 +51,6 @@ mm.enable.smoothstreaming=true
 persist.sys.usb.config=mtp,adb
 persist.service.adb.enable=1
 persist.service.debuggable=1
-ro.debuggable=1
 
 # Increase speed for UMS transfer
 ro.vold.umsdirtyratio=50
