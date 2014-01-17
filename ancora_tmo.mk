@@ -163,10 +163,6 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
 # We have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
 
-## Not the prettiest hack ever, but it'll do until JPlayer is understood
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/config/98netflix:system/etc/init.d/98netflix
-
 $(call inherit-product-if-exists, vendor/samsung/ancora_tmo/device-vendor.mk)
 $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4329/device-bcm.mk)
 $(call inherit-product, frameworks/native/build/phone-hdpi-512-dalvik-heap.mk)
