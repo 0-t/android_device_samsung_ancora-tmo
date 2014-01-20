@@ -68,3 +68,6 @@ persist.cm.dun.override=0
 # Use ION uncached buffers for video recording and video playback
 persist.camera.mem.usecache=0
 persist.video.mem.usecache=0
+
+# enable KSM by default
+Set ro.ksm.default=1
