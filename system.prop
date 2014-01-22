@@ -69,5 +69,10 @@ persist.cm.dun.override=0
 persist.camera.mem.usecache=0
 persist.video.mem.usecache=0
 
+<<<<<<< HEAD
 # enable KSM by default
 Set ro.ksm.default=1
+=======
+# Use classic webview to workaround glitches
+persist.webview.provider=classic
+>>>>>>> 89fa196... Use classic webview
