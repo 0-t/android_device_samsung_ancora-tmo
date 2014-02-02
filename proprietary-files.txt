@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Sample file to extract required files from an original Samsung Galaxy Exhibit 4G
 # This script is not required if you have the proprietary repository
 #
@@ -60,3 +61,9 @@
 /lib/libsecjpeginterface.so
 /lib/libsecril-client.so
 /lib/libsec-ril.so
+
+# FM Radio Firmware Loader
+system/bin/fm_qsoc_patches
+
+# FM Radio Dependencies
+system/lib/libqmiservices.so
