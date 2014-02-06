@@ -127,7 +127,8 @@ PRODUCT_PACKAGES += \
     libOmxVdec \
     libstagefrighthw \
     libc2dcolorconvert \
-    libdashplayer
+    libdashplayer \
+    libaudioutils
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
