@@ -18,10 +18,16 @@
 /etc/firmware/vidc_720p_vc1_dec_mc.fw
 /etc/firmware/yamato_pfp.fw
 /etc/firmware/yamato_pm4.fw
+/etc/firmware/a225p5_pm4.fw
+/etc/firmware/a225_pfp.fw
+/etc/firmware/a225_pm4.fw
+/etc/firmware/leia_pfp_470.fw
+/etc/firmware/leia_pm4_470.fw
 
 /lib/egl/libEGL_adreno200.so
 /lib/egl/libGLESv1_CM_adreno200.so
 /lib/egl/libGLESv2_adreno200.so
+/lib/egl/libplayback_adreno200.so
 /lib/egl/libq3dtools_adreno200.so
 
 /lib/hw/lights.msm7k.so
@@ -31,19 +37,23 @@
 /lib/libakm.so
 /lib/libarccamera.so
 /lib/libaudioalsa.so
+/lib/libc2d2_z180.so
 /lib/libC2D2.so
 /lib/libcamera.so
 /lib/libcaps.so
 /lib/libgemini.so
 /lib/libgsl.so
+/lib/libllvm-arm.so
 /lib/libmmipl.so
 /lib/libmmjpeg.so
 /lib/libmmosal.so
 /lib/libmmparser.so
 /lib/liboemcamera.so
+/lib/libOpenCL.so
 /lib/libOpenVG.so
 /lib/libPanoraMax3.so
 /lib/libs3cjpeg.so
+/lib/libsc-a2xx.so
 /lib/libseccameraadaptor.so
 /lib/libsecjpegarcsoft.so
 /lib/libsecjpegboard.so
