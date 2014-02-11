@@ -9,6 +9,9 @@ $(call inherit-product, $(LOCAL_PATH)/full_ancora_tmo.mk)
 
 PRODUCT_RELEASE_NAME := ancora_tmo
 
+# Custom tag for unofficial builds
+TARGET_UNOFFICIAL_BUILD_ID := jfbs
+
 # Setup device configuration
 PRODUCT_NAME := cm_ancora_tmo
 PRODUCT_DEVICE := ancora_tmo
