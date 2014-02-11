@@ -218,10 +218,6 @@ on boot
     # Read only 1 page at a time
     write /proc/sys/vm/page-cluster 0
 
-    # Torch
-    chown system system /sys/class/leds/flashlight/brightness
-    chmod 0666 /sys/class/leds/flashlight/brightness
-
 on fs
     chmod 0666 /dev/block/mmcblk0p14
 
