@@ -151,6 +151,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.config.low_ram=true
 
+# Exifinterface
 PRODUCT_PACKAGES += \
     libexifa \
     libjpega
