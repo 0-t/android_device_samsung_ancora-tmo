@@ -128,7 +128,13 @@ PRODUCT_PACKAGES += \
     libstagefrighthw \
     libc2dcolorconvert \
     libdashplayer \
-    libaudioutils
+    libaudioutils \
+    libdivxdrmdecrypt \
+    libOmxAacEnc \
+    libOmxAmrEnc \
+    libOmxEvrcEnc \
+    libOmxQcelp13Enc \
+    qcmediaplayer
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
@@ -163,6 +169,9 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
 # Enable KSM by default
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.ksm.default=1
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    qcom.hw.aac.encoder=true
 
 # We have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
