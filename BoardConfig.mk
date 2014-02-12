@@ -144,7 +144,7 @@ BOARD_USES_QCOM_AUDIO_LPA := true
 BOARD_USE_LEGACY_SENSORS_FUSION := false
 
 # Old webkit
-PRODUCT_PREBUILT_WEBVIEWCHROMIUM := true
+PRODUCT_PREBUILT_WEBVIEWCHROMIUM := yes
 
 # USB mass storage
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/file
