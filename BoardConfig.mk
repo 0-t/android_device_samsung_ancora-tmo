@@ -121,7 +121,7 @@ TARGET_DISPLAY_USE_RETIRE_FENCE := true
 
 # HAL power and lights
 TARGET_PROVIDES_LIBLIGHT := true
-TARGET_USES_CM_POWERHAL := true
+TARGET_PROVIDES_POWERHAL := true
 
 # Override healthd HAL
 BOARD_HAL_STATIC_LIBRARIES := libhealthd.qcom
