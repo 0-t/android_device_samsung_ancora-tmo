@@ -126,6 +126,7 @@ PRODUCT_PACKAGES += \
     libOmxCore \
     libOmxVenc \
     libOmxVdec \
+    libOmxVdecHevc \
     libstagefrighthw \
     libc2dcolorconvert \
     libdashplayer \
