@@ -71,7 +71,3 @@ persist.video.mem.usecache=0
 
 # Use classic webview to workaround glitches
 persist.webview.provider=classic
-
-# Network
-ro.com.google.locationfeatures=1
-ro.com.google.networklocation=1
