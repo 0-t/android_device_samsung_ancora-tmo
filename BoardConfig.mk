@@ -146,10 +146,6 @@ PRODUCT_PREBUILT_WEBVIEWCHROMIUM := true
 # USB mass storage
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/file
 
-# FM
-BOARD_HAVE_QCOM_FM := true
-QCOM_FM_ENABLED := true
-
 # Filesystem and vold
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
