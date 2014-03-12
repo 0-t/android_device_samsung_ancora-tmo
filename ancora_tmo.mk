@@ -153,6 +153,7 @@ PRODUCT_PACKAGES += \
 # BT
 PRODUCT_PACKAGES += \
     com.android.future.usb.accessory \
+    SamsungServiceMode \
     libnetcmdiface
 
 # For applications to determine if they should turn off specific memory-intensive
