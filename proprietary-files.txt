@@ -5,6 +5,7 @@
 
 /bin/BCM4329B1_002.002.023.0944.0953.hcd
 /bin/rmt_storage
+/bin/gpu_dcvsd
 
 /cameradata/datapattern_420sp_T679.yuv
 /cameradata/datapattern_front_420sp_T679.yuv
@@ -27,7 +28,6 @@
 /lib/egl/libEGL_adreno200.so
 /lib/egl/libGLESv1_CM_adreno200.so
 /lib/egl/libGLESv2_adreno200.so
-/lib/egl/libplayback_adreno200.so
 /lib/egl/libq3dtools_adreno200.so
 
 /lib/hw/lights.msm7k.so
@@ -41,6 +41,7 @@
 /lib/libC2D2.so
 /lib/libcamera.so
 /lib/libcaps.so
+/lib/libCB.so
 /lib/libgemini.so
 /lib/libgsl.so
 /lib/libllvm-arm.so
@@ -60,3 +61,4 @@
 /lib/libsecjpeginterface.so
 /lib/libsecril-client.so
 /lib/libsec-ril.so
+/lib/libwvm.so
