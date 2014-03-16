@@ -153,8 +153,12 @@ PRODUCT_PACKAGES += \
 # BT
 PRODUCT_PACKAGES += \
     com.android.future.usb.accessory \
-    SamsungServiceMode \
     libnetcmdiface
+
+# Misc
+PRODUCT_PACKAGES += \
+    SamsungServiceMode \
+    PerformanceControl
 
 # For applications to determine if they should turn off specific memory-intensive
 # features that work poorly on low-memory devices.
