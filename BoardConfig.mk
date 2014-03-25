@@ -175,7 +175,7 @@ BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/samsung/ancora_tmo/recovery/rec
 TARGET_RECOVERY_INITRC := device/samsung/ancora_tmo/config/init.recovery.rc
 TARGET_RECOVERY_FSTAB := device/samsung/ancora_tmo/config/fstab.qcom
 PRODUCT_COPY_FILES += \
-    device/samsung/ancora_tmo/recovery/twrp.fstab:recovery/root/etc/twrp.fstab
+    device/samsung/ancora_tmo/config/twrp.fstab:recovery/root/etc/twrp.fstab
 #   device/samsung/ancora_tmo/config/fstab.qcom:recovery/root/fstab.qcom
 # End recovery stuff
 
