@@ -158,7 +158,8 @@ PRODUCT_PACKAGES += \
 
 # Misc
 PRODUCT_PACKAGES += \
-    SamsungServiceMode
+    SamsungServiceMode \
+    PerformanceControl
 
 # For applications to determine if they should turn off specific memory-intensive
 # features that work poorly on low-memory devices.
