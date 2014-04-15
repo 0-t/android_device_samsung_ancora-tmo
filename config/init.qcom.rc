@@ -5,6 +5,7 @@ on early-init
     chmod 644 /proc/cmdline
 
 on init
+    mkdir /mnt/media_rw 0775 root root
     mkdir /mnt/media_rw/sdcard0 0770 media_rw media_rw
     mkdir /mnt/media_rw/sdcard1 0770 media_rw media_rw
     mkdir /mnt/media_rw/usbdisk 0770 media_rw media_rw
