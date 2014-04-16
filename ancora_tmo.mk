@@ -120,7 +120,8 @@ PRODUCT_PACKAGES += \
     audio.a2dp.default \
     audio.usb.default \
     libaudio-resampler \
-    libaudioparameter
+    libaudioparameter \
+    libtilerenderer
 
 # Media
 PRODUCT_PACKAGES += \
