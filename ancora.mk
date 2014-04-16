@@ -144,6 +144,12 @@ PRODUCT_PACKAGES += \
     libexifa \
     libjpega
 
+# F2FS-tools
+PRODUCT_PACKAGES += \
+    mkfs.f2fs \
+    fsck.f2fs \
+    fibmap.f2fs
+
 # For userdebug builds
 ADDITIONAL_DEFAULT_PROPERTIES += \
     ro.secure=0
