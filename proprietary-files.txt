@@ -61,3 +61,4 @@
 /lib/libsecjpeginterface.so
 /lib/libsecril-client.so
 /lib/libsec-ril.so
+/lib/libwvm.so
