@@ -49,6 +49,3 @@
 /dev/block/mmcblk0p18 u:object_r:efs_block_device:s0
 /dev/block/mmcblk0p19 u:object_r:efs_block_device:s0
 /dev/block/mmcblk0p20 u:object_r:efs_block_device:s0
-
-# System binaries
-/system/bin/rmt_storage u:object_r:rmt_exec:s0
