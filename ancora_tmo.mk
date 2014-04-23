@@ -137,8 +137,7 @@ PRODUCT_PACKAGES += \
     libOmxAacEnc \
     libOmxAmrEnc \
     libOmxEvrcEnc \
-    libOmxQcelp13Enc \
-    qcmediaplayer
+    libOmxQcelp13Enc
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
@@ -165,7 +164,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.config.low_ram=true
 
-# Exifinterface
+# Exif interface
 PRODUCT_PACKAGES += \
     libexifa \
     libjpega
@@ -173,10 +172,6 @@ PRODUCT_PACKAGES += \
 # For userdebug builds
 ADDITIONAL_DEFAULT_PROPERTIES += \
     ro.secure=0
-
-# Enable KSM by default
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.ksm.default=1
 
 # We have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
