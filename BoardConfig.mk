@@ -212,11 +212,15 @@ BOARD_SEPOLICY_UNION += \
     file.te \
     healthd.te \
     init.te \
+    installd.te \
     mac_update.te \
     mediaserver.te \
+    netd.te \
+    orientationd.te \
     property_contexts \
     rild.te \
     rmt.te \
+    seapp_contexts \
     surfaceflinger.te \
     system.te \
     tee.te \
