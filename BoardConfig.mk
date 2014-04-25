@@ -203,8 +203,22 @@ BOARD_SEPOLICY_DIRS += \
 
 BOARD_SEPOLICY_UNION += \
     bdaddr_read.te \
+    bridge.te \
+    camera.te \
     device.te \
+    dhcp.te \
+    domain.te \
     file_contexts \
+    file.te \
+    healthd.te \
+    init.te \
+    mac_update.te \
     mediaserver.te \
     property_contexts \
-    rild.te
+    rild.te \
+    rmt.te \
+    surfaceflinger.te \
+    system.te \
+    tee.te \
+    ueventd.te \
+    wpa_supplicant.te
