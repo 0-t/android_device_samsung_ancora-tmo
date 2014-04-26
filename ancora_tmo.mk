@@ -18,6 +18,11 @@ DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 PRODUCT_AAPT_CONFIG := normal hdpi
 PRODUCT_AAPT_PREF_CONFIG := hdpi
 
+# Density in DPI of the LCD of this board. This is used to scale the UI
+# appropriately. If this property is not defined, the default value is 160 dpi.
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.sf.lcd_density=240
+
 # Boot and charging images
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/ARIESVE.rle:root/ARIESVE.rle \
@@ -162,7 +167,8 @@ PRODUCT_PACKAGES += \
 # For applications to determine if they should turn off specific memory-intensive
 # features that work poorly on low-memory devices.
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.config.low_ram=true
+    ro.config.low_ram=true \
+    ro.zygote.disable_gl_preload=true
 
 # Exif interface
 PRODUCT_PACKAGES += \
