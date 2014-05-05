@@ -25,7 +25,7 @@
 # against the traditional rules of inheritance).
 
 # inherit from the proprietary version
--include vendor/samsung/ancora_tmo/BoardConfigVendor.mk
+include vendor/samsung/ancora_tmo/BoardConfigVendor.mk
 
 # create the folder /usr to prevent the build from failing
 $(shell mkdir -p $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/)
@@ -57,6 +57,7 @@ BOARD_KERNEL_PAGESIZE := 4096
 TARGET_KERNEL_CONFIG := ancora_tmo_defconfig
 TARGET_KERNEL_SOURCE := kernel/samsung/ancora_tmo
 TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-cortex_a8-491/bin/arm-gnueabi-
+# TARGET_GCC_VERSION_EXP := 4.8
 
 # Wifi related defines
 BOARD_HAVE_SAMSUNG_WIFI          := true
