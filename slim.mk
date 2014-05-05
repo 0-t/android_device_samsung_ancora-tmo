@@ -1,11 +1,8 @@
- # Specify phone tech before including full_phone
-$(call inherit-product, vendor/slim/config/gsm.mk)
-
 # Inherit some common slim stuff.
 $(call inherit-product, vendor/slim/config/common_full_phone.mk)
 
 # Inherit device configuration
-$(call inherit-product, device/samsung/ancora_tmo/full_ancora_tmo.mk)
+$(call inherit-product, $(LOCAL_PATH)/full_ancora_tmo.mk)
 
 PRODUCT_RELEASE_NAME := ancora_tmo
 
