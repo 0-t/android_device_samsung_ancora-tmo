@@ -156,11 +156,6 @@ PRODUCT_PACKAGES += \
     make_ext4fs \
     setup_fs
 
-# GPS
-PRODUCT_COPY_FILES += \
-    device/samsung/ancora_tmo/config/gps.conf:system/etc/gps.conf \
-    device/samsung/ancora_tmo/config/sirfgps.conf:system/etc/sirfgps.conf
-
 # BT
 PRODUCT_PACKAGES += \
     com.android.future.usb.accessory \
