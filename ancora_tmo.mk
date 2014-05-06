@@ -158,8 +158,8 @@ PRODUCT_PACKAGES += \
 
 # GPS
 PRODUCT_COPY_FILES += \
-    $(COMMON_PATH)/config/gps.conf:system/etc/gps.conf \
-    $(COMMON_PATH)/config/sirfgps.conf:system/etc/sirfgps.conf
+    device/samsung/ancora_tmo/config/gps.conf:system/etc/gps.conf \
+    device/samsung/ancora_tmo/config/sirfgps.conf:system/etc/sirfgps.conf
 
 # BT
 PRODUCT_PACKAGES += \
