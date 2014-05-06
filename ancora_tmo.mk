@@ -17,6 +17,7 @@ DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 # This device is hdpi
 PRODUCT_AAPT_CONFIG := normal hdpi
 PRODUCT_AAPT_PREF_CONFIG := hdpi
+PRODUCT_LOCALES += hdpi
 
 # Density in DPI of the LCD of this board. This is used to scale the UI
 # appropriately. If this property is not defined, the default value is 160 dpi.
@@ -154,6 +155,11 @@ PRODUCT_PACKAGES += \
     tune2fs \
     make_ext4fs \
     setup_fs
+
+# GPS
+PRODUCT_COPY_FILES += \
+    $(COMMON_PATH)/config/gps.conf:system/etc/gps.conf \
+    $(COMMON_PATH)/config/sirfgps.conf:system/etc/sirfgps.conf
 
 # BT
 PRODUCT_PACKAGES += \
