@@ -143,13 +143,6 @@ PRODUCT_PACKAGES += \
     libOmxQcelp13Enc \
     qcmediaplayer
 
-# Stagefright FFMPEG plugin
-PRODUCT_PACKAGES += \
-    libstagefright_soft_ffmpegadec \
-    libstagefright_soft_ffmpegvdec \
-    libFFmpegExtractor \
-    libnamparser
-
 # Filesystem management tools
 PRODUCT_PACKAGES += \
     badblocks \
