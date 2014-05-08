@@ -195,6 +195,9 @@ TW_HAS_DOWNLOAD_MODE := true
 TW_USE_MODEL_HARDWARE_ID_FOR_DEVICE_ID := true
 TW_INCLUDE_FB2PNG := true
 
+# Screenrecord
+BOARD_SCREENRECORD_LANDSCAPE_ONLY := true
+
 # SELinux
 BOARD_SEPOLICY_DIRS += \
     device/samsung/ancora_tmo/sepolicy
