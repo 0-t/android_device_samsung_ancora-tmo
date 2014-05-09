@@ -415,13 +415,6 @@ void CameraHAL_FixupParams(android::CameraParameters &camParams, priv_camera_dev
     camParams.set(CameraParameters::KEY_SUPPORTED_FLASH_MODES, "off,auto,on,torch");
     camParams.set(CameraParameters::KEY_FLASH_MODE, "off");
 
-    // Orient portrait
-    int rotation = camParams.getInt(CameraParameters::KEY_ROTATION);
-    if (rotation == 90)
-        camParams.set(android::CameraParameters::KEY_ROTATION, "0");
-    if (rotation == 270)
-        camParams.set(android::CameraParameters::KEY_ROTATION, "180");
-
     if (dev->cameraid == CAMERA_ID_FRONT) {
         camParams.set(CameraParameters::KEY_SUPPORTED_FLASH_MODES, "");
         camParams.set(CameraParameters::KEY_SUPPORTED_ISO_MODES, "");
@@ -442,6 +435,9 @@ void CameraHAL_FixupParams(android::CameraParameters &camParams, priv_camera_dev
         camParams.set(CameraParameters::KEY_SUPPORTED_EFFECTS, "none,mono,negative,sepia");
         camParams.set(CameraParameters::KEY_SUPPORTED_FOCUS_MODES, "auto,infinity,normal,macro,facedetect,touchaf");
     }
+
+    // Orient playback
+    camParams.set(android::CameraParameters::KEY_ROTATION, "0");
 
     camParams.set(CameraParameters::KEY_MAX_EXPOSURE_COMPENSATION, 4);
     camParams.set(CameraParameters::KEY_MIN_EXPOSURE_COMPENSATION, -4);
