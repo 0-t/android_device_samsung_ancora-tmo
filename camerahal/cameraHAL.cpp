@@ -424,10 +424,6 @@ void CameraHAL_FixupParams(android::CameraParameters &camParams, priv_camera_dev
     }
 
     if (dev->cameraid == CAMERA_ID_BACK) {
-        int rotation = camParams.getInt(CameraParameters::KEY_ROTATION);
-        if (rotation == 90)
-            camParams.set(android::CameraParameters::KEY_ROTATION, "0");
-
         if (!camParams.get(android::CameraParameters::KEY_MAX_NUM_FOCUS_AREAS)) {
             camParams.set(CameraParameters::KEY_MAX_NUM_FOCUS_AREAS, 1);
         }
