@@ -52,7 +52,7 @@ BOARD_KERNEL_BASE := 0x00400000
 BOARD_KERNEL_PAGESIZE := 4096
 TARGET_KERNEL_CONFIG := ancora_tmo_defconfig
 TARGET_KERNEL_SOURCE := kernel/samsung/ancora_tmo
-TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-cortex_a8-491/bin/arm-gnueabi-
+TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-cortex_a8_5-17/bin/arm-gnueabi-
 # TARGET_GCC_VERSION_EXP := 4.8
 
 # Wifi related defines
