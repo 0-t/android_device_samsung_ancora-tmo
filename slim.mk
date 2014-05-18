@@ -1,10 +1,18 @@
+## Specify phone tech before including full_phone
+$(call inherit-product, vendor/slim/config/gsm.mk)
+
+# Release name
+PRODUCT_RELEASE_NAME := ancora_tmo
+
+# Bootanimation
+TARGET_SCREEN_HEIGHT := 800
+TARGET_SCREEN_WIDTH := 480
+
 # Inherit some common slim stuff.
 $(call inherit-product, vendor/slim/config/common_full_phone.mk)
 
 # Inherit device configuration
-$(call inherit-product, $(LOCAL_PATH)/full_ancora_tmo.mk)
-
-PRODUCT_RELEASE_NAME := ancora_tmo
+$(call inherit-product, device/samsung/ancora_tmo/full_ancora_tmo.mk)
 
 # Setup device configuration
 PRODUCT_NAME := slim_ancora_tmo
