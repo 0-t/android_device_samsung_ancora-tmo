@@ -35,8 +35,8 @@ debug.mdpcomp.logs=0
 debug.composition.type=dyn
 
 # Low Power Audio
-lpa.decode=true
-lpa.use-stagefright=true
+lpa.decode=false
+lpa.use-stagefright=false
 
 # Resampler quality
 af.resampler.quality=4
