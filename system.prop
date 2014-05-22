@@ -45,7 +45,7 @@ af.resampler.quality=4
 persist.sys.usb.config=mass_storage
 
 # Increase speed for UMS transfer
-ro.vold.umsdirtyratio=50
+ro.vold.umsdirtyratio=20
 
 # Storage configuration
 persist.sys.vold.switchablepair=sdcard0,sdcard1
