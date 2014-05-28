@@ -98,6 +98,7 @@ BOARD_EGL_WORKAROUND_BUG_10194508 := true
 
 # QCOM webkit
 ENABLE_WEBGL := true
+TARGET_FORCE_CPU_UPLOAD := true
 
 # Memory allocation
 TARGET_USES_ION := true
