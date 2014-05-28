@@ -99,6 +99,7 @@ USE_OPENGL_RENDERER := true
 
 # QCOM webkit
 ENABLE_WEBGL := true
+TARGET_FORCE_CPU_UPLOAD := true
 
 # Memory allocation
 TARGET_USES_ION := true
