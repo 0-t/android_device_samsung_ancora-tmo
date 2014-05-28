@@ -19,6 +19,8 @@ PRODUCT_AAPT_CONFIG := normal hdpi
 PRODUCT_AAPT_PREF_CONFIG := hdpi
 PRODUCT_LOCALES := hdpi
 
+PRODUCT_BOOT_JARS += qcmediaplayer
+
 # Boot and charging images
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/ARIESVE.rle:root/ARIESVE.rle \
@@ -174,6 +176,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += \
     libexifa \
     libjpega
+
+# qcmediaplayer
+PRODUCT_PACKAGES += qcmediaplayer
 
 # For userdebug builds
 ADDITIONAL_DEFAULT_PROPERTIES += \
