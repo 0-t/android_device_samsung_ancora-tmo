@@ -171,8 +171,7 @@ PRODUCT_PACKAGES += \
 # For applications to determine if they should turn off specific memory-intensive
 # features that work poorly on low-memory devices.
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.config.low_ram=true \
-    ro.zygote.disable_gl_preload=true
+    ro.config.low_ram=true
 
 # Exif interface
 PRODUCT_PACKAGES += \
