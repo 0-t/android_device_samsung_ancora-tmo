@@ -17,7 +17,7 @@ DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 # This device is hdpi
 PRODUCT_AAPT_CONFIG := normal hdpi
 PRODUCT_AAPT_PREF_CONFIG := hdpi
-PRODUCT_LOCALES += hdpi
+PRODUCT_LOCALES := hdpi
 
 # Density in DPI of the LCD of this board. This is used to scale the UI
 # appropriately. If this property is not defined, the default value is 160 dpi.
@@ -166,7 +166,7 @@ PRODUCT_PACKAGES += \
 # Misc
 PRODUCT_PACKAGES += \
     SamsungServiceMode \
-    Torch
+#    Torch
 
 # For applications to determine if they should turn off specific memory-intensive
 # features that work poorly on low-memory devices.
