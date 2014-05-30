@@ -29,9 +29,6 @@ dalvik.vm.dexopt-data-only=1
 debug.sf.hw=1
 debug.mdpcomp.logs=0
 
-# Density persistence
-persist.sys.lcd_density=240
-
 # Low Power Audio
 lpa.decode=false
 lpa.use-stagefright=false
