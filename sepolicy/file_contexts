@@ -6,6 +6,9 @@
 /dev/msm_amrwb.* u:object_r:audio_device:s0
 /dev/msm_aac.* u:object_r:audio_device:s0
 
+# Qualcomm audio firmware files
+/data/misc/audio/* u:object_r:audio_firmware_file:s0
+
 # Jpeg Engine support
 /dev/gemini.* u:object_r:camera_device:s0
 # MSM camera related
