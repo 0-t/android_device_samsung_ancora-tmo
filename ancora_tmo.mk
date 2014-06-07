@@ -185,6 +185,12 @@ PRODUCT_PACKAGES += qcmediaplayer
 ADDITIONAL_DEFAULT_PROPERTIES += \
     ro.secure=0
 
+# Properties
+PRODUCT_PROPERTY_OVERRIDES += \
+    qcom.hw.aac.encoder=true \
+    af.resampler.quality=255 \
+    ro.config.vc_call_vol_steps=7
+
 # We have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
 
