@@ -6,5 +6,3 @@ type radio_efs_file, fs_type;
 
 # Support asec containers getting mounted
 allow file_type rootfs:filesystem associate;
-
-type audio_firmware_file, file_type;
