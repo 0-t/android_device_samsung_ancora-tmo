@@ -183,10 +183,6 @@ PRODUCT_PACKAGES += qcmediaplayer
 ADDITIONAL_DEFAULT_PROPERTIES += \
     ro.secure=0
 
-# Enable KSM by default
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.ksm.default=1
-
 # We have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
 
