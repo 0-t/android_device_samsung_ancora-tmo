@@ -53,7 +53,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/config/fstab.qcom:root/fstab.qcom \
     $(LOCAL_PATH)/config/nvram_net.txt:system/vendor/firmware/nvram_net.txt \
     $(LOCAL_PATH)/prebuilt/get_macaddrs:system/bin/get_macaddrs \
-    $(LOCAL_PATH)/prebuilt/ES_File_Explorer_3.1.1.apk:system/app/ES_File_Explorer_3.1.1.apk
+    $(LOCAL_PATH)/prebuilt/ES_File_Explorer_3.1.7.1.apk:system/app/ES_File_Explorer_3.1.7.1.apk
 
 # Needed to reset bootmode when leaving recovery
 PRODUCT_COPY_FILES += \
