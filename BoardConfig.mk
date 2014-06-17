@@ -172,6 +172,7 @@ TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/samsung/ancora_tmo/recovery/recovery_keys.c
 TARGET_RECOVERY_INITRC := device/samsung/ancora_tmo/config/init.recovery.rc
 TARGET_RECOVERY_FSTAB := device/samsung/ancora_tmo/config/fstab.qcom
+COMMON_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD
 # End recovery stuff
 
 # TWRP recovery stuff
