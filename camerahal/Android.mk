@@ -21,7 +21,7 @@ else
 LOCAL_C_INCLUDES += hardware/qcom/display-legacy/libgralloc
 endif
 
-LOCAL_SHARED_LIBRARIES := liblog libutils libcutils libbinder
+LOCAL_SHARED_LIBRARIES := liblog libutils libcutils
 LOCAL_SHARED_LIBRARIES += libui libhardware libcamera_client
 LOCAL_SHARED_LIBRARIES += libseccameraadaptor
 LOCAL_PRELINK_MODULE := false
