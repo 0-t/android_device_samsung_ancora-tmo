@@ -136,16 +136,9 @@ PRODUCT_PACKAGES += \
     libOmxCore \
     libOmxVenc \
     libOmxVdec \
-    libOmxVdecHevc \
     libstagefrighthw \
     libc2dcolorconvert \
-    libdashplayer \
-    libaudioutils \
-    libdivxdrmdecrypt \
-    libOmxAacEnc \
-    libOmxAmrEnc \
-    libOmxEvrcEnc \
-    libOmxQcelp13Enc
+    libdashplayer
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
