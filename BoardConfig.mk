@@ -97,10 +97,6 @@ BOARD_EGL_CFG := device/samsung/ancora_tmo/config/egl.cfg
 TARGET_USES_C2D_COMPOSITION := true
 USE_OPENGL_RENDERER := true
 
-# QCOM webkit
-ENABLE_WEBGL := true
-TARGET_FORCE_CPU_UPLOAD := true
-
 # Memory allocation
 TARGET_USES_ION := true
 BOARD_NEEDS_MEMORYHEAPPMEM := true
