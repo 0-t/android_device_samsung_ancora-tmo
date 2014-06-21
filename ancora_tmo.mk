@@ -124,8 +124,7 @@ PRODUCT_PACKAGES += \
     audio.a2dp.default \
     audio.usb.default \
     libaudio-resampler \
-    libaudioparameter \
-    libtilerenderer
+    libaudioparameter
 
 # Media
 PRODUCT_PACKAGES += \
@@ -133,17 +132,9 @@ PRODUCT_PACKAGES += \
     libOmxCore \
     libOmxVenc \
     libOmxVdec \
-    libOmxVdecHevc \
     libstagefrighthw \
     libc2dcolorconvert \
-    libdashplayer \
-    libaudioutils \
-    libdivxdrmdecrypt \
-    libOmxAacEnc \
-    libOmxAmrEnc \
-    libOmxEvrcEnc \
-    libOmxQcelp13Enc \
-    qcmediaplayer
+    libdashplayer
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
