@@ -111,9 +111,6 @@ PRODUCT_PACKAGES += \
     copybit.msm7x30 \
     gralloc.msm7x30 \
     libgenlock \
-    libmemalloc \
-    liboverlay \
-    libqdutils \
     hwcomposer.msm7x30 \
     gps.msm7x30 \
     lights.msm7x30 \
