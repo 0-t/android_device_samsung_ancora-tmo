@@ -34,8 +34,8 @@ debug.sf.hw=1
 debug.mdpcomp.logs=0
 
 # Low Power Audio
-lpa.decode=false
-lpa.use-stagefright=false
+lpa.decode=true
+lpa.use-stagefright=true
 
 # Set default USB interface
 persist.sys.usb.config=mass_storage
