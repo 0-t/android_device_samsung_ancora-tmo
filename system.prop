@@ -69,6 +69,3 @@ persist.video.mem.usecache=0
 
 # Enable reboot to download in recovery
 ro.bootloader.mode=download
-
-# Disable setup wizard
-ro.setupwizard.mode=OPTIONAL
