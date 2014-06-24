@@ -163,7 +163,6 @@ on boot
     # Kernel Samepage Merging (KSM)
     write /sys/kernel/mm/ksm/pages_to_scan 100
     write /sys/kernel/mm/ksm/sleep_millisecs 500
-    write /sys/kernel/mm/ksm/deferred_timer 1
     write /sys/kernel/mm/ksm/run 0
 
     # for silent reset
@@ -235,6 +234,9 @@ on boot
     setprop net.tcp.usercfg.default    0
     setprop net.tcp.usercfg.wifi       1
     setprop net.tcp.usercfg.lte        1
+
+    # Enable deferred timer for KSM
+    write /sys/kernel/mm/ksm/deferred_timer 1
 
 on fs
     chmod 0666 /dev/block/mmcblk0p14
