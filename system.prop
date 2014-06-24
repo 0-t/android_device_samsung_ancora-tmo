@@ -55,9 +55,5 @@ ro.cwm.enable_key_repeat=true
 # DUN settings: 2 = not set, 0 = DUN not required, 1 = DUN required
 persist.cm.dun.override=0
 
-# Use ION uncached buffers for video recording and video playback
-persist.camera.mem.usecache=0
-persist.video.mem.usecache=0
-
 # Enable reboot to download in recovery
 ro.bootloader.mode=download
