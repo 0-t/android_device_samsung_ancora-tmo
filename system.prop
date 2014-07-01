@@ -37,6 +37,9 @@ debug.mdpcomp.logs=0
 lpa.decode=true
 lpa.use-stagefright=true
 
+# Disable gapless mode
+audio.gapless.playback.disable=true
+
 # Set default USB interface
 persist.sys.usb.config=mass_storage
 
