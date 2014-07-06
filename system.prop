@@ -35,7 +35,6 @@ debug.mdpcomp.logs=0
 
 # Low Power Audio
 lpa.decode=true
-lpa.use-stagefright=true
 
 # Disable gapless mode
 audio.gapless.playback.disable=true
