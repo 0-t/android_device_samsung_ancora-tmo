@@ -177,7 +177,7 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
 
 # Properties
 PRODUCT_PROPERTY_OVERRIDES += \
-    af.resampler.quality=255 \
+    af.resampler.quality=4 \
     ro.config.vc_call_vol_steps=7
 
 # We have enough storage space to hold precise GC data
