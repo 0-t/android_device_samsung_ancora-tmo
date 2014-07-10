@@ -217,9 +217,6 @@ on boot
     # Read only 1 page at a time
     write /proc/sys/vm/page-cluster 0
 
-    # Enable deferred timer for KSM
-    write /sys/kernel/mm/ksm/deferred_timer 1
-
     # For setting tcp delayed ack
     chown system system /sys/kernel/ipv4/tcp_delack_seg
     chown system system /sys/kernel/ipv4/tcp_use_userconfig
