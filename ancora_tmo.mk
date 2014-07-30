@@ -167,6 +167,9 @@ PRODUCT_PACKAGES += \
 # qcmediaplayer
 PRODUCT_PACKAGES += qcmediaplayer
 
+# Torch
+PRODUCT_PACKAGES += Torch
+
 # For userdebug builds
 ADDITIONAL_DEFAULT_PROPERTIES += \
     ro.secure=0
