@@ -56,6 +56,7 @@ vendor/lib/egl/libq3dtools_adreno.so
 /lib/libmmjpeg.so
 /lib/libmmosal.so
 /lib/libmmparser.so
+/lib/libOmxMp3Dec.so
 /lib/liboemcamera.so
 /lib/libPanoraMax3.so
 /lib/libs3cjpeg.so
