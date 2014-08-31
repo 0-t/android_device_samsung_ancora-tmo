@@ -154,11 +154,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     SamsungServiceMode
 
-# For applications to determine if they should turn off specific memory-intensive
-# features that work poorly on low-memory devices.
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.config.low_ram=true
-
 # Exif interface
 PRODUCT_PACKAGES += \
     libexifa \
