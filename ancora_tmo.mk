@@ -122,7 +122,8 @@ PRODUCT_PACKAGES += \
     audio.usb.default \
     libaudio-resampler \
     libaudioparameter \
-    libtilerenderer
+    libtilerenderer \
+    audio.r_submix.default
 
 # Media
 PRODUCT_PACKAGES += \
