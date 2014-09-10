@@ -67,3 +67,6 @@ ro.setupwizard.mode=OPTIONAL
 
 # Low memory device
 ro.config.low_ram=false
+
+# Reduce background apps limit to 16 on low-tier devices
+ro.sys.fw.bg_apps_limit=16
