@@ -67,7 +67,7 @@ ro.bootloader.mode=download
 ro.setupwizard.mode=OPTIONAL
 
 # Low memory device
-ro.config.low_ram=false
+ro.config.low_ram=true
 
 # Reduce background apps limit to 16 on low-tier devices
 ro.sys.fw.bg_apps_limit=16
