@@ -27,6 +27,8 @@
 # inherit from the proprietary version
 -include vendor/samsung/ancora_tmo/BoardConfigVendor.mk
 
+TARGET_SPECIFIC_HEADER_PATH := device/samsung/ancora_tmo/include
+
 # Platform
 TARGET_BOOTLOADER_BOARD_NAME := ancora_tmo
 TARGET_OTA_ASSERT_DEVICE := ancora_tmo,SGH-T679,ancora
