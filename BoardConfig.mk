@@ -47,6 +47,9 @@ TARGET_ARCH_LOWMEM := true
 TARGET_SCREEN_HEIGHT := 800
 TARGET_SCREEN_WIDTH := 480
 
+# Use dlmalloc instead of jemalloc for mallocs on low-ram target kernels
+MALLOC_IMPL := dlmalloc
+
 # Kernel
 BOARD_KERNEL_BASE := 0x00400000
 BOARD_KERNEL_PAGESIZE := 2048
