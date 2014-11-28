@@ -97,6 +97,7 @@ BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 50000
 # Graphics
 BOARD_EGL_CFG := device/samsung/ancora_tmo/configs/egl.cfg
 TARGET_USES_C2D_COMPOSITION := true
+TARGET_NO_ADAPTIVE_PLAYBACK := true
 USE_OPENGL_RENDERER := true
 
 # Memory allocation
