@@ -126,7 +126,6 @@ PRODUCT_PACKAGES += \
     power.msm7x30 \
     memtrack.msm7x30 \
     audio.primary.msm7x30 \
-    audio_policy.msm7x30 \
     audio.a2dp.default \
     audio.usb.default \
     libaudio-resampler \
@@ -156,8 +155,7 @@ PRODUCT_PACKAGES += \
 
 # BT
 PRODUCT_PACKAGES += \
-    com.android.future.usb.accessory \
-    libnetcmdiface
+    com.android.future.usb.accessory
 
 # Misc
 PRODUCT_PACKAGES += \
@@ -185,15 +183,20 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.product.locale.language=en \
     ro.product.locale.region=GB
 
+# WPA supplicant
+PRODUCT_PACKAGES += \
+    dhcpcd.conf \
+    hostapd \
+    libwpa_client \
+    wpa_supplicant \
+    wpa_supplicant.conf
+
 # For userdebug builds
 ADDITIONAL_DEFAULT_PROPERTIES += \
     ro.secure=0 \
     ro.adb.secure=0 \
     ro.debuggable=1 \
     persist.service.adb.enable=1
-
-# We have enough storage space to hold precise GC data
-PRODUCT_TAGS += dalvik.gc.type-precise
 
 PRODUCT_PACKAGES += \
     dhcpcd.conf
