@@ -3,7 +3,6 @@ import init.ancora_tmo.gps.rc
 
 on early-init
     mount debugfs debugfs /sys/kernel/debug
-    chmod 644 /proc/cmdline
 
 on init
     mkdir /mnt/shell/emulated 0700 shell shell
