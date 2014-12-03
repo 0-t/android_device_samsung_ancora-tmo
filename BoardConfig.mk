@@ -63,6 +63,7 @@ TARGET_KERNEL_SOURCE := kernel/samsung/ancora_tmo
 WITH_DEXPREOPT := true
 
 # WiFi
+BOARD_NO_WIFI_HAL                := true
 BOARD_HAVE_SAMSUNG_WIFI          := true
 WIFI_BAND                        := 802_11_ABG
 WPA_SUPPLICANT_VERSION           := VER_0_8_X
