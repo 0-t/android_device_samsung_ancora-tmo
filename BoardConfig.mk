@@ -94,6 +94,7 @@ BOARD_RIL_CLASS := ../../../device/samsung/ancora_tmo/ril/
 BOARD_USES_LEGACY_RIL := true
 
 # GPS
+TARGET_GPS_HAL_PATH := device/samsung/ariesve/gps
 BOARD_USES_QCOM_GPS := true
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := msm7x30
 BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 50000
