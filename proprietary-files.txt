@@ -6,6 +6,7 @@
 /bin/BCM4329B1_002.002.023.0944.0953.hcd
 /bin/rmt_storage
 /bin/gpu_dcvsd
+/bin/radish
 
 /cameradata/datapattern_420sp_T679.yuv
 /cameradata/datapattern_front_420sp_T679.yuv
