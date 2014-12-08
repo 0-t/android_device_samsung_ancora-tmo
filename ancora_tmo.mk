@@ -69,10 +69,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/ES_File_Explorer_3.1.7.1.apk:system/app/ES_File_Explorer_3.1.7.1.apk \
     $(LOCAL_PATH)/configs/init.ancora_tmo.gps.rc:root/init.ancora_tmo.gps.rc
 
-# Needed to reset bootmode when leaving recovery
+# TWRP path
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/recovery/postrecoveryboot.sh:recovery/root/sbin/postrecoveryboot.sh \
-    $(LOCAL_PATH)/recovery/postrecoveryboot.sh:recovery/system/bin/postrecoveryboot.sh \
     $(LOCAL_PATH)/configs/twrp.fstab:recovery/root/etc/twrp.fstab
 
 # Input device calibration files
@@ -180,7 +178,10 @@ PRODUCT_PACKAGES += LiveWallpapersPicker
 
 # For userdebug builds
 ADDITIONAL_DEFAULT_PROPERTIES += \
-    ro.secure=0
+    ro.secure=0 \
+    ro.adb.secure=0
+    ro.debuggable=1 \
+    persist.service.adb.enable=1
 
 # We have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
