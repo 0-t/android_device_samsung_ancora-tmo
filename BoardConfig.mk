@@ -34,7 +34,6 @@ TARGET_BOOTLOADER_BOARD_NAME := ancora_tmo
 TARGET_OTA_ASSERT_DEVICE := ancora_tmo,SGH-T679,ancora
 TARGET_BOARD_PLATFORM := msm7x30
 TARGET_NO_BOOTLOADER := true
-TARGET_NO_RADIOIMAGE := true
 
 # Architecture
 TARGET_ARCH := arm
@@ -102,7 +101,6 @@ BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 50000
 # Graphics
 BOARD_EGL_CFG := device/samsung/ancora_tmo/configs/egl.cfg
 TARGET_USES_C2D_COMPOSITION := true
-TARGET_NO_ADAPTIVE_PLAYBACK := true
 USE_OPENGL_RENDERER := true
 
 # Memory allocation
@@ -136,9 +134,6 @@ USE_DEVICE_SPECIFIC_CAMERA := true
 BOARD_HAVE_SAMSUNG_AUDIO := true
 BOARD_USES_LEGACY_ALSA_AUDIO := true
 
-# USB mass storage
-TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/file
-
 # Include an expanded selection of fonts
 EXTENDED_FONT_FOOTPRINT := true
 
@@ -161,17 +156,11 @@ BOARD_USES_MMCUTILS := true
 BOARD_HAS_NO_MISC_PARTITION := true
 BOARD_HAS_SDCARD_INTERNAL := true
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
-BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/samsung/ancora_tmo/recovery/recovery_keys.c
-TARGET_RECOVERY_INITRC := device/samsung/ancora_tmo/rootdir/init.recovery.rc
 TARGET_RECOVERY_FSTAB := device/samsung/ancora_tmo/rootdir/fstab.qcom
 COMMON_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD
 # End recovery stuff
 
 # TWRP recovery stuff
-BOARD_HAS_SDCARD_INTERNAL := true
-BOARD_USES_MMCUTILS := true
-BOARD_HAS_NO_MISC_PARTITION := true
-BOARD_HAS_NO_SELECT_BUTTON := true
 DEVICE_RESOLUTION := 480x800
 TW_TARGET_USES_QCOM_BSP := true
 TW_BRIGHTNESS_PATH := /sys/devices/platform/msm_fb.196609/leds/lcd-backlight/brightness

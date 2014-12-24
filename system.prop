@@ -45,18 +45,6 @@ ro.sys.usb.default.config=mtp
 # Increase speed for UMS transfer
 ro.vold.umsdirtyratio=20
 
-# Storage configuration
-persist.sys.vold.switchablepair=sdcard0,sdcard1
-
-# Change to 1 for swapping SD cards
-persist.sys.vold.switchexternal=0
-
-# Enable repeatable keys in recovery
-ro.cwm.enable_key_repeat=true
-
-# DUN settings: 2 = not set, 0 = DUN not required, 1 = DUN required
-persist.cm.dun.override=0
-
 # Enable reboot to download in recovery
 ro.bootloader.mode=download
 
@@ -74,9 +62,6 @@ ro.sys.fw.bg_apps_limit=16
 
 # Set max background services
 ro.config.max_starting_bg=4
-
-# Disable metadata mode
-debug.camcorder.disablemeta=1
 
 # Use /cache partition to store dex files of system apps
 dalvik.vm.dexopt-data-only=0
