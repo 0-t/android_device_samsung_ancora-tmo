@@ -134,8 +134,7 @@ PRODUCT_PACKAGES += \
     audio.usb.default \
     libaudio-resampler \
     libaudioparameter \
-    libtilerenderer \
-    audio.r_submix.default
+    libtilerenderer
 
 # Media
 PRODUCT_PACKAGES += \
@@ -183,7 +182,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.product.locale.language=en \
-    ro.product.locale.region=GB
+    ro.product.locale.region=US
 
 # WPA supplicant
 PRODUCT_PACKAGES += \
@@ -199,9 +198,6 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
     ro.adb.secure=0 \
     ro.debuggable=1 \
     persist.service.adb.enable=1
-
-PRODUCT_PACKAGES += \
-    dhcpcd.conf
 
 $(call inherit-product-if-exists, vendor/samsung/ancora_tmo/device-vendor.mk)
 $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4329/device-bcm.mk)
