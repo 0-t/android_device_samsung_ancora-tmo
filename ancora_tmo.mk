@@ -183,7 +183,7 @@ PRODUCT_PACKAGES += LiveWallpapersPicker
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.product.locale.language=en \
-    ro.product.locale.region=GB
+    ro.product.locale.region=US
 
 # For userdebug builds
 ADDITIONAL_DEFAULT_PROPERTIES += \
